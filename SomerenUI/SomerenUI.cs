@@ -65,6 +65,31 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the students: " + e.Message);
                 }
             }
+            else if (panelName == "Rooms")
+            {
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                //pnlRooms.Show();
+                try
+                {
+                    // fill the rooms listview within the rooms panel with a list of rooms
+                    RoomService roomService = new RoomService(); ;
+                    List<Room> roomList = roomService.GetRooms(); ;
+
+                    // clear the listview before filling it again
+                    //listViewRooms.Clear();
+
+                    foreach (Room room in roomList)
+                    {
+                        ListViewItem li = new ListViewItem($"{room.Number}");
+                        //listViewRooms.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,6 +120,21 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
+        }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Rooms");
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
