@@ -14,7 +14,7 @@ namespace SomerenDAL
     {      
         public List<Student> GetAllStudents()
         {
-            string query = "SELECT student_id, student_name FROM [TABLE]"; //Moet dit niet zijn: "SELECT * FROM students" ?
+            string query = "SELECT student_id, [name] FROM students"; //Moet dit niet zijn: "SELECT * FROM students" ?
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

@@ -13,7 +13,7 @@ namespace SomerenDAL
     {
         public List<Room> GetAllRooms()
         {
-            string query = "SELECT * FROM rooms";
+            string query = "SELECT room_number, capacity FROM rooms";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,7 +27,7 @@ namespace SomerenDAL
                 {
                     Number = (int)dr["room_number"],
                     Capacity = (int)(dr["capacity"]),
-                    Type = (bool)(dr["type"])
+                    //Type = (bool)(dr["type"])
                 };
                 rooms.Add(room);
             }

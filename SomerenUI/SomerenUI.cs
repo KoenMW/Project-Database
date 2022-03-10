@@ -31,6 +31,8 @@ namespace SomerenUI
             {
                 // hide all other panels
                 pnlStudents.Hide();
+                pnlRooms.Hide();
+                //add all other panels here
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -68,8 +70,10 @@ namespace SomerenUI
             else if (panelName == "Rooms")
             {
                 pnlDashboard.Hide();
+                pnlStudents.Hide();
                 imgDashboard.Hide();
-                //pnlRooms.Show();
+
+                pnlRooms.Show();
                 try
                 {
                     // fill the rooms listview within the rooms panel with a list of rooms
