@@ -37,6 +37,7 @@ namespace SomerenUI
                 // show dashboard
                 pnlDashboard.Show();
                 imgDashboard.Show();
+                //pnlRooms.Show();
             }
             else if (panelName == "Students")
             {
@@ -81,12 +82,12 @@ namespace SomerenUI
                     List<Room> roomList = roomService.GetRooms(); ;
 
                     // clear the listview before filling it again
-                    //listViewRooms.Clear();
+                    listViewRooms.Clear();
 
                     foreach (Room room in roomList)
                     {
                         ListViewItem li = new ListViewItem($"{room.Number}");
-                        //listViewRooms.Items.Add(li);
+                        listViewRooms.Items.Add(li);
                     }
                 }
                 catch (Exception e)
