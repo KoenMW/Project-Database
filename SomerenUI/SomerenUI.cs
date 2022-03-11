@@ -33,6 +33,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
+                pnlActivities.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -45,6 +46,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
+                pnlActivities.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -81,6 +83,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
+                pnlActivities.Hide();
 
                 // show students
                 pnlTeachers.Show();
@@ -118,6 +121,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlStudents.Hide();
                 pnlTeachers.Hide();
+                pnlActivities.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -146,6 +150,39 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
+                }
+            }
+
+            else if (panelName == "Activities")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+
+                // show activities
+                pnlActivities.Show();
+                try
+                {
+                    // fill the Activities listview within the activities panel with a list of activities
+                    ActivitieService actService = new ActivitieService();
+                    List<Activitie> activitieList = actService.GetActivities();
+
+                    // clear the listview before filling it again
+                    listViewActivities.Items.Clear();
+                    foreach (Activitie a in activitieList)
+                    {
+                        ListViewItem li = new ListViewItem(a.Id.ToString());
+                        li.SubItems.Add(a.Name);
+                        //li.SubItems.Add(a.Time.ToString());
+                        listViewActivities.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
                 }
             }
         }
@@ -188,6 +225,11 @@ namespace SomerenUI
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Rooms");
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
         }
     }
 }
