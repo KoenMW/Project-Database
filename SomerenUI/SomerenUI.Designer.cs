@@ -180,17 +180,17 @@
             // studentID
             // 
             this.studentID.Text = "ID";
-            this.studentID.Width = 100;
+            this.studentID.Width = 160;
             // 
             // studentName
             // 
             this.studentName.Text = "Name";
-            this.studentName.Width = 100;
+            this.studentName.Width = 160;
             // 
             // studentDOB
             // 
             this.studentDOB.Text = "Date of Birth";
-            this.studentDOB.Width = 100;
+            this.studentDOB.Width = 160;
             // 
             // pictureBox1
             // 
