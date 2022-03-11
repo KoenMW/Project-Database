@@ -31,13 +31,10 @@ namespace SomerenUI
             {
                 // hide all other panels
                 pnlStudents.Hide();
-                pnlRooms.Hide();
-                //add all other panels here
 
                 // show dashboard
                 pnlDashboard.Show();
                 imgDashboard.Show();
-                //pnlRooms.Show();
             }
             else if (panelName == "Students")
             {
@@ -61,33 +58,6 @@ namespace SomerenUI
                     {
                         ListViewItem li = new ListViewItem(s.Name);
                         listViewStudents.Items.Add(li);
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong while loading the students: " + e.Message);
-                }
-            }
-            else if (panelName == "Rooms")
-            {
-                pnlDashboard.Hide();
-                pnlStudents.Hide();
-                imgDashboard.Hide();
-
-                pnlRooms.Show();
-                try
-                {
-                    // fill the rooms listview within the rooms panel with a list of rooms
-                    RoomService roomService = new RoomService(); ;
-                    List<Room> roomList = roomService.GetRooms(); ;
-
-                    // clear the listview before filling it again
-                    listViewRooms.Clear();
-
-                    foreach (Room room in roomList)
-                    {
-                        ListViewItem li = new ListViewItem($"{room.Number}");
-                        listViewRooms.Items.Add(li);
                     }
                 }
                 catch (Exception e)
@@ -125,21 +95,6 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Students");
-        }
-
-        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Rooms");
-        }
-
-        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

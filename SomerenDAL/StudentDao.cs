@@ -14,7 +14,7 @@ namespace SomerenDAL
     {      
         public List<Student> GetAllStudents()
         {
-            string query = "SELECT student_id, student_name FROM students"; //Moet dit niet zijn: "SELECT * FROM students" ?
+            string query = "SELECT student_id, student_name FROM students";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -27,8 +27,8 @@ namespace SomerenDAL
             {
                 Student student = new Student()
                 {
-                    Number = (int)dr["student_id"],
-                    Name = (string)(dr["student_name"].ToString())
+                    Number = (int)Convert.ToInt32(dr["student_id"]),
+                    Name = (string)dr["student_name"].ToString()
                 };
                 students.Add(student);
             }
