@@ -52,7 +52,7 @@ namespace SomerenUI
                     List<Student> studentList = studService.GetStudents(); ;
 
                     // clear the listview before filling it again
-                    //listViewStudents.Clear();
+                    listViewStudents.Items.Clear();
 
                     foreach (Student s in studentList)
                     {
