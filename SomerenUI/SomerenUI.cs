@@ -176,7 +176,7 @@ namespace SomerenUI
                     {
                         ListViewItem li = new ListViewItem(a.Id.ToString());
                         li.SubItems.Add(a.Name);
-                        //li.SubItems.Add(a.Time.ToString());
+                        li.SubItems.Add(a.Time.ToString());
                         listViewActivities.Items.Add(li);
                     }
                 }

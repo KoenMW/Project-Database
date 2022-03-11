@@ -29,7 +29,7 @@ namespace SomerenDAL
                 {
                     Id = (int)dr["activitie_id"],
                     Name = (string)(dr["activitie_name"].ToString()),
-                    //Time = (DateTime)dr["activitie_time"]
+                    Time = (DateTime)dr["activitie_time"]
                 };
                 activities.Add(activitie);
             }
