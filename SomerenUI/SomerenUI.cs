@@ -33,6 +33,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
+                pnlActivities.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -45,6 +46,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
+                pnlActivities.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -80,6 +82,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlStudents.Hide();
                 pnlRooms.Hide();
+                pnlActivities.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -114,6 +117,7 @@ namespace SomerenUI
                 imgDashboard.Hide();
                 pnlStudents.Hide();
                 pnlTeachers.Hide();
+                pnlActivities.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -141,8 +145,6 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
                 }
             }
-<<<<<<< Updated upstream
-=======
 
             else if (panelName == "Activities")
             {
@@ -177,7 +179,6 @@ namespace SomerenUI
                     MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
                 }
             }
->>>>>>> Stashed changes
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -213,6 +214,11 @@ namespace SomerenUI
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Rooms");
+        }
+
+        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Activities");
         }
     }
 }

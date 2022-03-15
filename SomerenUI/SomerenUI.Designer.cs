@@ -42,29 +42,17 @@
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
-            this.lbl_Students = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listViewStudents = new System.Windows.Forms.ListView();
             this.studentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-<<<<<<< Updated upstream
-            this.studentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pnlTeachers = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-=======
             this.studentFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
             this.pnlTeachers = new System.Windows.Forms.Panel();
->>>>>>> Stashed changes
             this.listViewTeachers = new System.Windows.Forms.ListView();
             this.TeacherId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TeacherName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Supervisor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-<<<<<<< Updated upstream
-=======
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlActivities = new System.Windows.Forms.Panel();
@@ -74,20 +62,14 @@
             this.DateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
->>>>>>> Stashed changes
             this.pnlRooms = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.listViewRooms = new System.Windows.Forms.ListView();
             this.room_number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.capacity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-<<<<<<< Updated upstream
-=======
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
->>>>>>> Stashed changes
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -95,11 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlTeachers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-<<<<<<< Updated upstream
-=======
             this.pnlActivities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
->>>>>>> Stashed changes
             this.pnlRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -115,10 +94,7 @@
             // 
             // menuStrip1
             // 
-<<<<<<< Updated upstream
-=======
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
->>>>>>> Stashed changes
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
             this.studentsToolStripMenuItem,
@@ -127,11 +103,7 @@
             this.roomsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-<<<<<<< Updated upstream
-            this.menuStrip1.Size = new System.Drawing.Size(966, 24);
-=======
             this.menuStrip1.Size = new System.Drawing.Size(961, 24);
->>>>>>> Stashed changes
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -184,6 +156,7 @@
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
             this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
+            this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
             // 
             // roomsToolStripMenuItem
             // 
@@ -220,26 +193,6 @@
             this.pnlStudents.Size = new System.Drawing.Size(938, 466);
             this.pnlStudents.TabIndex = 4;
             // 
-            // lbl_Students
-            // 
-            this.lbl_Students.AutoSize = true;
-            this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Students.Location = new System.Drawing.Point(10, 10);
-            this.lbl_Students.Name = "lbl_Students";
-            this.lbl_Students.Size = new System.Drawing.Size(107, 29);
-            this.lbl_Students.TabIndex = 3;
-            this.lbl_Students.Text = "Students";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(805, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 123);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // listViewStudents
             // 
             this.listViewStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -271,8 +224,6 @@
             this.studentLastName.Text = "Last Name";
             this.studentLastName.Width = 160;
             // 
-<<<<<<< Updated upstream
-=======
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
@@ -293,7 +244,6 @@
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
             // 
->>>>>>> Stashed changes
             // pnlTeachers
             // 
             this.pnlTeachers.Controls.Add(this.listViewTeachers);
@@ -304,17 +254,6 @@
             this.pnlTeachers.Size = new System.Drawing.Size(935, 463);
             this.pnlTeachers.TabIndex = 6;
             // 
-<<<<<<< Updated upstream
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Teachers";
-=======
             // listViewTeachers
             // 
             this.listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -344,7 +283,6 @@
             // 
             this.Supervisor.Text = "Supervisor";
             this.Supervisor.Width = 160;
->>>>>>> Stashed changes
             // 
             // pictureBox2
             // 
@@ -355,39 +293,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(130, 123);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-<<<<<<< Updated upstream
-            // 
-            // listViewTeachers
-            // 
-            this.listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.TeacherId,
-            this.TeacherName,
-            this.Supervisor});
-            this.listViewTeachers.GridLines = true;
-            this.listViewTeachers.HideSelection = false;
-            this.listViewTeachers.Location = new System.Drawing.Point(16, 42);
-            this.listViewTeachers.Name = "listViewTeachers";
-            this.listViewTeachers.Size = new System.Drawing.Size(766, 307);
-            this.listViewTeachers.TabIndex = 5;
-            this.listViewTeachers.UseCompatibleStateImageBehavior = false;
-            this.listViewTeachers.View = System.Windows.Forms.View.Details;
-            // 
-            // TeacherId
-            // 
-            this.TeacherId.Text = "ID";
-            this.TeacherId.Width = 160;
-            // 
-            // TeacherName
-            // 
-            this.TeacherName.Text = "Name";
-            this.TeacherName.Width = 160;
-            // 
-            // Supervisor
-            // 
-            this.Supervisor.Text = "Supervisor";
-            this.Supervisor.Width = 160;
-            // 
-=======
             // 
             // label1
             // 
@@ -459,40 +364,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Activities";
             // 
->>>>>>> Stashed changes
             // pnlRooms
             // 
             this.pnlRooms.Controls.Add(this.listViewRooms);
             this.pnlRooms.Controls.Add(this.pictureBox4);
             this.pnlRooms.Controls.Add(this.label3);
-<<<<<<< Updated upstream
-            this.pnlRooms.Location = new System.Drawing.Point(12, 27);
-=======
             this.pnlRooms.Location = new System.Drawing.Point(9, 24);
->>>>>>> Stashed changes
             this.pnlRooms.Name = "pnlRooms";
             this.pnlRooms.Size = new System.Drawing.Size(932, 460);
             this.pnlRooms.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 29);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Rooms";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(805, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(130, 123);
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
             // 
             // listViewRooms
             // 
@@ -524,8 +404,6 @@
             this.type.Text = "Type";
             this.type.Width = 160;
             // 
-<<<<<<< Updated upstream
-=======
             // pictureBox4
             // 
             this.pictureBox4.Image = global::SomerenUI.Properties.Resources.someren;
@@ -551,17 +429,12 @@
             this.studentDOB.Text = "Date of birth";
             this.studentDOB.Width = 160;
             // 
->>>>>>> Stashed changes
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< Updated upstream
-            this.ClientSize = new System.Drawing.Size(966, 497);
-=======
             this.ClientSize = new System.Drawing.Size(961, 503);
             this.Controls.Add(this.pnlActivities);
->>>>>>> Stashed changes
             this.Controls.Add(this.pnlTeachers);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.pnlStudents);
@@ -584,12 +457,9 @@
             this.pnlTeachers.ResumeLayout(false);
             this.pnlTeachers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-<<<<<<< Updated upstream
-=======
             this.pnlActivities.ResumeLayout(false);
             this.pnlActivities.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
->>>>>>> Stashed changes
             this.pnlRooms.ResumeLayout(false);
             this.pnlRooms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -631,8 +501,6 @@
         private System.Windows.Forms.ColumnHeader studentID;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_Students;
-<<<<<<< Updated upstream
-=======
         private System.Windows.Forms.Panel pnlActivities;
         private System.Windows.Forms.ListView listViewActivities;
         private System.Windows.Forms.ColumnHeader Id;
@@ -643,7 +511,6 @@
         private System.Windows.Forms.ColumnHeader studentFirstName;
         private System.Windows.Forms.ColumnHeader studentLastName;
         private System.Windows.Forms.ColumnHeader studentDOB;
->>>>>>> Stashed changes
     }
 }
 
