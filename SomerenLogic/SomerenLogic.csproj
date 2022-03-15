@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="ActivityService.cs" />
+>>>>>>> Stashed changes
     <Compile Include="RoomService.cs" />
     <Compile Include="TeacherService.cs" />
     <Compile Include="StudentService.cs" />

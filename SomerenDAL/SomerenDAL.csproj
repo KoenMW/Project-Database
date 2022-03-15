@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="ActivityDao.cs" />
+>>>>>>> Stashed changes
     <Compile Include="BaseDao.cs" />
     <Compile Include="RoomDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

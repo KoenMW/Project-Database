@@ -57,15 +57,14 @@ namespace SomerenUI
 
                     // clear the listview before filling it again
                     listViewStudents.Items.Clear();
-
+                    //fill listview
                     foreach (Student s in studentList)
                     {
-                        //string naam = s.Name;
-                        //string[] row = { studentID.Text, studentName.Text, studentDOB};
-                        
                         ListViewItem li = new ListViewItem(s.Number.ToString());
-                        li.SubItems.Add(s.Name);
-                        li.SubItems.Add(s.BirthDate.ToString());
+                        string[] names = s.Name.Split(' ');
+                        li.SubItems.Add(names[0]);
+                        li.SubItems.Add(names[1]);
+                        li.SubItems.Add(s.BirthDate.ToString("dd-MM-yyyy"));
                         listViewStudents.Items.Add(li);
                     }
                 }
@@ -82,23 +81,20 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
 
-                // show students
+                // show teachers
                 pnlTeachers.Show();
 
                 try
                 {
-                    // fill the students listview within the students panel with a list of students
+                    // fill the teachers listview within the students panel with a list of students
                     TeacherService teacherService = new TeacherService(); ;
                     List<Teacher> teacherList = teacherService.GetTeachers(); ;
 
                     // clear the listview before filling it again
                     listViewTeachers.Items.Clear();
-
+                    //fill listview
                     foreach (Teacher teacher in teacherList)
                     {
-                        //string naam = s.Name;
-                        //string[] row = { studentID.Text, studentName.Text, studentDOB};
-
                         ListViewItem li = new ListViewItem(teacher.Number.ToString());
                         li.SubItems.Add(teacher.Name);
                         if (teacher.Supervisor) li.SubItems.Add("Yes");
@@ -124,18 +120,15 @@ namespace SomerenUI
 
                 try
                 {
-                    // fill the students listview within the students panel with a list of students
+                    // fill the rooms listview within the rooms panel with a list of rooms
                     RoomService roomService = new RoomService(); ;
                     List<Room> roomList = roomService.GetRooms(); ;
 
                     // clear the listview before filling it again
                     listViewRooms.Items.Clear();
-
+                    //fill listview
                     foreach (Room room in roomList)
                     {
-                        //string naam = s.Name;
-                        //string[] row = { studentID.Text, studentName.Text, studentDOB};
-
                         ListViewItem li = new ListViewItem(room.Number.ToString());
                         li.SubItems.Add(room.Capacity.ToString());
                         if (!room.Type) li.SubItems.Add("Teacher");
@@ -145,9 +138,46 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
                 }
             }
+<<<<<<< Updated upstream
+=======
+
+            else if (panelName == "Activities")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+
+                // show activities
+                pnlActivities.Show();
+                try
+                {
+                    // fill the Activities listview within the activities panel with a list of activities
+                    ActivityService actService = new ActivityService();
+                    List<Activity> activitieList = actService.GetActivities();
+
+                    // clear the listview before filling it again
+                    listViewActivities.Items.Clear();
+                    //fill listview
+                    foreach (Activity a in activitieList)
+                    {
+                        ListViewItem li = new ListViewItem(a.Id.ToString());
+                        li.SubItems.Add(a.Name);
+                        li.SubItems.Add(a.Time.ToString());
+                        listViewActivities.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
+                }
+            }
+>>>>>>> Stashed changes
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -163,11 +193,6 @@ namespace SomerenUI
         private void dashboardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             showPanel("Dashboard");
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void imgDashboard_Click(object sender, EventArgs e)
