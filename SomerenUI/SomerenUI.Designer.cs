@@ -46,6 +46,7 @@
             this.studentID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.studentLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_Students = new System.Windows.Forms.Label();
             this.pnlTeachers = new System.Windows.Forms.Panel();
@@ -69,7 +70,11 @@
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.studentDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bardienstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kassaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.omzetrapportageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bTWBerekenenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -100,7 +105,8 @@
             this.studentsToolStripMenuItem,
             this.lecturersToolStripMenuItem,
             this.activitiesToolStripMenuItem,
-            this.roomsToolStripMenuItem});
+            this.roomsToolStripMenuItem,
+            this.bardienstToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(961, 24);
@@ -223,6 +229,11 @@
             // 
             this.studentLastName.Text = "Last Name";
             this.studentLastName.Width = 160;
+            // 
+            // studentDOB
+            // 
+            this.studentDOB.Text = "Date of birth";
+            this.studentDOB.Width = 160;
             // 
             // pictureBox1
             // 
@@ -424,10 +435,40 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Rooms";
             // 
-            // studentDOB
+            // bardienstToolStripMenuItem
             // 
-            this.studentDOB.Text = "Date of birth";
-            this.studentDOB.Width = 160;
+            this.bardienstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.drankvoorraadToolStripMenuItem,
+            this.kassaToolStripMenuItem,
+            this.omzetrapportageToolStripMenuItem,
+            this.bTWBerekenenToolStripMenuItem});
+            this.bardienstToolStripMenuItem.Name = "bardienstToolStripMenuItem";
+            this.bardienstToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.bardienstToolStripMenuItem.Text = "Bardienst";
+            // 
+            // drankvoorraadToolStripMenuItem
+            // 
+            this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
+            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
+            // 
+            // kassaToolStripMenuItem
+            // 
+            this.kassaToolStripMenuItem.Name = "kassaToolStripMenuItem";
+            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kassaToolStripMenuItem.Text = "Kassa";
+            // 
+            // omzetrapportageToolStripMenuItem
+            // 
+            this.omzetrapportageToolStripMenuItem.Name = "omzetrapportageToolStripMenuItem";
+            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.omzetrapportageToolStripMenuItem.Text = "Omzetrapportage";
+            // 
+            // bTWBerekenenToolStripMenuItem
+            // 
+            this.bTWBerekenenToolStripMenuItem.Name = "bTWBerekenenToolStripMenuItem";
+            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bTWBerekenenToolStripMenuItem.Text = "BTW berekenen";
             // 
             // SomerenUI
             // 
@@ -511,6 +552,11 @@
         private System.Windows.Forms.ColumnHeader studentFirstName;
         private System.Windows.Forms.ColumnHeader studentLastName;
         private System.Windows.Forms.ColumnHeader studentDOB;
+        private System.Windows.Forms.ToolStripMenuItem bardienstToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drankvoorraadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kassaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem omzetrapportageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bTWBerekenenToolStripMenuItem;
     }
 }
 
