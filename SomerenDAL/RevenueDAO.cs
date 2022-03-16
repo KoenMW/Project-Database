@@ -14,7 +14,7 @@ namespace SomerenDAL
     {
         public Revenue GetRevenue()
         {
-            string query = "SELECT SUM([sold]) AS 'sales', sold*price AS 'revenue' FROM drinks GROUP BY sold, price";
+            string query = "use [2122_INF1a_db6] SELECT SUM([sold]) AS 'sales', sold* price AS 'revenue', count(bought_drink) as 'number_of_customers' FROM drinks, students GROUP BY sold, price";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -26,6 +26,7 @@ namespace SomerenDAL
             {                
                  revenue.Sales = (int)dr["sales"];
                  revenue.Ternover = (float)dr["revenue"];
+                 revenue.NumberOfCustomers = (int)dr["number_of_customers"];
             }
             return revenue;
         }
