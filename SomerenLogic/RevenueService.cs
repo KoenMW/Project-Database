@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SomerenLogic
 {
-    class RevenueService
+    public class RevenueService
     {
         RevenueDao revenuedb;
 
@@ -21,6 +21,12 @@ namespace SomerenLogic
         public Revenue GetRevenue()
         {
             Revenue revenue = revenuedb.GetRevenue();
+            return revenue;
+        }
+
+        public Revenue GetRevenue(DateTime startDate, DateTime endDate)
+        {
+            Revenue revenue = revenuedb.GetRevenue(startDate, endDate);
             return revenue;
         }
     }

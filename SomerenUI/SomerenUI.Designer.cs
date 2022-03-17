@@ -39,6 +39,11 @@
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bardienstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kassaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.omzetrapportageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bTWBerekenenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lbl_Dashboard = new System.Windows.Forms.Label();
             this.pnlStudents = new System.Windows.Forms.Panel();
@@ -70,11 +75,18 @@
             this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.bardienstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kassaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.omzetrapportageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bTWBerekenenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Omzetrapportage = new System.Windows.Forms.Panel();
+            this.CalculateRevenue = new System.Windows.Forms.Button();
+            this.monthCalendarEndDate = new System.Windows.Forms.MonthCalendar();
+            this.monthCalendarStartDate = new System.Windows.Forms.MonthCalendar();
+            this.listViewRevenue = new System.Windows.Forms.ListView();
+            this.sales = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.turnover = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.number_of_customers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblStartDate = new System.Windows.Forms.Label();
+            this.LblEndDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -86,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.Omzetrapportage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -170,6 +184,42 @@
             this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
+            // 
+            // bardienstToolStripMenuItem
+            // 
+            this.bardienstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.drankvoorraadToolStripMenuItem,
+            this.kassaToolStripMenuItem,
+            this.omzetrapportageToolStripMenuItem,
+            this.bTWBerekenenToolStripMenuItem});
+            this.bardienstToolStripMenuItem.Name = "bardienstToolStripMenuItem";
+            this.bardienstToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.bardienstToolStripMenuItem.Text = "Bardienst";
+            // 
+            // drankvoorraadToolStripMenuItem
+            // 
+            this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
+            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
+            // 
+            // kassaToolStripMenuItem
+            // 
+            this.kassaToolStripMenuItem.Name = "kassaToolStripMenuItem";
+            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.kassaToolStripMenuItem.Text = "Kassa";
+            // 
+            // omzetrapportageToolStripMenuItem
+            // 
+            this.omzetrapportageToolStripMenuItem.Name = "omzetrapportageToolStripMenuItem";
+            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.omzetrapportageToolStripMenuItem.Text = "Omzetrapportage";
+            this.omzetrapportageToolStripMenuItem.Click += new System.EventHandler(this.omzetrapportageToolStripMenuItem_Click);
+            // 
+            // bTWBerekenenToolStripMenuItem
+            // 
+            this.bTWBerekenenToolStripMenuItem.Name = "bTWBerekenenToolStripMenuItem";
+            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.bTWBerekenenToolStripMenuItem.Text = "BTW berekenen";
             // 
             // pnlDashboard
             // 
@@ -435,46 +485,119 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Rooms";
             // 
-            // bardienstToolStripMenuItem
+            // Omzetrapportage
             // 
-            this.bardienstToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.drankvoorraadToolStripMenuItem,
-            this.kassaToolStripMenuItem,
-            this.omzetrapportageToolStripMenuItem,
-            this.bTWBerekenenToolStripMenuItem});
-            this.bardienstToolStripMenuItem.Name = "bardienstToolStripMenuItem";
-            this.bardienstToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.bardienstToolStripMenuItem.Text = "Bardienst";
+            this.Omzetrapportage.Controls.Add(this.LblEndDate);
+            this.Omzetrapportage.Controls.Add(this.LblStartDate);
+            this.Omzetrapportage.Controls.Add(this.CalculateRevenue);
+            this.Omzetrapportage.Controls.Add(this.monthCalendarEndDate);
+            this.Omzetrapportage.Controls.Add(this.monthCalendarStartDate);
+            this.Omzetrapportage.Controls.Add(this.listViewRevenue);
+            this.Omzetrapportage.Controls.Add(this.pictureBox5);
+            this.Omzetrapportage.Controls.Add(this.label4);
+            this.Omzetrapportage.Location = new System.Drawing.Point(6, 24);
+            this.Omzetrapportage.Name = "Omzetrapportage";
+            this.Omzetrapportage.Size = new System.Drawing.Size(935, 547);
+            this.Omzetrapportage.TabIndex = 8;
             // 
-            // drankvoorraadToolStripMenuItem
+            // CalculateRevenue
             // 
-            this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
-            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
+            this.CalculateRevenue.Location = new System.Drawing.Point(503, 508);
+            this.CalculateRevenue.Name = "CalculateRevenue";
+            this.CalculateRevenue.Size = new System.Drawing.Size(79, 30);
+            this.CalculateRevenue.TabIndex = 8;
+            this.CalculateRevenue.Text = "calculate";
+            this.CalculateRevenue.UseVisualStyleBackColor = true;
+            this.CalculateRevenue.Click += new System.EventHandler(this.CalculateRevenue_Click);
             // 
-            // kassaToolStripMenuItem
+            // monthCalendarEndDate
             // 
-            this.kassaToolStripMenuItem.Name = "kassaToolStripMenuItem";
-            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.kassaToolStripMenuItem.Text = "Kassa";
+            this.monthCalendarEndDate.Location = new System.Drawing.Point(264, 376);
+            this.monthCalendarEndDate.MaxSelectionCount = 1;
+            this.monthCalendarEndDate.Name = "monthCalendarEndDate";
+            this.monthCalendarEndDate.TabIndex = 7;
             // 
-            // omzetrapportageToolStripMenuItem
+            // monthCalendarStartDate
             // 
-            this.omzetrapportageToolStripMenuItem.Name = "omzetrapportageToolStripMenuItem";
-            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.omzetrapportageToolStripMenuItem.Text = "Omzetrapportage";
+            this.monthCalendarStartDate.Location = new System.Drawing.Point(19, 376);
+            this.monthCalendarStartDate.MaxSelectionCount = 1;
+            this.monthCalendarStartDate.Name = "monthCalendarStartDate";
+            this.monthCalendarStartDate.TabIndex = 6;
             // 
-            // bTWBerekenenToolStripMenuItem
+            // listViewRevenue
             // 
-            this.bTWBerekenenToolStripMenuItem.Name = "bTWBerekenenToolStripMenuItem";
-            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.bTWBerekenenToolStripMenuItem.Text = "BTW berekenen";
+            this.listViewRevenue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.sales,
+            this.turnover,
+            this.number_of_customers});
+            this.listViewRevenue.GridLines = true;
+            this.listViewRevenue.HideSelection = false;
+            this.listViewRevenue.Location = new System.Drawing.Point(16, 42);
+            this.listViewRevenue.Name = "listViewRevenue";
+            this.listViewRevenue.Size = new System.Drawing.Size(766, 307);
+            this.listViewRevenue.TabIndex = 5;
+            this.listViewRevenue.UseCompatibleStateImageBehavior = false;
+            this.listViewRevenue.View = System.Windows.Forms.View.Details;
+            // 
+            // sales
+            // 
+            this.sales.Text = "sales";
+            this.sales.Width = 160;
+            // 
+            // turnover
+            // 
+            this.turnover.Text = "turnover";
+            this.turnover.Width = 160;
+            // 
+            // number_of_customers
+            // 
+            this.number_of_customers.Text = "number of customers";
+            this.number_of_customers.Width = 160;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(21, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(201, 29);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Omzetrapportage";
+            // 
+            // LblStartDate
+            // 
+            this.LblStartDate.AutoSize = true;
+            this.LblStartDate.Location = new System.Drawing.Point(19, 356);
+            this.LblStartDate.Name = "LblStartDate";
+            this.LblStartDate.Size = new System.Drawing.Size(55, 13);
+            this.LblStartDate.TabIndex = 9;
+            this.LblStartDate.Text = "Start Date";
+            // 
+            // LblEndDate
+            // 
+            this.LblEndDate.AutoSize = true;
+            this.LblEndDate.Location = new System.Drawing.Point(261, 356);
+            this.LblEndDate.Name = "LblEndDate";
+            this.LblEndDate.Size = new System.Drawing.Size(52, 13);
+            this.LblEndDate.TabIndex = 10;
+            this.LblEndDate.Text = "End Date";
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 503);
+            this.ClientSize = new System.Drawing.Size(961, 583);
+            this.Controls.Add(this.Omzetrapportage);
             this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlTeachers);
             this.Controls.Add(this.pnlRooms);
@@ -504,6 +627,9 @@
             this.pnlRooms.ResumeLayout(false);
             this.pnlRooms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.Omzetrapportage.ResumeLayout(false);
+            this.Omzetrapportage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,6 +683,18 @@
         private System.Windows.Forms.ToolStripMenuItem kassaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem omzetrapportageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bTWBerekenenToolStripMenuItem;
+        private System.Windows.Forms.Panel Omzetrapportage;
+        private System.Windows.Forms.ListView listViewRevenue;
+        private System.Windows.Forms.ColumnHeader sales;
+        private System.Windows.Forms.ColumnHeader turnover;
+        private System.Windows.Forms.ColumnHeader number_of_customers;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MonthCalendar monthCalendarStartDate;
+        private System.Windows.Forms.MonthCalendar monthCalendarEndDate;
+        private System.Windows.Forms.Button CalculateRevenue;
+        private System.Windows.Forms.Label LblEndDate;
+        private System.Windows.Forms.Label LblStartDate;
     }
 }
 

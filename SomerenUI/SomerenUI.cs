@@ -34,6 +34,7 @@ namespace SomerenUI
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
                 pnlActivities.Hide();
+                Omzetrapportage.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -47,6 +48,7 @@ namespace SomerenUI
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
                 pnlActivities.Hide();
+                Omzetrapportage.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -83,6 +85,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlRooms.Hide();
                 pnlActivities.Hide();
+                Omzetrapportage.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -118,6 +121,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlTeachers.Hide();
                 pnlActivities.Hide();
+                Omzetrapportage.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -154,6 +158,7 @@ namespace SomerenUI
                 pnlStudents.Hide();
                 pnlTeachers.Hide();
                 pnlRooms.Hide();
+                Omzetrapportage.Hide();
 
                 // show activities
                 pnlActivities.Show();
@@ -177,6 +182,37 @@ namespace SomerenUI
                 catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
+                }
+            }
+            else if (panelName == "Omzetrapportage")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+
+                // show activities
+                Omzetrapportage.Show();
+                try
+                {
+                    // fill the Activities listview within the activities panel with a list of activities
+                    RevenueService Revservice = new RevenueService();
+                    Revenue revenue = Revservice.GetRevenue();
+
+                    // clear the listview before filling it again
+                    listViewRevenue.Items.Clear();
+                    //fill listview
+                    ListViewItem li = new ListViewItem(revenue.Sales.ToString());
+                    li.SubItems.Add(revenue.Ternover.ToString("€0.00"));
+                    li.SubItems.Add(revenue.NumberOfCustomers.ToString());
+                    listViewRevenue.Items.Add(li);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
                 }
             }
         }
@@ -219,6 +255,45 @@ namespace SomerenUI
         private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Activities");
+        }
+
+        private void omzetrapportageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Omzetrapportage");
+        }
+
+        private void CalculateRevenue_Click(object sender, EventArgs e)
+        {
+            listViewRevenue.Items.Clear();
+            try
+            {
+                // fill the Activities listview within the activities panel with a list of activities
+                DateTime startDate = Convert.ToDateTime(monthCalendarStartDate.SelectionRange.Start.ToString("dd-MMMM-yyyy"));
+                DateTime endDate = Convert.ToDateTime(monthCalendarEndDate.SelectionRange.Start.ToString("dd-MMMM-yyyy"));
+                //DateTime startDate = monthCalendarStartDate.SelectionStart.Date;
+                //DateTime endDate = monthCalendarEndDate.SelectionStart.Date;
+                MessageBox.Show($"{startDate.ToString("yyyy-mm-dd")}");
+                if (System.DateTime.Compare(startDate, System.DateTime.Now)<=0 && System.DateTime.Compare(endDate, System.DateTime.Now) <= 0)
+                {
+                    RevenueService Revservice = new RevenueService();
+                    Revenue revenue = Revservice.GetRevenue();
+                    // clear the listview before filling it again
+                    listViewRevenue.Items.Clear();
+                    //fill listview
+                    ListViewItem li = new ListViewItem(revenue.Sales.ToString());
+                    li.SubItems.Add(revenue.Ternover.ToString("€0.00"));
+                    li.SubItems.Add(revenue.NumberOfCustomers.ToString());
+                    listViewRevenue.Items.Add(li);
+                }
+                else
+                {
+                    MessageBox.Show("One of the selected dates is in the future");
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show("Something went wrong while loading the revenue: " + E.Message);
+            }
         }
     }
 }

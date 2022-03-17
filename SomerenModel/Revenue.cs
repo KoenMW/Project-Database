@@ -9,7 +9,7 @@ namespace SomerenModel
     public class Revenue
     {
         public int Sales { get; set; }
-        public float Ternover { get; set; }
+        public double Ternover { get; set; }
         public int NumberOfCustomers { get; set; }
     }
 }

@@ -14,7 +14,15 @@ namespace SomerenDAL
     {
         public Revenue GetRevenue()
         {
-            string query = "use [2122_INF1a_db6] SELECT SUM([sold]) AS 'sales', sold* price AS 'revenue', count(bought_drink) as 'number_of_customers' FROM drinks, students GROUP BY sold, price";
+            string query = "SELECT COUNT(DISTINCT s.sales_id) AS sales, SUM(d.price) AS turnover, COUNT(DISTINCT s.student) AS 'number_of_customers' FROM sales as s join drinks as d on d.id is not null where d.id = s.drink_id; ";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+
+        public Revenue GetRevenue(DateTime startDate, DateTime endDate)
+        {
+            string query = $"SELECT COUNT(DISTINCT s.sales_id) AS sales, SUM(d.price) AS turnover, COUNT(DISTINCT s.student) AS 'number_of_customers' FROM sales as s join drinks as d on d.id is not null where d.id = s.drink_id and s.[date]<'{startDate.ToString("yyyy-mm-dd")}'; ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -25,7 +33,7 @@ namespace SomerenDAL
             foreach (DataRow dr in dataTable.Rows)
             {                
                  revenue.Sales = (int)dr["sales"];
-                 revenue.Ternover = (float)dr["revenue"];
+                 revenue.Ternover = (double)dr["turnover"];
                  revenue.NumberOfCustomers = (int)dr["number_of_customers"];
             }
             return revenue;
