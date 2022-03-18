@@ -76,6 +76,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Omzetrapportage = new System.Windows.Forms.Panel();
+            this.LblEndDate = new System.Windows.Forms.Label();
+            this.LblStartDate = new System.Windows.Forms.Label();
             this.CalculateRevenue = new System.Windows.Forms.Button();
             this.monthCalendarEndDate = new System.Windows.Forms.MonthCalendar();
             this.monthCalendarStartDate = new System.Windows.Forms.MonthCalendar();
@@ -85,8 +87,33 @@
             this.number_of_customers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.LblStartDate = new System.Windows.Forms.Label();
-            this.LblEndDate = new System.Windows.Forms.Label();
+            this.pnlBtwOphalen = new System.Windows.Forms.Panel();
+            this.labelJaar = new System.Windows.Forms.Label();
+            this.textBoxYear = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.groupBoxInformatie = new System.Windows.Forms.GroupBox();
+            this.lblTotaalTariefAantalResultaat = new System.Windows.Forms.Label();
+            this.lblTotaalTariefAantal = new System.Windows.Forms.Label();
+            this.lblHoogTariefAantalResultaat = new System.Windows.Forms.Label();
+            this.lblLaagTariefAantalResultaat = new System.Windows.Forms.Label();
+            this.lblLaagTariefAantal = new System.Windows.Forms.Label();
+            this.lblHoogTariefAantal = new System.Windows.Forms.Label();
+            this.btnToonBTW = new System.Windows.Forms.Button();
+            this.groupBoxBTW = new System.Windows.Forms.GroupBox();
+            this.lblMaanden = new System.Windows.Forms.Label();
+            this.lblTotaalTariefResultaat = new System.Windows.Forms.Label();
+            this.lblHoogTariefResultaat = new System.Windows.Forms.Label();
+            this.lblLaagTariefResultaat = new System.Windows.Forms.Label();
+            this.lblTotaalTarief = new System.Windows.Forms.Label();
+            this.lblHoogTarief = new System.Windows.Forms.Label();
+            this.lblLaagTarief = new System.Windows.Forms.Label();
+            this.radioBtnQ4 = new System.Windows.Forms.RadioButton();
+            this.radioBtnQ3 = new System.Windows.Forms.RadioButton();
+            this.radioBtnQ2 = new System.Windows.Forms.RadioButton();
+            this.radioBtnQ1 = new System.Windows.Forms.RadioButton();
+            this.labelKwartaal = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.labelBtw = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -100,6 +127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.Omzetrapportage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlBtwOphalen.SuspendLayout();
+            this.groupBoxInformatie.SuspendLayout();
+            this.groupBoxBTW.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -123,7 +154,7 @@
             this.bardienstToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(961, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(964, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -199,27 +230,28 @@
             // drankvoorraadToolStripMenuItem
             // 
             this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
-            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
             // 
             // kassaToolStripMenuItem
             // 
             this.kassaToolStripMenuItem.Name = "kassaToolStripMenuItem";
-            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kassaToolStripMenuItem.Text = "Kassa";
             // 
             // omzetrapportageToolStripMenuItem
             // 
             this.omzetrapportageToolStripMenuItem.Name = "omzetrapportageToolStripMenuItem";
-            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.omzetrapportageToolStripMenuItem.Text = "Omzetrapportage";
             this.omzetrapportageToolStripMenuItem.Click += new System.EventHandler(this.omzetrapportageToolStripMenuItem_Click);
             // 
             // bTWBerekenenToolStripMenuItem
             // 
             this.bTWBerekenenToolStripMenuItem.Name = "bTWBerekenenToolStripMenuItem";
-            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bTWBerekenenToolStripMenuItem.Text = "BTW berekenen";
+            this.bTWBerekenenToolStripMenuItem.Click += new System.EventHandler(this.bTWBerekenenToolStripMenuItem_Click_1);
             // 
             // pnlDashboard
             // 
@@ -500,6 +532,24 @@
             this.Omzetrapportage.Size = new System.Drawing.Size(935, 547);
             this.Omzetrapportage.TabIndex = 8;
             // 
+            // LblEndDate
+            // 
+            this.LblEndDate.AutoSize = true;
+            this.LblEndDate.Location = new System.Drawing.Point(261, 356);
+            this.LblEndDate.Name = "LblEndDate";
+            this.LblEndDate.Size = new System.Drawing.Size(52, 13);
+            this.LblEndDate.TabIndex = 10;
+            this.LblEndDate.Text = "End Date";
+            // 
+            // LblStartDate
+            // 
+            this.LblStartDate.AutoSize = true;
+            this.LblStartDate.Location = new System.Drawing.Point(19, 356);
+            this.LblStartDate.Name = "LblStartDate";
+            this.LblStartDate.Size = new System.Drawing.Size(55, 13);
+            this.LblStartDate.TabIndex = 9;
+            this.LblStartDate.Text = "Start Date";
+            // 
             // CalculateRevenue
             // 
             this.CalculateRevenue.Location = new System.Drawing.Point(503, 508);
@@ -574,29 +624,306 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Omzetrapportage";
             // 
-            // LblStartDate
+            // pnlBtwOphalen
             // 
-            this.LblStartDate.AutoSize = true;
-            this.LblStartDate.Location = new System.Drawing.Point(19, 356);
-            this.LblStartDate.Name = "LblStartDate";
-            this.LblStartDate.Size = new System.Drawing.Size(55, 13);
-            this.LblStartDate.TabIndex = 9;
-            this.LblStartDate.Text = "Start Date";
+            this.pnlBtwOphalen.Controls.Add(this.labelJaar);
+            this.pnlBtwOphalen.Controls.Add(this.textBoxYear);
+            this.pnlBtwOphalen.Controls.Add(this.btnReset);
+            this.pnlBtwOphalen.Controls.Add(this.groupBoxInformatie);
+            this.pnlBtwOphalen.Controls.Add(this.btnToonBTW);
+            this.pnlBtwOphalen.Controls.Add(this.groupBoxBTW);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ4);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ3);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ2);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ1);
+            this.pnlBtwOphalen.Controls.Add(this.labelKwartaal);
+            this.pnlBtwOphalen.Controls.Add(this.pictureBox6);
+            this.pnlBtwOphalen.Controls.Add(this.labelBtw);
+            this.pnlBtwOphalen.Location = new System.Drawing.Point(6, 21);
+            this.pnlBtwOphalen.Name = "pnlBtwOphalen";
+            this.pnlBtwOphalen.Size = new System.Drawing.Size(935, 463);
+            this.pnlBtwOphalen.TabIndex = 9;
             // 
-            // LblEndDate
+            // labelJaar
             // 
-            this.LblEndDate.AutoSize = true;
-            this.LblEndDate.Location = new System.Drawing.Point(261, 356);
-            this.LblEndDate.Name = "LblEndDate";
-            this.LblEndDate.Size = new System.Drawing.Size(52, 13);
-            this.LblEndDate.TabIndex = 10;
-            this.LblEndDate.Text = "End Date";
+            this.labelJaar.AutoSize = true;
+            this.labelJaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelJaar.Location = new System.Drawing.Point(45, 60);
+            this.labelJaar.Name = "labelJaar";
+            this.labelJaar.Size = new System.Drawing.Size(175, 17);
+            this.labelJaar.TabIndex = 17;
+            this.labelJaar.Text = "Selecteer jaar (bijv. 2020):";
+            // 
+            // textBoxYear
+            // 
+            this.textBoxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxYear.Location = new System.Drawing.Point(259, 60);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(100, 23);
+            this.textBoxYear.TabIndex = 16;
+            this.textBoxYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnReset.Location = new System.Drawing.Point(772, 397);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(101, 48);
+            this.btnReset.TabIndex = 15;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxInformatie
+            // 
+            this.groupBoxInformatie.Controls.Add(this.lblTotaalTariefAantalResultaat);
+            this.groupBoxInformatie.Controls.Add(this.lblTotaalTariefAantal);
+            this.groupBoxInformatie.Controls.Add(this.lblHoogTariefAantalResultaat);
+            this.groupBoxInformatie.Controls.Add(this.lblLaagTariefAantalResultaat);
+            this.groupBoxInformatie.Controls.Add(this.lblLaagTariefAantal);
+            this.groupBoxInformatie.Controls.Add(this.lblHoogTariefAantal);
+            this.groupBoxInformatie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBoxInformatie.Location = new System.Drawing.Point(547, 161);
+            this.groupBoxInformatie.Name = "groupBoxInformatie";
+            this.groupBoxInformatie.Size = new System.Drawing.Size(343, 230);
+            this.groupBoxInformatie.TabIndex = 14;
+            this.groupBoxInformatie.TabStop = false;
+            this.groupBoxInformatie.Text = "Informatie:";
+            // 
+            // lblTotaalTariefAantalResultaat
+            // 
+            this.lblTotaalTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTotaalTariefAantalResultaat.Location = new System.Drawing.Point(221, 151);
+            this.lblTotaalTariefAantalResultaat.Name = "lblTotaalTariefAantalResultaat";
+            this.lblTotaalTariefAantalResultaat.Size = new System.Drawing.Size(97, 24);
+            this.lblTotaalTariefAantalResultaat.TabIndex = 8;
+            this.lblTotaalTariefAantalResultaat.Text = "0";
+            this.lblTotaalTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotaalTariefAantal
+            // 
+            this.lblTotaalTariefAantal.AutoSize = true;
+            this.lblTotaalTariefAantal.Location = new System.Drawing.Point(22, 151);
+            this.lblTotaalTariefAantal.Name = "lblTotaalTariefAantal";
+            this.lblTotaalTariefAantal.Size = new System.Drawing.Size(201, 24);
+            this.lblTotaalTariefAantal.TabIndex = 8;
+            this.lblTotaalTariefAantal.Text = "Totaal aantal verkocht: ";
+            // 
+            // lblHoogTariefAantalResultaat
+            // 
+            this.lblHoogTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblHoogTariefAantalResultaat.Location = new System.Drawing.Point(221, 102);
+            this.lblHoogTariefAantalResultaat.Name = "lblHoogTariefAantalResultaat";
+            this.lblHoogTariefAantalResultaat.Size = new System.Drawing.Size(97, 24);
+            this.lblHoogTariefAantalResultaat.TabIndex = 7;
+            this.lblHoogTariefAantalResultaat.Text = "0";
+            this.lblHoogTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLaagTariefAantalResultaat
+            // 
+            this.lblLaagTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLaagTariefAantalResultaat.Location = new System.Drawing.Point(221, 54);
+            this.lblLaagTariefAantalResultaat.Name = "lblLaagTariefAantalResultaat";
+            this.lblLaagTariefAantalResultaat.Size = new System.Drawing.Size(97, 24);
+            this.lblLaagTariefAantalResultaat.TabIndex = 6;
+            this.lblLaagTariefAantalResultaat.Text = "0";
+            this.lblLaagTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLaagTariefAantal
+            // 
+            this.lblLaagTariefAantal.AutoSize = true;
+            this.lblLaagTariefAantal.Location = new System.Drawing.Point(22, 54);
+            this.lblLaagTariefAantal.Name = "lblLaagTariefAantal";
+            this.lblLaagTariefAantal.Size = new System.Drawing.Size(159, 24);
+            this.lblLaagTariefAantal.TabIndex = 6;
+            this.lblLaagTariefAantal.Text = "Laag tarief aantal: ";
+            // 
+            // lblHoogTariefAantal
+            // 
+            this.lblHoogTariefAantal.AutoSize = true;
+            this.lblHoogTariefAantal.Location = new System.Drawing.Point(22, 102);
+            this.lblHoogTariefAantal.Name = "lblHoogTariefAantal";
+            this.lblHoogTariefAantal.Size = new System.Drawing.Size(165, 24);
+            this.lblHoogTariefAantal.TabIndex = 7;
+            this.lblHoogTariefAantal.Text = "Hoog tarief aantal: ";
+            // 
+            // btnToonBTW
+            // 
+            this.btnToonBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnToonBTW.Location = new System.Drawing.Point(639, 59);
+            this.btnToonBTW.Name = "btnToonBTW";
+            this.btnToonBTW.Size = new System.Drawing.Size(108, 72);
+            this.btnToonBTW.TabIndex = 13;
+            this.btnToonBTW.Text = "Toon BTW";
+            this.btnToonBTW.UseVisualStyleBackColor = true;
+            this.btnToonBTW.Click += new System.EventHandler(this.btnToonBTW_Click_1);
+            // 
+            // groupBoxBTW
+            // 
+            this.groupBoxBTW.Controls.Add(this.lblMaanden);
+            this.groupBoxBTW.Controls.Add(this.lblTotaalTariefResultaat);
+            this.groupBoxBTW.Controls.Add(this.lblHoogTariefResultaat);
+            this.groupBoxBTW.Controls.Add(this.lblLaagTariefResultaat);
+            this.groupBoxBTW.Controls.Add(this.lblTotaalTarief);
+            this.groupBoxBTW.Controls.Add(this.lblHoogTarief);
+            this.groupBoxBTW.Controls.Add(this.lblLaagTarief);
+            this.groupBoxBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBoxBTW.Location = new System.Drawing.Point(45, 161);
+            this.groupBoxBTW.Name = "groupBoxBTW";
+            this.groupBoxBTW.Size = new System.Drawing.Size(453, 230);
+            this.groupBoxBTW.TabIndex = 12;
+            this.groupBoxBTW.TabStop = false;
+            this.groupBoxBTW.Text = "Te betalen BTW:";
+            // 
+            // lblMaanden
+            // 
+            this.lblMaanden.AutoSize = true;
+            this.lblMaanden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMaanden.Location = new System.Drawing.Point(23, 196);
+            this.lblMaanden.Name = "lblMaanden";
+            this.lblMaanden.Size = new System.Drawing.Size(0, 15);
+            this.lblMaanden.TabIndex = 6;
+            // 
+            // lblTotaalTariefResultaat
+            // 
+            this.lblTotaalTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTotaalTariefResultaat.Location = new System.Drawing.Point(210, 151);
+            this.lblTotaalTariefResultaat.Name = "lblTotaalTariefResultaat";
+            this.lblTotaalTariefResultaat.Size = new System.Drawing.Size(208, 24);
+            this.lblTotaalTariefResultaat.TabIndex = 5;
+            this.lblTotaalTariefResultaat.Text = "0";
+            this.lblTotaalTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblHoogTariefResultaat
+            // 
+            this.lblHoogTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblHoogTariefResultaat.Location = new System.Drawing.Point(210, 102);
+            this.lblHoogTariefResultaat.Name = "lblHoogTariefResultaat";
+            this.lblHoogTariefResultaat.Size = new System.Drawing.Size(208, 24);
+            this.lblHoogTariefResultaat.TabIndex = 4;
+            this.lblHoogTariefResultaat.Text = "0";
+            this.lblHoogTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLaagTariefResultaat
+            // 
+            this.lblLaagTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLaagTariefResultaat.Location = new System.Drawing.Point(210, 54);
+            this.lblLaagTariefResultaat.Name = "lblLaagTariefResultaat";
+            this.lblLaagTariefResultaat.Size = new System.Drawing.Size(208, 24);
+            this.lblLaagTariefResultaat.TabIndex = 3;
+            this.lblLaagTariefResultaat.Text = "0";
+            this.lblLaagTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotaalTarief
+            // 
+            this.lblTotaalTarief.AutoSize = true;
+            this.lblTotaalTarief.Location = new System.Drawing.Point(32, 151);
+            this.lblTotaalTarief.Name = "lblTotaalTarief";
+            this.lblTotaalTarief.Size = new System.Drawing.Size(162, 24);
+            this.lblTotaalTarief.TabIndex = 2;
+            this.lblTotaalTarief.Text = "Totaal BTW tarief: ";
+            // 
+            // lblHoogTarief
+            // 
+            this.lblHoogTarief.AutoSize = true;
+            this.lblHoogTarief.Location = new System.Drawing.Point(32, 102);
+            this.lblHoogTarief.Name = "lblHoogTarief";
+            this.lblHoogTarief.Size = new System.Drawing.Size(163, 24);
+            this.lblHoogTarief.TabIndex = 1;
+            this.lblHoogTarief.Text = "Hoog tarief (21%): ";
+            // 
+            // lblLaagTarief
+            // 
+            this.lblLaagTarief.AutoSize = true;
+            this.lblLaagTarief.Location = new System.Drawing.Point(32, 54);
+            this.lblLaagTarief.Name = "lblLaagTarief";
+            this.lblLaagTarief.Size = new System.Drawing.Size(147, 24);
+            this.lblLaagTarief.TabIndex = 0;
+            this.lblLaagTarief.Text = "Laag tarief (6%): ";
+            // 
+            // radioBtnQ4
+            // 
+            this.radioBtnQ4.AutoSize = true;
+            this.radioBtnQ4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ4.Location = new System.Drawing.Point(509, 86);
+            this.radioBtnQ4.Name = "radioBtnQ4";
+            this.radioBtnQ4.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ4.TabIndex = 11;
+            this.radioBtnQ4.TabStop = true;
+            this.radioBtnQ4.Text = "Kwartaal 4";
+            this.radioBtnQ4.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnQ3
+            // 
+            this.radioBtnQ3.AutoSize = true;
+            this.radioBtnQ3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ3.Location = new System.Drawing.Point(411, 86);
+            this.radioBtnQ3.Name = "radioBtnQ3";
+            this.radioBtnQ3.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ3.TabIndex = 10;
+            this.radioBtnQ3.TabStop = true;
+            this.radioBtnQ3.Text = "Kwartaal 3";
+            this.radioBtnQ3.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnQ2
+            // 
+            this.radioBtnQ2.AutoSize = true;
+            this.radioBtnQ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ2.Location = new System.Drawing.Point(313, 86);
+            this.radioBtnQ2.Name = "radioBtnQ2";
+            this.radioBtnQ2.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ2.TabIndex = 9;
+            this.radioBtnQ2.TabStop = true;
+            this.radioBtnQ2.Text = "Kwartaal 2";
+            this.radioBtnQ2.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnQ1
+            // 
+            this.radioBtnQ1.AutoSize = true;
+            this.radioBtnQ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ1.Location = new System.Drawing.Point(215, 86);
+            this.radioBtnQ1.Name = "radioBtnQ1";
+            this.radioBtnQ1.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ1.TabIndex = 8;
+            this.radioBtnQ1.TabStop = true;
+            this.radioBtnQ1.Text = "Kwartaal 1";
+            this.radioBtnQ1.UseVisualStyleBackColor = true;
+            // 
+            // labelKwartaal
+            // 
+            this.labelKwartaal.AutoSize = true;
+            this.labelKwartaal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelKwartaal.Location = new System.Drawing.Point(45, 86);
+            this.labelKwartaal.Name = "labelKwartaal";
+            this.labelKwartaal.Size = new System.Drawing.Size(128, 17);
+            this.labelKwartaal.TabIndex = 7;
+            this.labelKwartaal.Text = "Selecteer kwartaal:";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // labelBtw
+            // 
+            this.labelBtw.AutoSize = true;
+            this.labelBtw.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBtw.Location = new System.Drawing.Point(21, 10);
+            this.labelBtw.Name = "labelBtw";
+            this.labelBtw.Size = new System.Drawing.Size(189, 29);
+            this.labelBtw.TabIndex = 3;
+            this.labelBtw.Text = "BTW berekenen";
             // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 583);
+            this.ClientSize = new System.Drawing.Size(964, 583);
+            this.Controls.Add(this.pnlBtwOphalen);
             this.Controls.Add(this.Omzetrapportage);
             this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlTeachers);
@@ -630,6 +957,13 @@
             this.Omzetrapportage.ResumeLayout(false);
             this.Omzetrapportage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnlBtwOphalen.ResumeLayout(false);
+            this.pnlBtwOphalen.PerformLayout();
+            this.groupBoxInformatie.ResumeLayout(false);
+            this.groupBoxInformatie.PerformLayout();
+            this.groupBoxBTW.ResumeLayout(false);
+            this.groupBoxBTW.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -695,6 +1029,33 @@
         private System.Windows.Forms.Button CalculateRevenue;
         private System.Windows.Forms.Label LblEndDate;
         private System.Windows.Forms.Label LblStartDate;
+        private System.Windows.Forms.Panel pnlBtwOphalen;
+        private System.Windows.Forms.Label labelJaar;
+        private System.Windows.Forms.TextBox textBoxYear;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.GroupBox groupBoxInformatie;
+        private System.Windows.Forms.Label lblTotaalTariefAantalResultaat;
+        private System.Windows.Forms.Label lblTotaalTariefAantal;
+        private System.Windows.Forms.Label lblHoogTariefAantalResultaat;
+        private System.Windows.Forms.Label lblLaagTariefAantalResultaat;
+        private System.Windows.Forms.Label lblLaagTariefAantal;
+        private System.Windows.Forms.Label lblHoogTariefAantal;
+        private System.Windows.Forms.Button btnToonBTW;
+        private System.Windows.Forms.GroupBox groupBoxBTW;
+        private System.Windows.Forms.Label lblMaanden;
+        private System.Windows.Forms.Label lblTotaalTariefResultaat;
+        private System.Windows.Forms.Label lblHoogTariefResultaat;
+        private System.Windows.Forms.Label lblLaagTariefResultaat;
+        private System.Windows.Forms.Label lblTotaalTarief;
+        private System.Windows.Forms.Label lblHoogTarief;
+        private System.Windows.Forms.Label lblLaagTarief;
+        private System.Windows.Forms.RadioButton radioBtnQ4;
+        private System.Windows.Forms.RadioButton radioBtnQ3;
+        private System.Windows.Forms.RadioButton radioBtnQ2;
+        private System.Windows.Forms.RadioButton radioBtnQ1;
+        private System.Windows.Forms.Label labelKwartaal;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label labelBtw;
     }
 }
 
