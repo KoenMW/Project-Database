@@ -22,7 +22,7 @@ namespace SomerenDAL
 
         public Revenue GetRevenue(DateTime startDate, DateTime endDate)
         {
-            string query = $"SELECT COUNT(DISTINCT s.sales_id) AS sales, SUM(d.price) AS turnover, COUNT(DISTINCT s.student) AS 'number_of_customers' FROM sales as s join drinks as d on d.id is not null where d.id = s.drink_id and s.[date]<'{startDate.ToString("yyyy-mm-dd")}'; ";
+            string query = $"SELECT COUNT(DISTINCT s.sales_id) AS sales, SUM(d.price) AS turnover, COUNT(DISTINCT s.student) AS 'number_of_customers' FROM sales as s join drinks as d on d.id is not null where d.id = s.drink_id and s.[date]>='{startDate.ToString("yyyy-MM-dd")}' and s.[date]<='{endDate.ToString("yyyy-MM-dd")}'; ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }

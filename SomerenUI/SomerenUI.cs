@@ -268,22 +268,26 @@ namespace SomerenUI
             try
             {
                 // fill the Activities listview within the activities panel with a list of activities
-                DateTime startDate = Convert.ToDateTime(monthCalendarStartDate.SelectionRange.Start.ToString("dd-MMMM-yyyy"));
-                DateTime endDate = Convert.ToDateTime(monthCalendarEndDate.SelectionRange.Start.ToString("dd-MMMM-yyyy"));
-                //DateTime startDate = monthCalendarStartDate.SelectionStart.Date;
-                //DateTime endDate = monthCalendarEndDate.SelectionStart.Date;
-                MessageBox.Show($"{startDate.ToString("yyyy-mm-dd")}");
+                DateTime startDate = Convert.ToDateTime(monthCalendarStartDate.SelectionRange.Start.ToString("dd-MM-yyyy"));
+                DateTime endDate = Convert.ToDateTime(monthCalendarEndDate.SelectionRange.Start.ToString("dd-MM-yyyy"));
                 if (System.DateTime.Compare(startDate, System.DateTime.Now)<=0 && System.DateTime.Compare(endDate, System.DateTime.Now) <= 0)
                 {
-                    RevenueService Revservice = new RevenueService();
-                    Revenue revenue = Revservice.GetRevenue();
-                    // clear the listview before filling it again
-                    listViewRevenue.Items.Clear();
-                    //fill listview
-                    ListViewItem li = new ListViewItem(revenue.Sales.ToString());
-                    li.SubItems.Add(revenue.Ternover.ToString("€0.00"));
-                    li.SubItems.Add(revenue.NumberOfCustomers.ToString());
-                    listViewRevenue.Items.Add(li);
+                    if (System.DateTime.Compare(startDate,endDate)<=0)
+                    {
+                        RevenueService Revservice = new RevenueService();
+                        Revenue revenue = Revservice.GetRevenue(startDate, endDate);
+                        // clear the listview before filling it again
+                        listViewRevenue.Items.Clear();
+                        //fill listview
+                        ListViewItem li = new ListViewItem(revenue.Sales.ToString());
+                        li.SubItems.Add(revenue.Ternover.ToString("€0.00"));
+                        li.SubItems.Add(revenue.NumberOfCustomers.ToString());
+                        listViewRevenue.Items.Add(li);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Start date is after end date");
+                    }
                 }
                 else
                 {
