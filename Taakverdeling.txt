@@ -13,7 +13,9 @@ Variant D: Koen
 Uiteindelijk hebben Koen en Dewi het samengevoegd.
 
 Assignment 3:
-Variant A: 
-Variant B: 
-Variant C: 
-Variant D: 
+Variant A: Tean
+Variant B: Jan
+Variant C: Koen
+Variant D: Dewi
+Uiteindelijk hebben Koen en Dewi het samengevoegd en helpen maken van A en B.
+
