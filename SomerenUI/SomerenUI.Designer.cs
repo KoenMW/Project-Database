@@ -260,28 +260,28 @@
             // drankvoorraadToolStripMenuItem
             // 
             this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
-            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
             this.drankvoorraadToolStripMenuItem.Click += new System.EventHandler(this.drankvoorraadToolStripMenuItem_Click);
             // 
             // kassaToolStripMenuItem
             // 
             this.kassaToolStripMenuItem.Name = "kassaToolStripMenuItem";
-            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.kassaToolStripMenuItem.Text = "Kassa";
             this.kassaToolStripMenuItem.Click += new System.EventHandler(this.kassaToolStripMenuItem_Click);
             // 
             // omzetrapportageToolStripMenuItem
             // 
             this.omzetrapportageToolStripMenuItem.Name = "omzetrapportageToolStripMenuItem";
-            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.omzetrapportageToolStripMenuItem.Text = "Omzetrapportage";
             this.omzetrapportageToolStripMenuItem.Click += new System.EventHandler(this.omzetrapportageToolStripMenuItem_Click);
             // 
             // bTWBerekenenToolStripMenuItem
             // 
             this.bTWBerekenenToolStripMenuItem.Name = "bTWBerekenenToolStripMenuItem";
-            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.bTWBerekenenToolStripMenuItem.Text = "BTW berekenen";
             this.bTWBerekenenToolStripMenuItem.Click += new System.EventHandler(this.bTWBerekenenToolStripMenuItem_Click_1);
             // 
@@ -1096,6 +1096,7 @@
             this.btnCheckout.TabIndex = 8;
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // listBox2
             // 

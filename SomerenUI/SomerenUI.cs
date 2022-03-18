@@ -564,6 +564,11 @@ namespace SomerenUI
             showPanel("Kassa");
         }
 
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //Tot hier is drankvoorraad
     }
 }
