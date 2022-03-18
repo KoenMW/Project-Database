@@ -13,9 +13,10 @@ Variant D: Koen
 Uiteindelijk hebben Koen en Dewi het samengevoegd.
 
 Assignment 3:
-Variant A: Tean
-Variant B: Jan
+Variant A: Jan
+Variant B: Teun
 Variant C: Koen
 Variant D: Dewi
 Uiteindelijk hebben Koen en Dewi het samengevoegd en helpen maken van A en B.
 
+De rooms tab werkt op het moment niet, u had gezegd dat we de type als een aparte table in de database moesten zetten, we hebben dat gedaan alleen hebben we nog geen tijd gehad om de query aan te passen (en de type aan te passen naar een foreign key in de rooms table).
