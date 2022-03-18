@@ -33,8 +33,11 @@ namespace SomerenDAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 revenue.Sales = (int)dr["sales"];
-                revenue.Ternover = (double)dr["turnover"]; //deze regel veroorzaakt de ongeldige conversie error
-                revenue.NumberOfCustomers = (int)dr["number_of_customers"];
+                if (revenue.Sales != 0)
+                {
+                    revenue.Ternover = (double)dr["turnover"]; //deze regel veroorzaakt de ongeldige conversie error (wel opgelost)
+                    revenue.NumberOfCustomers = (int)dr["number_of_customers"];
+                }
             }
             return revenue;
         }
