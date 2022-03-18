@@ -37,6 +37,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
+                pnlSupply.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -52,6 +53,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
+                pnlSupply.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -90,6 +92,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
+                pnlSupply.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -127,6 +130,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
+                pnlSupply.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -165,6 +169,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
+                pnlSupply.Hide();
 
                 // show activities
                 pnlActivities.Show();
@@ -200,6 +205,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlActivities.Hide();
                 pnlBtwOphalen.Hide();
+                pnlSupply.Hide();
 
                 // show activities
                 Omzetrapportage.Show();
@@ -232,6 +238,7 @@ namespace SomerenUI
                 pnlRooms.Hide();
                 pnlActivities.Hide();
                 Omzetrapportage.Hide();
+                pnlSupply.Hide();
 
                 //show btw panel
                 pnlBtwOphalen.Show();
@@ -243,6 +250,50 @@ namespace SomerenUI
                 {
 
                     throw;
+                }
+            }
+            else if (panelName == "Supplies")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+                pnlBtwOphalen.Hide();
+                Omzetrapportage.Hide();
+                // show supplies
+                pnlSupply.Show();
+                try
+                {
+                    // fill the supplies listview within the supplies panel with a list of supplies
+                    SupplyService supplyService = new SupplyService();
+                    List<Supply> Drinklist = supplyService.GetDrink();
+
+                    // clear the listview before filling it again
+                    listViewSupply.Items.Clear();
+                    //fill listview
+                    foreach (Supply s in Drinklist)
+                    {
+                        ListViewItem li = new ListViewItem(s.Id.ToString());
+                        li.SubItems.Add(s.Drink);
+                        li.SubItems.Add(s.Stock.ToString());
+                        if (s.Stock < 10)
+                        {
+                            li.SubItems.Add("Stock insufficient");
+                        }
+                        else
+                        {
+                            li.SubItems.Add("Stock sufficient");
+                        }
+                        listViewSupply.Items.Add(li);
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
                 }
             }
         }
@@ -410,5 +461,61 @@ namespace SomerenUI
             lblTotaalTariefAantalResultaat.Text = "0";
         }
         //Tot hier is BTW berekenen
+
+        //Vanaf hier is drankvoorraad
+
+        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Supplies");
+        }
+
+        private void Updatebtn_Click(object sender, EventArgs e)
+        {
+            Supply updatestock = new Supply(int.Parse(Idtxt.Text), int.Parse(Stocktxt.Text));
+            SupplyService drinkService = new SupplyService();
+            drinkService.UpdateDrink(updatestock);
+            // hide all other panels
+            pnlDashboard.Hide();
+            imgDashboard.Hide();
+            pnlStudents.Hide();
+            pnlTeachers.Hide();
+            pnlRooms.Hide();
+            pnlActivities.Hide();
+            Omzetrapportage.Hide();
+            // show supplies
+            pnlSupply.Show();
+            try
+            {
+                // fill the supplies listview within the supplies panel with a list of supplies
+                SupplyService supplyService = new SupplyService();
+                List<Supply> Drinklist = supplyService.GetDrink();
+
+                // clear the listview before filling it again
+                listViewSupply.Items.Clear();
+                //fill listview
+                foreach (Supply s in Drinklist)
+                {
+                    ListViewItem li = new ListViewItem(s.Id.ToString());
+                    li.SubItems.Add(s.Drink);
+                    li.SubItems.Add(s.Stock.ToString());
+                    if (s.Stock < 10)
+                    {
+                        li.SubItems.Add("Stock insufficient");
+                    }
+                    else
+                    {
+                        li.SubItems.Add("Stock sufficient");
+                    }
+                    listViewSupply.Items.Add(li);
+
+                }
+            }
+            catch (Exception i)
+            {
+                MessageBox.Show("Something went wrong while loading the activities: " + i.Message);
+            }
+        }
+
+        //Tot hier is drankvoorraad
     }
 }

@@ -114,6 +114,19 @@
             this.labelKwartaal = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.labelBtw = new System.Windows.Forms.Label();
+            this.pnlSupply = new System.Windows.Forms.Panel();
+            this.Stocklbl = new System.Windows.Forms.Label();
+            this.Idlbl = new System.Windows.Forms.Label();
+            this.Stocktxt = new System.Windows.Forms.TextBox();
+            this.Idtxt = new System.Windows.Forms.TextBox();
+            this.Updatebtn = new System.Windows.Forms.Button();
+            this.listViewSupply = new System.Windows.Forms.ListView();
+            this.IdHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DrinkHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Stockheader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.Supplylbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -131,6 +144,8 @@
             this.groupBoxInformatie.SuspendLayout();
             this.groupBoxBTW.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.pnlSupply.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // imgDashboard
@@ -154,7 +169,7 @@
             this.bardienstToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(964, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(989, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -232,6 +247,7 @@
             this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
             this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
+            this.drankvoorraadToolStripMenuItem.Click += new System.EventHandler(this.drankvoorraadToolStripMenuItem_Click);
             // 
             // kassaToolStripMenuItem
             // 
@@ -257,7 +273,7 @@
             // 
             this.pnlDashboard.Controls.Add(this.lbl_Dashboard);
             this.pnlDashboard.Controls.Add(this.imgDashboard);
-            this.pnlDashboard.Location = new System.Drawing.Point(12, 27);
+            this.pnlDashboard.Location = new System.Drawing.Point(22, 40);
             this.pnlDashboard.Name = "pnlDashboard";
             this.pnlDashboard.Size = new System.Drawing.Size(938, 466);
             this.pnlDashboard.TabIndex = 2;
@@ -276,7 +292,7 @@
             this.pnlStudents.Controls.Add(this.listViewStudents);
             this.pnlStudents.Controls.Add(this.pictureBox1);
             this.pnlStudents.Controls.Add(this.lbl_Students);
-            this.pnlStudents.Location = new System.Drawing.Point(12, 27);
+            this.pnlStudents.Location = new System.Drawing.Point(22, 40);
             this.pnlStudents.Name = "pnlStudents";
             this.pnlStudents.Size = new System.Drawing.Size(938, 466);
             this.pnlStudents.TabIndex = 4;
@@ -342,7 +358,7 @@
             this.pnlTeachers.Controls.Add(this.listViewTeachers);
             this.pnlTeachers.Controls.Add(this.pictureBox2);
             this.pnlTeachers.Controls.Add(this.label1);
-            this.pnlTeachers.Location = new System.Drawing.Point(12, 27);
+            this.pnlTeachers.Location = new System.Drawing.Point(22, 40);
             this.pnlTeachers.Name = "pnlTeachers";
             this.pnlTeachers.Size = new System.Drawing.Size(935, 463);
             this.pnlTeachers.TabIndex = 6;
@@ -402,7 +418,7 @@
             this.pnlActivities.Controls.Add(this.listViewActivities);
             this.pnlActivities.Controls.Add(this.pictureBox3);
             this.pnlActivities.Controls.Add(this.label2);
-            this.pnlActivities.Location = new System.Drawing.Point(9, 24);
+            this.pnlActivities.Location = new System.Drawing.Point(19, 37);
             this.pnlActivities.Name = "pnlActivities";
             this.pnlActivities.Size = new System.Drawing.Size(935, 463);
             this.pnlActivities.TabIndex = 7;
@@ -462,7 +478,7 @@
             this.pnlRooms.Controls.Add(this.listViewRooms);
             this.pnlRooms.Controls.Add(this.pictureBox4);
             this.pnlRooms.Controls.Add(this.label3);
-            this.pnlRooms.Location = new System.Drawing.Point(9, 24);
+            this.pnlRooms.Location = new System.Drawing.Point(19, 37);
             this.pnlRooms.Name = "pnlRooms";
             this.pnlRooms.Size = new System.Drawing.Size(932, 460);
             this.pnlRooms.TabIndex = 7;
@@ -527,7 +543,7 @@
             this.Omzetrapportage.Controls.Add(this.listViewRevenue);
             this.Omzetrapportage.Controls.Add(this.pictureBox5);
             this.Omzetrapportage.Controls.Add(this.label4);
-            this.Omzetrapportage.Location = new System.Drawing.Point(6, 24);
+            this.Omzetrapportage.Location = new System.Drawing.Point(16, 37);
             this.Omzetrapportage.Name = "Omzetrapportage";
             this.Omzetrapportage.Size = new System.Drawing.Size(935, 547);
             this.Omzetrapportage.TabIndex = 8;
@@ -639,7 +655,7 @@
             this.pnlBtwOphalen.Controls.Add(this.labelKwartaal);
             this.pnlBtwOphalen.Controls.Add(this.pictureBox6);
             this.pnlBtwOphalen.Controls.Add(this.labelBtw);
-            this.pnlBtwOphalen.Location = new System.Drawing.Point(6, 21);
+            this.pnlBtwOphalen.Location = new System.Drawing.Point(22, 37);
             this.pnlBtwOphalen.Name = "pnlBtwOphalen";
             this.pnlBtwOphalen.Size = new System.Drawing.Size(935, 463);
             this.pnlBtwOphalen.TabIndex = 9;
@@ -918,11 +934,135 @@
             this.labelBtw.TabIndex = 3;
             this.labelBtw.Text = "BTW berekenen";
             // 
+            // pnlSupply
+            // 
+            this.pnlSupply.Controls.Add(this.Stocklbl);
+            this.pnlSupply.Controls.Add(this.Idlbl);
+            this.pnlSupply.Controls.Add(this.Stocktxt);
+            this.pnlSupply.Controls.Add(this.Idtxt);
+            this.pnlSupply.Controls.Add(this.Updatebtn);
+            this.pnlSupply.Controls.Add(this.listViewSupply);
+            this.pnlSupply.Controls.Add(this.pictureBox7);
+            this.pnlSupply.Controls.Add(this.Supplylbl);
+            this.pnlSupply.Location = new System.Drawing.Point(16, 30);
+            this.pnlSupply.Name = "pnlSupply";
+            this.pnlSupply.Size = new System.Drawing.Size(935, 545);
+            this.pnlSupply.TabIndex = 12;
+            // 
+            // Stocklbl
+            // 
+            this.Stocklbl.AutoSize = true;
+            this.Stocklbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Stocklbl.Location = new System.Drawing.Point(29, 406);
+            this.Stocklbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Stocklbl.Name = "Stocklbl";
+            this.Stocklbl.Size = new System.Drawing.Size(196, 17);
+            this.Stocklbl.TabIndex = 10;
+            this.Stocklbl.Text = "Enter new stock amount here:";
+            // 
+            // Idlbl
+            // 
+            this.Idlbl.AutoSize = true;
+            this.Idlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Idlbl.Location = new System.Drawing.Point(29, 372);
+            this.Idlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Idlbl.Name = "Idlbl";
+            this.Idlbl.Size = new System.Drawing.Size(94, 17);
+            this.Idlbl.TabIndex = 9;
+            this.Idlbl.Text = "Enter id here:";
+            // 
+            // Stocktxt
+            // 
+            this.Stocktxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Stocktxt.Location = new System.Drawing.Point(229, 403);
+            this.Stocktxt.Margin = new System.Windows.Forms.Padding(2);
+            this.Stocktxt.Name = "Stocktxt";
+            this.Stocktxt.Size = new System.Drawing.Size(112, 23);
+            this.Stocktxt.TabIndex = 8;
+            // 
+            // Idtxt
+            // 
+            this.Idtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Idtxt.Location = new System.Drawing.Point(127, 369);
+            this.Idtxt.Margin = new System.Windows.Forms.Padding(2);
+            this.Idtxt.Name = "Idtxt";
+            this.Idtxt.Size = new System.Drawing.Size(118, 23);
+            this.Idtxt.TabIndex = 7;
+            // 
+            // Updatebtn
+            // 
+            this.Updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Updatebtn.Location = new System.Drawing.Point(32, 438);
+            this.Updatebtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Updatebtn.Name = "Updatebtn";
+            this.Updatebtn.Size = new System.Drawing.Size(126, 38);
+            this.Updatebtn.TabIndex = 6;
+            this.Updatebtn.Text = "Update stock";
+            this.Updatebtn.UseVisualStyleBackColor = true;
+            this.Updatebtn.Click += new System.EventHandler(this.Updatebtn_Click);
+            // 
+            // listViewSupply
+            // 
+            this.listViewSupply.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.IdHeader,
+            this.DrinkHeader,
+            this.Stockheader,
+            this.columnHeader1});
+            this.listViewSupply.GridLines = true;
+            this.listViewSupply.HideSelection = false;
+            this.listViewSupply.Location = new System.Drawing.Point(18, 46);
+            this.listViewSupply.Name = "listViewSupply";
+            this.listViewSupply.Size = new System.Drawing.Size(635, 307);
+            this.listViewSupply.TabIndex = 5;
+            this.listViewSupply.UseCompatibleStateImageBehavior = false;
+            this.listViewSupply.View = System.Windows.Forms.View.Details;
+            // 
+            // IdHeader
+            // 
+            this.IdHeader.Text = "ID";
+            this.IdHeader.Width = 160;
+            // 
+            // DrinkHeader
+            // 
+            this.DrinkHeader.Text = "Drink";
+            this.DrinkHeader.Width = 160;
+            // 
+            // Stockheader
+            // 
+            this.Stockheader.Text = "Stock amount";
+            this.Stockheader.Width = 160;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = " ";
+            this.columnHeader1.Width = 215;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
+            this.pictureBox7.Location = new System.Drawing.Point(805, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // Supplylbl
+            // 
+            this.Supplylbl.AutoSize = true;
+            this.Supplylbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Supplylbl.Location = new System.Drawing.Point(21, 10);
+            this.Supplylbl.Name = "Supplylbl";
+            this.Supplylbl.Size = new System.Drawing.Size(87, 29);
+            this.Supplylbl.TabIndex = 3;
+            this.Supplylbl.Text = "Supply";
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 583);
+            this.ClientSize = new System.Drawing.Size(989, 605);
+            this.Controls.Add(this.pnlSupply);
             this.Controls.Add(this.pnlBtwOphalen);
             this.Controls.Add(this.Omzetrapportage);
             this.Controls.Add(this.pnlActivities);
@@ -964,6 +1104,9 @@
             this.groupBoxBTW.ResumeLayout(false);
             this.groupBoxBTW.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.pnlSupply.ResumeLayout(false);
+            this.pnlSupply.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1056,6 +1199,19 @@
         private System.Windows.Forms.Label labelKwartaal;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label labelBtw;
+        private System.Windows.Forms.Panel pnlSupply;
+        private System.Windows.Forms.Label Stocklbl;
+        private System.Windows.Forms.Label Idlbl;
+        private System.Windows.Forms.TextBox Stocktxt;
+        private System.Windows.Forms.TextBox Idtxt;
+        private System.Windows.Forms.Button Updatebtn;
+        private System.Windows.Forms.ListView listViewSupply;
+        private System.Windows.Forms.ColumnHeader IdHeader;
+        private System.Windows.Forms.ColumnHeader DrinkHeader;
+        private System.Windows.Forms.ColumnHeader Stockheader;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label Supplylbl;
     }
 }
 
