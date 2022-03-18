@@ -38,6 +38,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -54,6 +55,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -93,6 +95,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -131,6 +134,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -170,6 +174,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 // show activities
                 pnlActivities.Show();
@@ -206,6 +211,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 // show activities
                 Omzetrapportage.Show();
@@ -239,6 +245,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
+                Kassa.Hide();
 
                 //show btw panel
                 pnlBtwOphalen.Show();
@@ -263,6 +270,7 @@ namespace SomerenUI
                 pnlActivities.Hide();
                 pnlBtwOphalen.Hide();
                 Omzetrapportage.Hide();
+                Kassa.Hide();
                 // show supplies
                 pnlSupply.Show();
                 try
@@ -295,6 +303,41 @@ namespace SomerenUI
                 {
                     MessageBox.Show("Something went wrong while loading the activities: " + e.Message);
                 }
+            }
+            else if (panelName == "Kassa")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+                Omzetrapportage.Hide();
+                pnlSupply.Hide();
+                pnlBtwOphalen.Hide();
+
+                //Show Kassa
+                Kassa.Show();
+                try
+                {
+                    DrinkService drinkService = new DrinkService(); ;
+                    List<Drink> drinkList = drinkService.GetDrinks(); ;
+
+                    listViewDrink.Items.Clear();
+                    foreach (Drink drink in drinkList)
+                    {
+                        ListViewItem li = new ListViewItem(drink.Number.ToString());
+                        li.SubItems.Add(drink.Name);
+                        li.SubItems.Add(drink.Price.ToString("€0.00"));
+                        listViewDrink.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
+                }
+
             }
         }
 
@@ -514,6 +557,11 @@ namespace SomerenUI
             {
                 MessageBox.Show("Something went wrong while loading the activities: " + i.Message);
             }
+        }
+
+        private void kassaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Kassa");
         }
 
         //Tot hier is drankvoorraad
