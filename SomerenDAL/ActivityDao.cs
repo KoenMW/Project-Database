@@ -14,9 +14,18 @@ namespace SomerenDAL
     {
         public List<Activity> GetAllActivities()
         {
-            string query = "SELECT activitie_id, activitie_name, StartDateTime FROM activities";
+            string query = "SELECT activitie_id, activitie_name, [Description], StartDateTime, EndDateTime FROM activities";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public Activity GetByName(string name)
+        {
+            string query = "SELECT activitie_id, activitie_name, [Description], StartDateTime, EndDateTime FROM activities WHERE activitie_name=@name";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@name", name);
+            List<Activity> activities = ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            return activities[0];
         }
 
         private List<Activity> ReadTables(DataTable dataTable)
@@ -29,7 +38,9 @@ namespace SomerenDAL
                 {
                     Id = (int)dr["activitie_id"],
                     Name = (string)(dr["activitie_name"].ToString()),
-                    Time = (DateTime)dr["StartDateTime"]
+                    Description = (string)(dr["Description"].ToString()),
+                    StartTime = (DateTime)dr["StartDateTime"],
+                    EndTime = (DateTime)dr["EndDateTime"]
                 };
                 activities.Add(activitie);
             }

@@ -65,7 +65,7 @@
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ActivitieName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlRooms = new System.Windows.Forms.Panel();
@@ -140,6 +140,22 @@
             this.columnStudentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.EndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Discription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ActivityCB = new System.Windows.Forms.ComboBox();
+            this.CreateActivity = new System.Windows.Forms.Button();
+            this.ActivityIDTB = new System.Windows.Forms.TextBox();
+            this.ActivityNameTB = new System.Windows.Forms.TextBox();
+            this.ActivityDiscriptionTB = new System.Windows.Forms.TextBox();
+            this.ActivityStartTimeMC = new System.Windows.Forms.MonthCalendar();
+            this.ActivityEndTimeMC = new System.Windows.Forms.MonthCalendar();
+            this.ActivityIDLB = new System.Windows.Forms.Label();
+            this.ActivityNameLB = new System.Windows.Forms.Label();
+            this.ActivityDisctiptionLB = new System.Windows.Forms.Label();
+            this.ActivityStartTimeLB = new System.Windows.Forms.Label();
+            this.ActivityEndTimeLB = new System.Windows.Forms.Label();
+            this.GetSelectedActivity = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgDashboard)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -184,7 +200,7 @@
             this.bardienstToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(989, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(998, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -431,6 +447,19 @@
             // 
             // pnlActivities
             // 
+            this.pnlActivities.Controls.Add(this.GetSelectedActivity);
+            this.pnlActivities.Controls.Add(this.ActivityEndTimeLB);
+            this.pnlActivities.Controls.Add(this.ActivityStartTimeLB);
+            this.pnlActivities.Controls.Add(this.ActivityDisctiptionLB);
+            this.pnlActivities.Controls.Add(this.ActivityNameLB);
+            this.pnlActivities.Controls.Add(this.ActivityIDLB);
+            this.pnlActivities.Controls.Add(this.ActivityEndTimeMC);
+            this.pnlActivities.Controls.Add(this.ActivityStartTimeMC);
+            this.pnlActivities.Controls.Add(this.ActivityDiscriptionTB);
+            this.pnlActivities.Controls.Add(this.ActivityNameTB);
+            this.pnlActivities.Controls.Add(this.ActivityIDTB);
+            this.pnlActivities.Controls.Add(this.CreateActivity);
+            this.pnlActivities.Controls.Add(this.ActivityCB);
             this.pnlActivities.Controls.Add(this.listViewActivities);
             this.pnlActivities.Controls.Add(this.pictureBox3);
             this.pnlActivities.Controls.Add(this.label2);
@@ -444,12 +473,14 @@
             this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.ActivitieName,
-            this.DateTime});
+            this.Discription,
+            this.StartDateTime,
+            this.EndDateTime});
             this.listViewActivities.GridLines = true;
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.Location = new System.Drawing.Point(16, 42);
             this.listViewActivities.Name = "listViewActivities";
-            this.listViewActivities.Size = new System.Drawing.Size(766, 307);
+            this.listViewActivities.Size = new System.Drawing.Size(766, 155);
             this.listViewActivities.TabIndex = 5;
             this.listViewActivities.UseCompatibleStateImageBehavior = false;
             this.listViewActivities.View = System.Windows.Forms.View.Details;
@@ -464,10 +495,10 @@
             this.ActivitieName.Text = "Name";
             this.ActivitieName.Width = 160;
             // 
-            // DateTime
+            // StartDateTime
             // 
-            this.DateTime.Text = "Time";
-            this.DateTime.Width = 160;
+            this.StartDateTime.Text = "Start Time";
+            this.StartDateTime.Width = 160;
             // 
             // pictureBox3
             // 
@@ -559,7 +590,7 @@
             this.Omzetrapportage.Controls.Add(this.listViewRevenue);
             this.Omzetrapportage.Controls.Add(this.pictureBox5);
             this.Omzetrapportage.Controls.Add(this.label4);
-            this.Omzetrapportage.Location = new System.Drawing.Point(16, 37);
+            this.Omzetrapportage.Location = new System.Drawing.Point(32, 50);
             this.Omzetrapportage.Name = "Omzetrapportage";
             this.Omzetrapportage.Size = new System.Drawing.Size(935, 547);
             this.Omzetrapportage.TabIndex = 8;
@@ -659,6 +690,7 @@
             // pnlBtwOphalen
             // 
             this.pnlBtwOphalen.Controls.Add(this.labelJaar);
+            this.pnlBtwOphalen.Controls.Add(this.Omzetrapportage);
             this.pnlBtwOphalen.Controls.Add(this.textBoxYear);
             this.pnlBtwOphalen.Controls.Add(this.btnReset);
             this.pnlBtwOphalen.Controls.Add(this.groupBoxInformatie);
@@ -671,7 +703,7 @@
             this.pnlBtwOphalen.Controls.Add(this.labelKwartaal);
             this.pnlBtwOphalen.Controls.Add(this.pictureBox6);
             this.pnlBtwOphalen.Controls.Add(this.labelBtw);
-            this.pnlBtwOphalen.Location = new System.Drawing.Point(22, 37);
+            this.pnlBtwOphalen.Location = new System.Drawing.Point(13, 91);
             this.pnlBtwOphalen.Name = "pnlBtwOphalen";
             this.pnlBtwOphalen.Size = new System.Drawing.Size(935, 463);
             this.pnlBtwOphalen.TabIndex = 9;
@@ -960,7 +992,7 @@
             this.pnlSupply.Controls.Add(this.listViewSupply);
             this.pnlSupply.Controls.Add(this.pictureBox7);
             this.pnlSupply.Controls.Add(this.Supplylbl);
-            this.pnlSupply.Location = new System.Drawing.Point(16, 30);
+            this.pnlSupply.Location = new System.Drawing.Point(10, 120);
             this.pnlSupply.Name = "pnlSupply";
             this.pnlSupply.Size = new System.Drawing.Size(935, 545);
             this.pnlSupply.TabIndex = 12;
@@ -991,7 +1023,7 @@
             // 
             this.Stocktxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Stocktxt.Location = new System.Drawing.Point(229, 403);
-            this.Stocktxt.Margin = new System.Windows.Forms.Padding(2);
+            this.Stocktxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Stocktxt.Name = "Stocktxt";
             this.Stocktxt.Size = new System.Drawing.Size(112, 23);
             this.Stocktxt.TabIndex = 8;
@@ -1000,7 +1032,7 @@
             // 
             this.Idtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Idtxt.Location = new System.Drawing.Point(127, 369);
-            this.Idtxt.Margin = new System.Windows.Forms.Padding(2);
+            this.Idtxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Idtxt.Name = "Idtxt";
             this.Idtxt.Size = new System.Drawing.Size(118, 23);
             this.Idtxt.TabIndex = 7;
@@ -1009,7 +1041,7 @@
             // 
             this.Updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Updatebtn.Location = new System.Drawing.Point(32, 438);
-            this.Updatebtn.Margin = new System.Windows.Forms.Padding(2);
+            this.Updatebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Updatebtn.Name = "Updatebtn";
             this.Updatebtn.Size = new System.Drawing.Size(126, 38);
             this.Updatebtn.TabIndex = 6;
@@ -1082,7 +1114,7 @@
             this.Kassa.Controls.Add(this.listViewStudent);
             this.Kassa.Controls.Add(this.pictureBox8);
             this.Kassa.Controls.Add(this.label20);
-            this.Kassa.Location = new System.Drawing.Point(12, 27);
+            this.Kassa.Location = new System.Drawing.Point(6, 141);
             this.Kassa.Name = "Kassa";
             this.Kassa.Size = new System.Drawing.Size(935, 463);
             this.Kassa.TabIndex = 20;
@@ -1090,7 +1122,7 @@
             // btnCheckout
             // 
             this.btnCheckout.Location = new System.Drawing.Point(357, 223);
-            this.btnCheckout.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(188, 25);
             this.btnCheckout.TabIndex = 8;
@@ -1115,7 +1147,7 @@
             "Brand",
             "Grolsch"});
             this.listBox2.Location = new System.Drawing.Point(454, 47);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(92, 160);
             this.listBox2.TabIndex = 7;
@@ -1129,7 +1161,7 @@
             "Teun",
             "Jan"});
             this.listBox1.Location = new System.Drawing.Point(357, 47);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(92, 160);
             this.listBox1.TabIndex = 6;
@@ -1143,7 +1175,7 @@
             this.listViewDrink.GridLines = true;
             this.listViewDrink.HideSelection = false;
             this.listViewDrink.Location = new System.Drawing.Point(166, 47);
-            this.listViewDrink.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewDrink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewDrink.Name = "listViewDrink";
             this.listViewDrink.Size = new System.Drawing.Size(169, 301);
             this.listViewDrink.TabIndex = 5;
@@ -1172,7 +1204,7 @@
             this.listViewStudent.GridLines = true;
             this.listViewStudent.HideSelection = false;
             this.listViewStudent.Location = new System.Drawing.Point(30, 46);
-            this.listViewStudent.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewStudent.Name = "listViewStudent";
             this.listViewStudent.Size = new System.Drawing.Size(124, 301);
             this.listViewStudent.TabIndex = 4;
@@ -1208,16 +1240,132 @@
             this.label20.TabIndex = 3;
             this.label20.Text = "Kassa";
             // 
+            // EndDateTime
+            // 
+            this.EndDateTime.Text = "End Time";
+            // 
+            // Discription
+            // 
+            this.Discription.Text = "Discription";
+            this.Discription.Width = 136;
+            // 
+            // ActivityCB
+            // 
+            this.ActivityCB.FormattingEnabled = true;
+            this.ActivityCB.Items.AddRange(new object[] {
+            "Select Activity"});
+            this.ActivityCB.Location = new System.Drawing.Point(16, 215);
+            this.ActivityCB.Name = "ActivityCB";
+            this.ActivityCB.Size = new System.Drawing.Size(169, 21);
+            this.ActivityCB.TabIndex = 6;
+            this.ActivityCB.Text = "Select Activity";
+            // 
+            // CreateActivity
+            // 
+            this.CreateActivity.Location = new System.Drawing.Point(316, 213);
+            this.CreateActivity.Name = "CreateActivity";
+            this.CreateActivity.Size = new System.Drawing.Size(113, 23);
+            this.CreateActivity.TabIndex = 7;
+            this.CreateActivity.Text = "Create new Activity";
+            this.CreateActivity.UseVisualStyleBackColor = true;
+            // 
+            // ActivityIDTB
+            // 
+            this.ActivityIDTB.Location = new System.Drawing.Point(16, 269);
+            this.ActivityIDTB.Name = "ActivityIDTB";
+            this.ActivityIDTB.Size = new System.Drawing.Size(71, 20);
+            this.ActivityIDTB.TabIndex = 8;
+            // 
+            // ActivityNameTB
+            // 
+            this.ActivityNameTB.Location = new System.Drawing.Point(90, 269);
+            this.ActivityNameTB.Name = "ActivityNameTB";
+            this.ActivityNameTB.Size = new System.Drawing.Size(128, 20);
+            this.ActivityNameTB.TabIndex = 9;
+            // 
+            // ActivityDiscriptionTB
+            // 
+            this.ActivityDiscriptionTB.Location = new System.Drawing.Point(224, 269);
+            this.ActivityDiscriptionTB.Name = "ActivityDiscriptionTB";
+            this.ActivityDiscriptionTB.Size = new System.Drawing.Size(138, 20);
+            this.ActivityDiscriptionTB.TabIndex = 10;
+            // 
+            // ActivityStartTimeMC
+            // 
+            this.ActivityStartTimeMC.Location = new System.Drawing.Point(368, 269);
+            this.ActivityStartTimeMC.Name = "ActivityStartTimeMC";
+            this.ActivityStartTimeMC.TabIndex = 11;
+            // 
+            // ActivityEndTimeMC
+            // 
+            this.ActivityEndTimeMC.Location = new System.Drawing.Point(608, 269);
+            this.ActivityEndTimeMC.Name = "ActivityEndTimeMC";
+            this.ActivityEndTimeMC.TabIndex = 12;
+            // 
+            // ActivityIDLB
+            // 
+            this.ActivityIDLB.AutoSize = true;
+            this.ActivityIDLB.Location = new System.Drawing.Point(16, 250);
+            this.ActivityIDLB.Name = "ActivityIDLB";
+            this.ActivityIDLB.Size = new System.Drawing.Size(55, 13);
+            this.ActivityIDLB.TabIndex = 13;
+            this.ActivityIDLB.Text = "Activity ID";
+            // 
+            // ActivityNameLB
+            // 
+            this.ActivityNameLB.AutoSize = true;
+            this.ActivityNameLB.Location = new System.Drawing.Point(87, 250);
+            this.ActivityNameLB.Name = "ActivityNameLB";
+            this.ActivityNameLB.Size = new System.Drawing.Size(35, 13);
+            this.ActivityNameLB.TabIndex = 14;
+            this.ActivityNameLB.Text = "Name";
+            // 
+            // ActivityDisctiptionLB
+            // 
+            this.ActivityDisctiptionLB.AutoSize = true;
+            this.ActivityDisctiptionLB.Location = new System.Drawing.Point(221, 250);
+            this.ActivityDisctiptionLB.Name = "ActivityDisctiptionLB";
+            this.ActivityDisctiptionLB.Size = new System.Drawing.Size(56, 13);
+            this.ActivityDisctiptionLB.TabIndex = 15;
+            this.ActivityDisctiptionLB.Text = "Discription";
+            // 
+            // ActivityStartTimeLB
+            // 
+            this.ActivityStartTimeLB.AutoSize = true;
+            this.ActivityStartTimeLB.Location = new System.Drawing.Point(365, 250);
+            this.ActivityStartTimeLB.Name = "ActivityStartTimeLB";
+            this.ActivityStartTimeLB.Size = new System.Drawing.Size(55, 13);
+            this.ActivityStartTimeLB.TabIndex = 16;
+            this.ActivityStartTimeLB.Text = "Start Time";
+            // 
+            // ActivityEndTimeLB
+            // 
+            this.ActivityEndTimeLB.AutoSize = true;
+            this.ActivityEndTimeLB.Location = new System.Drawing.Point(605, 250);
+            this.ActivityEndTimeLB.Name = "ActivityEndTimeLB";
+            this.ActivityEndTimeLB.Size = new System.Drawing.Size(52, 13);
+            this.ActivityEndTimeLB.TabIndex = 17;
+            this.ActivityEndTimeLB.Text = "End Time";
+            // 
+            // GetSelectedActivity
+            // 
+            this.GetSelectedActivity.Location = new System.Drawing.Point(191, 213);
+            this.GetSelectedActivity.Name = "GetSelectedActivity";
+            this.GetSelectedActivity.Size = new System.Drawing.Size(119, 23);
+            this.GetSelectedActivity.TabIndex = 18;
+            this.GetSelectedActivity.Text = "Get selected activity";
+            this.GetSelectedActivity.UseVisualStyleBackColor = true;
+            this.GetSelectedActivity.Click += new System.EventHandler(this.GetSelectedActivity_Click);
+            // 
             // SomerenUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 605);
+            this.ClientSize = new System.Drawing.Size(998, 526);
+            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.Kassa);
             this.Controls.Add(this.pnlSupply);
             this.Controls.Add(this.pnlBtwOphalen);
-            this.Controls.Add(this.Omzetrapportage);
-            this.Controls.Add(this.pnlActivities);
             this.Controls.Add(this.pnlTeachers);
             this.Controls.Add(this.pnlRooms);
             this.Controls.Add(this.pnlStudents);
@@ -1304,7 +1452,7 @@
         private System.Windows.Forms.ListView listViewActivities;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader ActivitieName;
-        private System.Windows.Forms.ColumnHeader DateTime;
+        private System.Windows.Forms.ColumnHeader StartDateTime;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader studentFirstName;
@@ -1380,6 +1528,22 @@
         private System.Windows.Forms.ColumnHeader columnStudentName;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox ActivityCB;
+        private System.Windows.Forms.ColumnHeader Discription;
+        private System.Windows.Forms.ColumnHeader EndDateTime;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button CreateActivity;
+        private System.Windows.Forms.TextBox ActivityNameTB;
+        private System.Windows.Forms.TextBox ActivityIDTB;
+        private System.Windows.Forms.Button GetSelectedActivity;
+        private System.Windows.Forms.Label ActivityEndTimeLB;
+        private System.Windows.Forms.Label ActivityStartTimeLB;
+        private System.Windows.Forms.Label ActivityDisctiptionLB;
+        private System.Windows.Forms.Label ActivityNameLB;
+        private System.Windows.Forms.Label ActivityIDLB;
+        private System.Windows.Forms.MonthCalendar ActivityEndTimeMC;
+        private System.Windows.Forms.MonthCalendar ActivityStartTimeMC;
+        private System.Windows.Forms.TextBox ActivityDiscriptionTB;
     }
 }
 

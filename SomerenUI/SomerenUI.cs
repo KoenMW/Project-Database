@@ -189,9 +189,12 @@ namespace SomerenUI
                     //fill listview
                     foreach (Activity a in activitieList)
                     {
+                        ActivityCB.Items.Add(a.Name);
                         ListViewItem li = new ListViewItem(a.Id.ToString());
                         li.SubItems.Add(a.Name);
-                        li.SubItems.Add(a.Time.ToString());
+                        li.SubItems.Add(a.Description);
+                        li.SubItems.Add(a.StartTime.ToString());
+                        li.SubItems.Add(a.EndTime.ToString());
                         listViewActivities.Items.Add(li);
                     }
                 }
@@ -385,6 +388,19 @@ namespace SomerenUI
         {
             showPanel("Omzetrapportage");
         }
+        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Supplies");
+        }
+
+        private void kassaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Kassa");
+        }
+        private void bTWBerekenenToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showPanel("BtwOphalen");
+        }
 
         private void CalculateRevenue_Click(object sender, EventArgs e)
         {
@@ -422,10 +438,6 @@ namespace SomerenUI
             {
                 MessageBox.Show("Something went wrong while loading the revenue: " + E.Message);
             }
-        }
-        private void bTWBerekenenToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            showPanel("BtwOphalen");
         }
 
         //Vanaf hier is BTW berekenen
@@ -507,10 +519,6 @@ namespace SomerenUI
 
         //Vanaf hier is drankvoorraad
 
-        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Supplies");
-        }
 
         private void Updatebtn_Click(object sender, EventArgs e)
         {
@@ -559,12 +567,12 @@ namespace SomerenUI
             }
         }
 
-        private void kassaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnCheckout_Click(object sender, EventArgs e)
         {
-            showPanel("Kassa");
+
         }
 
-        private void btnCheckout_Click(object sender, EventArgs e)
+        private void GetSelectedActivity_Click(object sender, EventArgs e)
         {
 
         }
