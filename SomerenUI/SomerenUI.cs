@@ -186,6 +186,8 @@ namespace SomerenUI
 
                     // clear the listview before filling it again
                     listViewActivities.Items.Clear();
+                    ActivityCB.Items.Clear();
+                    ActivityCB.Items.Add("Select Activity");
                     //fill listview
                     foreach (Activity a in activitieList)
                     {
@@ -574,7 +576,104 @@ namespace SomerenUI
 
         private void GetSelectedActivity_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (ActivityCB.Text!= "Select Activity")
+                {
+                    ActivityService actService = new ActivityService();
+                    Activity activity = actService.GetByName(ActivityCB.Text);
+                    ActivityIDTB.Text = activity.Id.ToString();
+                    ActivityNameTB.Text = activity.Name;
+                    ActivityDiscriptionTB.Text = activity.Description;
+                    ActivityStartTimeMC.SetDate(activity.StartTime);
+                    ActivityEndTimeMC.SetDate(activity.EndTime);
+                }
+                else
+                {
+                    MessageBox.Show("Please select an activity");
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show("Something went wrong while loading the activities: " + E.Message);
+            }
+        }
 
+        private void ActivityUpdate_Click(object sender, EventArgs e)
+        {
+            Activity updatedActivity = new Activity
+            {
+                Id = int.Parse(ActivityIDTB.Text),
+                Name = ActivityNameTB.Text,
+                Description = ActivityDiscriptionTB.Text,
+                StartTime = Convert.ToDateTime(ActivityStartTimeMC.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(ActivityEndTimeMC.SelectionRange.Start.ToString())
+            };
+            ActivityService actService = new ActivityService();
+            List<Activity> activities = actService.GetActivities();
+
+            if (activities.Any(a => a.Id == updatedActivity.Id))
+            {
+                actService.UpdateActivity(updatedActivity);
+                showPanel("Activities");
+            }
+            else
+            {
+                MessageBox.Show($"the selected activity id ({updatedActivity.Id}) does not exist please check again or use create new activity");
+            }
+        }
+
+        private void CreateActivity_Click(object sender, EventArgs e)
+        {
+            Activity newActivity = new Activity
+            {
+                Id = int.Parse(ActivityIDTB.Text),
+                Name = ActivityNameTB.Text,
+                Description = ActivityDiscriptionTB.Text,
+                StartTime = Convert.ToDateTime(ActivityStartTimeMC.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(ActivityEndTimeMC.SelectionRange.Start.ToString())
+            };
+            ActivityService actService = new ActivityService();
+            List<Activity> activities = actService.GetActivities();
+
+            if (activities.Any(a => a.Id != newActivity.Id))
+            {
+                actService.InserActivity(newActivity);
+                showPanel("Activities");
+            }
+            else
+            {
+                MessageBox.Show($"the selected activity id ({newActivity.Id}) already exist");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Activity deleteActivity = new Activity
+            {
+                Id = int.Parse(ActivityIDTB.Text),
+                Name = ActivityNameTB.Text,
+                Description = ActivityDiscriptionTB.Text,
+                StartTime = Convert.ToDateTime(ActivityStartTimeMC.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(ActivityEndTimeMC.SelectionRange.Start.ToString())
+            };
+
+            ActivityService actService = new ActivityService();
+            List<Activity> activities = actService.GetActivities();
+            if (activities.Any(a => a.Id != deleteActivity.Id))
+            {
+                
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete {deleteActivity.Name}?", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    actService.DeleteActivity(deleteActivity);
+                    showPanel("Activities");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"the selected activity ({deleteActivity.Name}) with id ({deleteActivity.Id}) does not exist please use get selected activity");
+            }
         }
 
         //Tot hier is drankvoorraad

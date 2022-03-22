@@ -28,6 +28,36 @@ namespace SomerenDAL
             return activities[0];
         }
 
+        public void UpdateActivity(Activity activity)
+        {
+            string query = "UPDATE activities SET activitie_name = @name, [Description] = @description, StartDateTime = @startDate, EndDateTime = @endDate WHERE activitie_id = @id";
+            SqlParameter[] sqlParameters = new SqlParameter[5];
+            sqlParameters[0] = new SqlParameter("@name", activity.Name);
+            sqlParameters[1] = new SqlParameter("@description", activity.Description);
+            sqlParameters[2] = new SqlParameter("@startDate", activity.StartTime);
+            sqlParameters[3] = new SqlParameter("@endDate", activity.EndTime);
+            sqlParameters[4] = new SqlParameter("@id", activity.Id);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void InsertActivity(Activity activity)
+        {
+            string query = "INSERT INTO activities VALUES(@id, @name, @description, @startDate, @endDate);";
+            SqlParameter[] sqlParameters = new SqlParameter[5];
+            sqlParameters[0] = new SqlParameter("@name", activity.Name);
+            sqlParameters[1] = new SqlParameter("@description", activity.Description);
+            sqlParameters[2] = new SqlParameter("@startDate", activity.StartTime.ToString("yyyy-MM-dd"));
+            sqlParameters[3] = new SqlParameter("@endDate", activity.EndTime.ToString("yyyy-MM-dd"));
+            sqlParameters[4] = new SqlParameter("@id", activity.Id);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void DeleteActivity(Activity activity)
+        {
+            string query = "DELETE FROM activities WHERE activitie_id = @id;";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", activity.Id);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         private List<Activity> ReadTables(DataTable dataTable)
         {
             List<Activity> activities = new List<Activity>();
