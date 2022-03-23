@@ -186,12 +186,12 @@ namespace SomerenUI
 
                     // clear the listview before filling it again
                     listViewActivities.Items.Clear();
-                    ActivityCB.Items.Clear();
-                    ActivityCB.Items.Add("Select Activity");
+                    CbActivity.Items.Clear();
+                    CbActivity.Items.Add("Select Activity");
                     //fill listview
                     foreach (Activity a in activitieList)
                     {
-                        ActivityCB.Items.Add(a.Name);
+                        CbActivity.Items.Add(a.Name);
                         ListViewItem li = new ListViewItem(a.Id.ToString());
                         li.SubItems.Add(a.Name);
                         li.SubItems.Add(a.Description);
@@ -340,7 +340,7 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
                 }
 
             }
@@ -501,7 +501,7 @@ namespace SomerenUI
             }
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void btnReset_Click_1(object sender, EventArgs e)
         {
             ClearVAT();
         }
@@ -565,9 +565,11 @@ namespace SomerenUI
             }
             catch (Exception i)
             {
-                MessageBox.Show("Something went wrong while loading the activities: " + i.Message);
+                MessageBox.Show("Something went wrong while loading the drinks: " + i.Message);
             }
         }
+
+        //Tot hier is drankvoorraad
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
@@ -578,15 +580,15 @@ namespace SomerenUI
         {
             try
             {
-                if (ActivityCB.Text!= "Select Activity")
+                if (CbActivity.Text!= "Select Activity")
                 {
                     ActivityService actService = new ActivityService();
-                    Activity activity = actService.GetByName(ActivityCB.Text);
-                    ActivityIDTB.Text = activity.Id.ToString();
-                    ActivityNameTB.Text = activity.Name;
-                    ActivityDiscriptionTB.Text = activity.Description;
-                    ActivityStartTimeMC.SetDate(activity.StartTime);
-                    ActivityEndTimeMC.SetDate(activity.EndTime);
+                    Activity activity = actService.GetByName(CbActivity.Text);
+                    TbActivityID.Text = activity.Id.ToString();
+                    TbActivityName.Text = activity.Name;
+                    TbActivityDiscription.Text = activity.Description;
+                    McActivityStartTime.SetDate(activity.StartTime);
+                    McActivityEndTime.SetDate(activity.EndTime);
                 }
                 else
                 {
@@ -603,11 +605,11 @@ namespace SomerenUI
         {
             Activity updatedActivity = new Activity
             {
-                Id = int.Parse(ActivityIDTB.Text),
-                Name = ActivityNameTB.Text,
-                Description = ActivityDiscriptionTB.Text,
-                StartTime = Convert.ToDateTime(ActivityStartTimeMC.SelectionRange.Start.ToString()),
-                EndTime = Convert.ToDateTime(ActivityEndTimeMC.SelectionRange.Start.ToString())
+                Id = int.Parse(TbActivityID.Text),
+                Name = TbActivityName.Text,
+                Description = TbActivityDiscription.Text,
+                StartTime = Convert.ToDateTime(McActivityStartTime.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(McActivityEndTime.SelectionRange.Start.ToString())
             };
             ActivityService actService = new ActivityService();
             List<Activity> activities = actService.GetActivities();
@@ -627,11 +629,11 @@ namespace SomerenUI
         {
             Activity newActivity = new Activity
             {
-                Id = int.Parse(ActivityIDTB.Text),
-                Name = ActivityNameTB.Text,
-                Description = ActivityDiscriptionTB.Text,
-                StartTime = Convert.ToDateTime(ActivityStartTimeMC.SelectionRange.Start.ToString()),
-                EndTime = Convert.ToDateTime(ActivityEndTimeMC.SelectionRange.Start.ToString())
+                Id = int.Parse(TbActivityID.Text),
+                Name = TbActivityName.Text,
+                Description = TbActivityDiscription.Text,
+                StartTime = Convert.ToDateTime(McActivityStartTime.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(McActivityEndTime.SelectionRange.Start.ToString())
             };
             ActivityService actService = new ActivityService();
             List<Activity> activities = actService.GetActivities();
@@ -651,11 +653,11 @@ namespace SomerenUI
         {
             Activity deleteActivity = new Activity
             {
-                Id = int.Parse(ActivityIDTB.Text),
-                Name = ActivityNameTB.Text,
-                Description = ActivityDiscriptionTB.Text,
-                StartTime = Convert.ToDateTime(ActivityStartTimeMC.SelectionRange.Start.ToString()),
-                EndTime = Convert.ToDateTime(ActivityEndTimeMC.SelectionRange.Start.ToString())
+                Id = int.Parse(TbActivityID.Text),
+                Name = TbActivityName.Text,
+                Description = TbActivityDiscription.Text,
+                StartTime = Convert.ToDateTime(McActivityStartTime.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(McActivityEndTime.SelectionRange.Start.ToString())
             };
 
             ActivityService actService = new ActivityService();
@@ -675,7 +677,5 @@ namespace SomerenUI
                 MessageBox.Show($"the selected activity ({deleteActivity.Name}) with id ({deleteActivity.Id}) does not exist please use get selected activity");
             }
         }
-
-        //Tot hier is drankvoorraad
     }
 }
