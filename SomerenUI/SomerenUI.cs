@@ -576,7 +576,7 @@ namespace SomerenUI
 
         }
 
-        private void GetSelectedActivity_Click(object sender, EventArgs e)
+        private void BtnGetSelectedActivity_Click(object sender, EventArgs e)
         {
             try
             {
@@ -601,7 +601,7 @@ namespace SomerenUI
             }
         }
 
-        private void ActivityUpdate_Click(object sender, EventArgs e)
+        private void BtnActivityUpdate_Click(object sender, EventArgs e)
         {
             Activity updatedActivity = new Activity
             {
@@ -616,8 +616,22 @@ namespace SomerenUI
 
             if (activities.Any(a => a.Id == updatedActivity.Id))
             {
-                actService.UpdateActivity(updatedActivity);
-                showPanel("Activities");
+                if (updatedActivity.StartTime<updatedActivity.EndTime)
+                {
+                    if (updatedActivity.StartTime>System.DateTime.Now && updatedActivity.EndTime>System.DateTime.Now)
+                    {
+                        actService.UpdateActivity(updatedActivity);
+                        showPanel("Activities");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Activity can't be in the past");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Start time is before end time");
+                }
             }
             else
             {
@@ -625,7 +639,7 @@ namespace SomerenUI
             }
         }
 
-        private void CreateActivity_Click(object sender, EventArgs e)
+        private void BtnCreateActivity_Click(object sender, EventArgs e)
         {
             Activity newActivity = new Activity
             {
@@ -640,8 +654,22 @@ namespace SomerenUI
 
             if (activities.Any(a => a.Id != newActivity.Id))
             {
-                actService.InserActivity(newActivity);
-                showPanel("Activities");
+                if (newActivity.StartTime < newActivity.EndTime)
+                {
+                    if (newActivity.StartTime > System.DateTime.Now && newActivity.EndTime > System.DateTime.Now)
+                    {
+                        actService.InserActivity(newActivity);
+                        showPanel("Activities");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Activity can't be in the past");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Start time is before end time");
+                }
             }
             else
             {
@@ -649,7 +677,7 @@ namespace SomerenUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnDeleteActivity_Click(object sender, EventArgs e)
         {
             Activity deleteActivity = new Activity
             {
