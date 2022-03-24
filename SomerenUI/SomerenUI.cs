@@ -40,7 +40,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 // show dashboard
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -57,7 +57,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 // show students
                 pnlStudents.Show();
 
@@ -97,7 +97,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 // show teachers
                 pnlTeachers.Show();
 
@@ -136,7 +136,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 // show students
                 pnlRooms.Show();
 
@@ -176,7 +176,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 // show activities
                 pnlActivities.Show();
                 try
@@ -218,7 +218,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 // show activities
                 Omzetrapportage.Show();
                 try
@@ -252,7 +252,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
+
                 //show btw panel
                 pnlBtwOphalen.Show();
                 try
@@ -277,7 +277,6 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 Omzetrapportage.Hide();
                 Kassa.Hide();
-                pnlActivityParticipants.Hide();
                 // show supplies
                 pnlSupply.Show();
                 try
@@ -323,7 +322,6 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
-                pnlActivityParticipants.Hide();
 
                 //Show Kassa
                 Kassa.Show();
@@ -340,58 +338,6 @@ namespace SomerenUI
                         li.SubItems.Add(drink.Price.ToString("€0.00"));
                         listViewDrink.Items.Add(li);
                     }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
-                }
-
-            }
-            else if (panelName == "pnlActivityParticipants")
-            {
-                // hide all other panels
-                pnlDashboard.Hide();
-                imgDashboard.Hide();
-                pnlStudents.Hide();
-                pnlTeachers.Hide();
-                pnlRooms.Hide();
-                pnlActivities.Hide();
-                Omzetrapportage.Hide();
-                pnlSupply.Hide();
-                pnlBtwOphalen.Hide();
-                pnlActivities.Hide();
-
-                //Show Activity Participants
-                pnlActivityParticipants.Show();
-                try
-                {
-
-                    ActivityService activityService = new ActivityService();
-                    List<Activity> activities = activityService.GetActivities();
-                    listViewActivitiesAP.Items.Clear();
-                    foreach  (Activity activity in activities)
-                    {
-                        ListViewItem listViewItem = new ListViewItem(activity.Id.ToString());
-                        listViewItem.SubItems.Add(activity.Name);
-                        listViewActivitiesAP.Items.Add(listViewItem);
-                    }
-                    listViewActivitiesAP.SelectedItems.Clear();
-
-                    StudentService studentService = new StudentService();
-                    List<Student> students = studentService.GetStudents();
-                    listViewAPallStudents.Items.Clear();
-                    foreach (Student student in students)
-                    {
-                        ListViewItem listViewItem = new ListViewItem(student.Number.ToString());
-                        listViewItem.SubItems.Add(student.Name);
-                        listViewAPallStudents.Items.Add(listViewItem);
-                    }
-                    listViewAPallStudents.Focus();
-                    listViewAPallStudents.Items[0].Selected = true;
-
-                    listViewActivitiesAP.Focus();
-                    listViewActivitiesAP.Items[0].Selected = true;
-
                 }
                 catch (Exception e)
                 {
@@ -767,87 +713,6 @@ namespace SomerenUI
             else
             {
                 MessageBox.Show($"the selected activity ({deleteActivity.Name}) with id ({deleteActivity.Id}) does not exist please use get selected activity");
-            }
-        }
-
-        private void participatingStudentsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("pnlActivityParticipants");
-        }
-
-        private void btnShowAP_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (listViewActivitiesAP.SelectedItems != null)
-                {
-                    listViewActivitiesAPResult.Items.Clear();
-                    StudentService studentService = new StudentService();
-                    List<Student> students = studentService.GetStudentNamesAndActivities(int.Parse(listViewActivitiesAP.SelectedItems[0].Text));
-
-                    foreach (Student student in students)
-                    {
-                        ListViewItem item = new ListViewItem(student.Number.ToString());
-                        item.SubItems.Add(student.Name);
-                        listViewActivitiesAPResult.Items.Add(item);
-                    }
-                    //listViewActivitiesAPResult.Focus();
-                    //listViewActivitiesAPResult.Items[0].Selected = true;
-                }
-
-                else
-                {
-                    throw new Exception("Please select an activity.");
-                }
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show("Something went wrong while listing the students: " + exception.Message);
-            }
-        }
-
-        private void btnAddStudentToActivity_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                StudentService studentService = new StudentService();
-                studentService.UpdateStudentActivity(int.Parse(listViewActivitiesAP.SelectedItems[0].Text), int.Parse(listViewAPallStudents.SelectedItems[0].Text));
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show("Something went wrong while updating the student: " + exception.Message);
-            }
-        }
-
-        private void btnRemoveParticipantFromActivity_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                DialogResult dialogResult = MessageBox.Show($"Are you sure that you wish to remove this participant?", "", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    if (listViewActivitiesAPResult.SelectedItems != null)
-                    {
-                        StudentService studentService = new StudentService();
-                        if (listViewActivitiesAPResult.Items.Count != 0)
-                        {
-                            studentService.RemoveStudentActivity(int.Parse(listViewActivitiesAPResult.SelectedItems[0].Text));
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("Please select a student from the right listview.");
-                    }
-                    showPanel("pnlActivityParticipants");
-                }
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show("Something went wrong while removing the student: " + exception.Message);
             }
         }
     }
