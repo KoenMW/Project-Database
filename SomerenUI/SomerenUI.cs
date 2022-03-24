@@ -622,7 +622,7 @@ namespace SomerenUI
             {
                 if (updatedActivity.StartTime <= updatedActivity.EndTime)
                 {
-                    if (System.DateTime.Today<=updatedActivity.StartTime && System.DateTime.Today<=updatedActivity.EndTime)
+                    if (System.DateTime.Today <= updatedActivity.StartTime && System.DateTime.Today <= updatedActivity.EndTime)
                     {
                         actService.UpdateActivity(updatedActivity);
                         showPanel("Activities");
@@ -655,29 +655,35 @@ namespace SomerenUI
             };
             ActivityService actService = new ActivityService();
             List<Activity> activities = actService.GetActivities();
-
-            if (activities.Any(a => a.Id != newActivity.Id))
+            if (!activities.Any(a => a.Name == newActivity.Name))
             {
-                if (newActivity.StartTime <= newActivity.EndTime)
+                if (!activities.Any(a => a.Id == newActivity.Id))
                 {
-                    if (System.DateTime.Today <= newActivity.StartTime && System.DateTime.Today <= newActivity.EndTime)
+                    if (newActivity.StartTime <= newActivity.EndTime)
                     {
-                        actService.InserActivity(newActivity);
-                        showPanel("Activities");
+                        if (System.DateTime.Today <= newActivity.StartTime && System.DateTime.Today <= newActivity.EndTime)
+                        {
+                            actService.InserActivity(newActivity);
+                            showPanel("Activities");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Activity can't be in the past");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Activity can't be in the past");
+                        MessageBox.Show("Start time is before end time");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Start time is before end time");
+                    MessageBox.Show($"An activity with id: {newActivity.Id} already exist");
                 }
             }
             else
             {
-                MessageBox.Show($"the selected activity id ({newActivity.Id}) already exist");
+                MessageBox.Show($"An activity with name: {newActivity.Name} already exist");
             }
         }
 
@@ -694,7 +700,7 @@ namespace SomerenUI
 
             ActivityService actService = new ActivityService();
             List<Activity> activities = actService.GetActivities();
-            if (activities.Any(a => a.Id != deleteActivity.Id))
+            if (activities.Any(a => a.Id == deleteActivity.Id))
             {
                 
                 DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete {deleteActivity.Name}?", "", MessageBoxButtons.YesNo);
