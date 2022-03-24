@@ -620,9 +620,9 @@ namespace SomerenUI
 
             if (activities.Any(a => a.Id == updatedActivity.Id))
             {
-                if (updatedActivity.StartTime<updatedActivity.EndTime)
+                if (updatedActivity.StartTime <= updatedActivity.EndTime)
                 {
-                    if (updatedActivity.StartTime>System.DateTime.Now && updatedActivity.EndTime>System.DateTime.Now)
+                    if (System.DateTime.Today<=updatedActivity.StartTime && System.DateTime.Today<=updatedActivity.EndTime)
                     {
                         actService.UpdateActivity(updatedActivity);
                         showPanel("Activities");
@@ -658,9 +658,9 @@ namespace SomerenUI
 
             if (activities.Any(a => a.Id != newActivity.Id))
             {
-                if (newActivity.StartTime < newActivity.EndTime)
+                if (newActivity.StartTime <= newActivity.EndTime)
                 {
-                    if (newActivity.StartTime > System.DateTime.Now && newActivity.EndTime > System.DateTime.Now)
+                    if (System.DateTime.Today <= newActivity.StartTime && System.DateTime.Today <= newActivity.EndTime)
                     {
                         actService.InserActivity(newActivity);
                         showPanel("Activities");
