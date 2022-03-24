@@ -75,9 +75,6 @@ namespace SomerenDAL
                 activities.Add(activitie);
             }
             return activities;
-        }      
-
-        
-
+        }
     }
 }

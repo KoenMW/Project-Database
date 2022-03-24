@@ -14,7 +14,7 @@ namespace SomerenDAL
     {
         public List<Teacher> GetAllTeachers()
         {
-            string query = "SELECT teacher_id, teacher_name, activity_number FROM teachers";
+            string query = "SELECT teacher_id, teacher_name FROM teachers";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -28,8 +28,7 @@ namespace SomerenDAL
                 Teacher teacher = new Teacher()
                 {
                     Number = (int)Convert.ToInt32(dr["teacher_id"]),
-                    Name = (string)dr["teacher_name"].ToString(),
-                    Activity = (int)Convert.ToInt32(dr["activity_number"])
+                    Name = (string)dr["teacher_name"].ToString()
                 };
                 teachers.Add(teacher);
             }
