@@ -40,9 +40,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show dashboard
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -59,9 +57,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show students
                 pnlStudents.Show();
 
@@ -101,9 +97,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show teachers
                 pnlTeachers.Show();
 
@@ -142,9 +136,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show students
                 pnlRooms.Show();
 
@@ -184,9 +176,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show activities
                 pnlActivities.Show();
                 try
@@ -228,9 +218,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show activities
                 Omzetrapportage.Show();
                 try
@@ -264,9 +252,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 //show btw panel
                 pnlBtwOphalen.Show();
                 try
@@ -291,9 +277,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 Omzetrapportage.Hide();
                 Kassa.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
                 // show supplies
                 pnlSupply.Show();
                 try
@@ -339,9 +323,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
-                Supervisors.Hide();
                 pnlActivityParticipants.Hide();
-
 
                 //Show Kassa
                 Kassa.Show();
@@ -415,61 +397,9 @@ namespace SomerenUI
                 {
                     MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
                 }
+
             }
-            else if (panelName == "Supervisors")
-            {
-                // hide all other panels
-                pnlDashboard.Hide();
-                imgDashboard.Hide();
-                pnlStudents.Hide();
-                pnlTeachers.Hide();
-                pnlRooms.Hide();
-                pnlActivities.Hide();
-                Omzetrapportage.Hide();
-                pnlSupply.Hide();
-                pnlBtwOphalen.Hide();
-                Kassa.Hide();
-                
-                Supervisors.Show();
-                try
-                {
-                    // fill the Activities listview within the activities panel with a list of activities
-                    ActivityService actService = new ActivityService();
-                    List<Activity> activitieList = actService.GetActivities();
-
-                    // clear the listview before filling it again
-                    listActivity.Items.Clear();
-
-                    //fill listview
-                    foreach (Activity a in activitieList)
-                    {
-                        ListViewItem li = new ListViewItem(a.Id.ToString());
-                        li.SubItems.Add(a.Name);                        
-                        listActivity.Items.Add(li);
-                    }
-                    // fill the teachers listview within the students panel with a list of students
-                    TeacherService teacherService = new TeacherService(); ;
-                    List<Teacher> teacherList = teacherService.GetTeachers(); ;
-
-                    // clear the listview before filling it again
-                    listViewSupervisors.Items.Clear();
-                    //fill listview
-                    foreach (Teacher teacher in teacherList)
-                    {
-                        ListViewItem li = new ListViewItem(teacher.Number.ToString());
-                        li.SubItems.Add(teacher.Name);
-                        li.SubItems.Add(teacher.Activity.ToString());
-                        listViewSupervisors.Items.Add(li);
-                    }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
-                }
-            }
-
         }
-
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -659,8 +589,6 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlActivities.Hide();
             Omzetrapportage.Hide();
-            Supervisors.Hide();
-            Kassa.Hide();
             // show supplies
             pnlSupply.Show();
             try
@@ -694,7 +622,6 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the drinks: " + i.Message);
             }
         }
-        //Tot hier is drankvoorraad
 
         //Tot hier is drankvoorraad
 
@@ -731,33 +658,6 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the activities: " + E.Message);
             }
         }
-
-
-        private void supervisorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Supervisors");
-        }
-
-        private void btnAddSupervisor_Click(object sender, EventArgs e)
-        {
-            int LId = int.Parse(LecturerIdTextBox.Text);
-            int AId = int.Parse(ActivityIdTextBox.Text);
-
-            Supervisor supervisor = new Supervisor(LId, AId);
-            SupervisorService supervisorService = new SupervisorService();
-            supervisorService.AddSupervisor(supervisor);            
-            MessageBox.Show("Supervisor succesfully added.");
-        }
-
-        private void btnDeleteSupervisor_Click(object sender, EventArgs e)
-        {
-            int LId = int.Parse(LIdtextBox.Text);
-            int AId = int.Parse(AIdTextBox.Text);
-
-            Supervisor supervisor = new Supervisor(LId, AId);
-            SupervisorService supervisorService = new SupervisorService();
-            supervisorService.DeleteSupervisor(supervisor);
-            MessageBox.Show("Supervisor succesfully deleted.");
 
         private void BtnActivityUpdate_Click(object sender, EventArgs e)
         {
@@ -949,7 +849,6 @@ namespace SomerenUI
 
                 MessageBox.Show("Something went wrong while removing the student: " + exception.Message);
             }
-
         }
     }
 }
