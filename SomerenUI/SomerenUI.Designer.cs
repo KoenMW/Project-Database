@@ -38,6 +38,9 @@
             this.studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activityParticipantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supervisorsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.supervisorsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bardienstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +65,28 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlActivities = new System.Windows.Forms.Panel();
+            this.BtnDeleteActivity = new System.Windows.Forms.Button();
+            this.BtnActivityUpdate = new System.Windows.Forms.Button();
+            this.BtnGetSelectedActivity = new System.Windows.Forms.Button();
+            this.LbActivityEndTime = new System.Windows.Forms.Label();
+            this.LbActivityStartTime = new System.Windows.Forms.Label();
+            this.LbActivityDisctiption = new System.Windows.Forms.Label();
+            this.LbActivityName = new System.Windows.Forms.Label();
+            this.LbActivityID = new System.Windows.Forms.Label();
+            this.McActivityEndTime = new System.Windows.Forms.MonthCalendar();
+            this.McActivityStartTime = new System.Windows.Forms.MonthCalendar();
+            this.TbActivityDiscription = new System.Windows.Forms.TextBox();
+            this.TbActivityName = new System.Windows.Forms.TextBox();
+            this.TbActivityID = new System.Windows.Forms.TextBox();
+            this.BtnCreateActivity = new System.Windows.Forms.Button();
+            this.listViewActivities = new System.Windows.Forms.ListView();
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ActivitieName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Discription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.EndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlBtwOphalen = new System.Windows.Forms.Panel();
             this.labelJaar = new System.Windows.Forms.Label();
             this.textBoxYear = new System.Windows.Forms.TextBox();
@@ -89,28 +114,6 @@
             this.labelKwartaal = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.labelBtw = new System.Windows.Forms.Label();
-            this.BtnDeleteActivity = new System.Windows.Forms.Button();
-            this.BtnActivityUpdate = new System.Windows.Forms.Button();
-            this.BtnGetSelectedActivity = new System.Windows.Forms.Button();
-            this.LbActivityEndTime = new System.Windows.Forms.Label();
-            this.LbActivityStartTime = new System.Windows.Forms.Label();
-            this.LbActivityDisctiption = new System.Windows.Forms.Label();
-            this.LbActivityName = new System.Windows.Forms.Label();
-            this.LbActivityID = new System.Windows.Forms.Label();
-            this.McActivityEndTime = new System.Windows.Forms.MonthCalendar();
-            this.McActivityStartTime = new System.Windows.Forms.MonthCalendar();
-            this.TbActivityDiscription = new System.Windows.Forms.TextBox();
-            this.TbActivityName = new System.Windows.Forms.TextBox();
-            this.TbActivityID = new System.Windows.Forms.TextBox();
-            this.BtnCreateActivity = new System.Windows.Forms.Button();
-            this.listViewActivities = new System.Windows.Forms.ListView();
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ActivitieName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Discription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StartDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EndDateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlRooms = new System.Windows.Forms.Panel();
             this.listViewRooms = new System.Windows.Forms.ListView();
             this.room_number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -200,11 +203,11 @@
             this.pnlTeachers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlActivities.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlBtwOphalen.SuspendLayout();
             this.groupBoxInformatie.SuspendLayout();
             this.groupBoxBTW.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.Omzetrapportage.SuspendLayout();
@@ -220,17 +223,15 @@
             // 
             // imgDashboard
             // 
-            this.imgDashboard.Location = new System.Drawing.Point(1671, 0);
-            this.imgDashboard.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.imgDashboard.Location = new System.Drawing.Point(627, 0);
             this.imgDashboard.Name = "imgDashboard";
-            this.imgDashboard.Size = new System.Drawing.Size(828, 643);
+            this.imgDashboard.Size = new System.Drawing.Size(310, 270);
             this.imgDashboard.TabIndex = 0;
             this.imgDashboard.TabStop = false;
             this.imgDashboard.Click += new System.EventHandler(this.imgDashboard_Click);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashboardToolStripMenuItem,
@@ -241,8 +242,7 @@
             this.bardienstToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(16, 5, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(2661, 55);
+            this.menuStrip1.Size = new System.Drawing.Size(1262, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -253,57 +253,78 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(192, 45);
+            this.dashboardToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.dashboardToolStripMenuItem.Text = "Application";
             this.dashboardToolStripMenuItem.Click += new System.EventHandler(this.dashboardToolStripMenuItem_Click);
             // 
             // dashboardToolStripMenuItem1
             // 
             this.dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(329, 54);
+            this.dashboardToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
             this.dashboardToolStripMenuItem1.Text = "Dashboard";
             this.dashboardToolStripMenuItem1.Click += new System.EventHandler(this.dashboardToolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(326, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(128, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(329, 54);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // studentsToolStripMenuItem
             // 
             this.studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(158, 45);
+            this.studentsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.studentsToolStripMenuItem.Text = "Students";
             this.studentsToolStripMenuItem.Click += new System.EventHandler(this.studentsToolStripMenuItem_Click);
             // 
             // lecturersToolStripMenuItem
             // 
             this.lecturersToolStripMenuItem.Name = "lecturersToolStripMenuItem";
-            this.lecturersToolStripMenuItem.Size = new System.Drawing.Size(162, 45);
+            this.lecturersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.lecturersToolStripMenuItem.Text = "Lecturers";
             this.lecturersToolStripMenuItem.Click += new System.EventHandler(this.lecturersToolStripMenuItem_Click);
             // 
             // activitiesToolStripMenuItem
-            //
+            // 
             this.activitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.participatingStudentsToolStripMenuItem,
-            this.supervisorsToolStripMenuItem});
+            this.activityParticipantsToolStripMenuItem,
+            this.supervisorsToolStripMenuItem1,
+            this.supervisorsToolStripMenuItem2});
             this.activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(159, 45);
+            this.activitiesToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.activitiesToolStripMenuItem.Text = "Activities";
-            this.activitiesToolStripMenuItem.Click += new System.EventHandler(this.activitiesToolStripMenuItem_Click);
+            // 
+            // activityParticipantsToolStripMenuItem
+            // 
+            this.activityParticipantsToolStripMenuItem.Name = "activityParticipantsToolStripMenuItem";
+            this.activityParticipantsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.activityParticipantsToolStripMenuItem.Text = "Activities";
+            this.activityParticipantsToolStripMenuItem.Click += new System.EventHandler(this.activityParticipantsToolStripMenuItem_Click);
+            // 
+            // supervisorsToolStripMenuItem1
+            // 
+            this.supervisorsToolStripMenuItem1.Name = "supervisorsToolStripMenuItem1";
+            this.supervisorsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.supervisorsToolStripMenuItem1.Text = "Activity Participants";
+            this.supervisorsToolStripMenuItem1.Click += new System.EventHandler(this.supervisorsToolStripMenuItem1_Click);
+            // 
+            // supervisorsToolStripMenuItem2
+            // 
+            this.supervisorsToolStripMenuItem2.Name = "supervisorsToolStripMenuItem2";
+            this.supervisorsToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.supervisorsToolStripMenuItem2.Text = "Supervisors";
+            this.supervisorsToolStripMenuItem2.Click += new System.EventHandler(this.supervisorsToolStripMenuItem2_Click);
             // 
             // roomsToolStripMenuItem
             // 
             this.roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(134, 45);
+            this.roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.roomsToolStripMenuItem.Text = "Rooms";
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             // 
@@ -315,34 +336,34 @@
             this.omzetrapportageToolStripMenuItem,
             this.bTWBerekenenToolStripMenuItem});
             this.bardienstToolStripMenuItem.Name = "bardienstToolStripMenuItem";
-            this.bardienstToolStripMenuItem.Size = new System.Drawing.Size(165, 45);
+            this.bardienstToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.bardienstToolStripMenuItem.Text = "Bardienst";
             // 
             // drankvoorraadToolStripMenuItem
             // 
             this.drankvoorraadToolStripMenuItem.Name = "drankvoorraadToolStripMenuItem";
-            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.drankvoorraadToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.drankvoorraadToolStripMenuItem.Text = "Drankvoorraad";
             this.drankvoorraadToolStripMenuItem.Click += new System.EventHandler(this.drankvoorraadToolStripMenuItem_Click);
             // 
             // kassaToolStripMenuItem
             // 
             this.kassaToolStripMenuItem.Name = "kassaToolStripMenuItem";
-            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.kassaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.kassaToolStripMenuItem.Text = "Kassa";
             this.kassaToolStripMenuItem.Click += new System.EventHandler(this.kassaToolStripMenuItem_Click);
             // 
             // omzetrapportageToolStripMenuItem
             // 
             this.omzetrapportageToolStripMenuItem.Name = "omzetrapportageToolStripMenuItem";
-            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.omzetrapportageToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.omzetrapportageToolStripMenuItem.Text = "Omzetrapportage";
             this.omzetrapportageToolStripMenuItem.Click += new System.EventHandler(this.omzetrapportageToolStripMenuItem_Click);
             // 
             // bTWBerekenenToolStripMenuItem
             // 
             this.bTWBerekenenToolStripMenuItem.Name = "bTWBerekenenToolStripMenuItem";
-            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(421, 54);
+            this.bTWBerekenenToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.bTWBerekenenToolStripMenuItem.Text = "BTW berekenen";
             this.bTWBerekenenToolStripMenuItem.Click += new System.EventHandler(this.bTWBerekenenToolStripMenuItem_Click_1);
             // 
@@ -350,19 +371,17 @@
             // 
             this.pnlDashboard.Controls.Add(this.lbl_Dashboard);
             this.pnlDashboard.Controls.Add(this.imgDashboard);
-            this.pnlDashboard.Location = new System.Drawing.Point(59, 95);
-            this.pnlDashboard.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pnlDashboard.Location = new System.Drawing.Point(22, 40);
             this.pnlDashboard.Name = "pnlDashboard";
-            this.pnlDashboard.Size = new System.Drawing.Size(2501, 1111);
+            this.pnlDashboard.Size = new System.Drawing.Size(938, 466);
             this.pnlDashboard.TabIndex = 2;
             // 
             // lbl_Dashboard
             // 
             this.lbl_Dashboard.AutoSize = true;
-            this.lbl_Dashboard.Location = new System.Drawing.Point(36, 31);
-            this.lbl_Dashboard.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lbl_Dashboard.Location = new System.Drawing.Point(14, 13);
             this.lbl_Dashboard.Name = "lbl_Dashboard";
-            this.lbl_Dashboard.Size = new System.Drawing.Size(490, 32);
+            this.lbl_Dashboard.Size = new System.Drawing.Size(185, 13);
             this.lbl_Dashboard.TabIndex = 1;
             this.lbl_Dashboard.Text = "Welcome to the Someren Application!";
             // 
@@ -371,10 +390,9 @@
             this.pnlStudents.Controls.Add(this.listViewStudents);
             this.pnlStudents.Controls.Add(this.pictureBox1);
             this.pnlStudents.Controls.Add(this.lbl_Students);
-            this.pnlStudents.Location = new System.Drawing.Point(59, 95);
-            this.pnlStudents.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pnlStudents.Location = new System.Drawing.Point(22, 40);
             this.pnlStudents.Name = "pnlStudents";
-            this.pnlStudents.Size = new System.Drawing.Size(2501, 1111);
+            this.pnlStudents.Size = new System.Drawing.Size(938, 466);
             this.pnlStudents.TabIndex = 4;
             // 
             // listViewStudents
@@ -386,10 +404,9 @@
             this.studentDOB});
             this.listViewStudents.GridLines = true;
             this.listViewStudents.HideSelection = false;
-            this.listViewStudents.Location = new System.Drawing.Point(43, 101);
-            this.listViewStudents.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.listViewStudents.Location = new System.Drawing.Point(16, 42);
             this.listViewStudents.Name = "listViewStudents";
-            this.listViewStudents.Size = new System.Drawing.Size(2036, 726);
+            this.listViewStudents.Size = new System.Drawing.Size(766, 307);
             this.listViewStudents.TabIndex = 5;
             this.listViewStudents.UseCompatibleStateImageBehavior = false;
             this.listViewStudents.View = System.Windows.Forms.View.Details;
@@ -418,10 +435,9 @@
             // 
             this.pictureBox1.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(806, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 123);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -429,10 +445,9 @@
             // 
             this.lbl_Students.AutoSize = true;
             this.lbl_Students.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Students.Location = new System.Drawing.Point(27, 23);
-            this.lbl_Students.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lbl_Students.Location = new System.Drawing.Point(10, 10);
             this.lbl_Students.Name = "lbl_Students";
-            this.lbl_Students.Size = new System.Drawing.Size(255, 65);
+            this.lbl_Students.Size = new System.Drawing.Size(107, 29);
             this.lbl_Students.TabIndex = 3;
             this.lbl_Students.Text = "Students";
             // 
@@ -441,10 +456,9 @@
             this.pnlTeachers.Controls.Add(this.listViewTeachers);
             this.pnlTeachers.Controls.Add(this.pictureBox2);
             this.pnlTeachers.Controls.Add(this.label1);
-            this.pnlTeachers.Location = new System.Drawing.Point(59, 95);
-            this.pnlTeachers.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pnlTeachers.Location = new System.Drawing.Point(22, 40);
             this.pnlTeachers.Name = "pnlTeachers";
-            this.pnlTeachers.Size = new System.Drawing.Size(2492, 1104);
+            this.pnlTeachers.Size = new System.Drawing.Size(934, 463);
             this.pnlTeachers.TabIndex = 6;
             // 
             // listViewTeachers
@@ -455,10 +469,9 @@
             this.Supervisor});
             this.listViewTeachers.GridLines = true;
             this.listViewTeachers.HideSelection = false;
-            this.listViewTeachers.Location = new System.Drawing.Point(43, 101);
-            this.listViewTeachers.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.listViewTeachers.Location = new System.Drawing.Point(16, 42);
             this.listViewTeachers.Name = "listViewTeachers";
-            this.listViewTeachers.Size = new System.Drawing.Size(2036, 726);
+            this.listViewTeachers.Size = new System.Drawing.Size(766, 307);
             this.listViewTeachers.TabIndex = 5;
             this.listViewTeachers.UseCompatibleStateImageBehavior = false;
             this.listViewTeachers.View = System.Windows.Forms.View.Details;
@@ -482,10 +495,9 @@
             // 
             this.pictureBox2.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox2.Location = new System.Drawing.Point(806, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox2.Size = new System.Drawing.Size(130, 123);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -493,10 +505,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label1.Location = new System.Drawing.Point(21, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 65);
+            this.label1.Size = new System.Drawing.Size(115, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Teachers";
             // 
@@ -519,342 +530,16 @@
             this.pnlActivities.Controls.Add(this.listViewActivities);
             this.pnlActivities.Controls.Add(this.pictureBox3);
             this.pnlActivities.Controls.Add(this.label2);
-            this.pnlActivities.Location = new System.Drawing.Point(16, 103);
-            this.pnlActivities.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pnlActivities.Location = new System.Drawing.Point(6, 43);
             this.pnlActivities.Name = "pnlActivities";
-            this.pnlActivities.Size = new System.Drawing.Size(2492, 1104);
+            this.pnlActivities.Size = new System.Drawing.Size(934, 463);
             this.pnlActivities.TabIndex = 7;
-            // 
-            // pnlBtwOphalen
-            // 
-            this.pnlBtwOphalen.Controls.Add(this.labelJaar);
-            this.pnlBtwOphalen.Controls.Add(this.textBoxYear);
-            this.pnlBtwOphalen.Controls.Add(this.btnReset);
-            this.pnlBtwOphalen.Controls.Add(this.groupBoxInformatie);
-            this.pnlBtwOphalen.Controls.Add(this.btnToonBTW);
-            this.pnlBtwOphalen.Controls.Add(this.groupBoxBTW);
-            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ4);
-            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ3);
-            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ2);
-            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ1);
-            this.pnlBtwOphalen.Controls.Add(this.labelKwartaal);
-            this.pnlBtwOphalen.Controls.Add(this.pictureBox6);
-            this.pnlBtwOphalen.Controls.Add(this.labelBtw);
-            this.pnlBtwOphalen.Location = new System.Drawing.Point(9, 110);
-            this.pnlBtwOphalen.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.pnlBtwOphalen.Name = "pnlBtwOphalen";
-            this.pnlBtwOphalen.Size = new System.Drawing.Size(2492, 1104);
-            this.pnlBtwOphalen.TabIndex = 9;
-            // 
-            // labelJaar
-            // 
-            this.labelJaar.AutoSize = true;
-            this.labelJaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelJaar.Location = new System.Drawing.Point(121, 143);
-            this.labelJaar.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.labelJaar.Name = "labelJaar";
-            this.labelJaar.Size = new System.Drawing.Size(413, 39);
-            this.labelJaar.TabIndex = 17;
-            this.labelJaar.Text = "Selecteer jaar (bijv. 2020):";
-            // 
-            // textBoxYear
-            // 
-            this.textBoxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBoxYear.Location = new System.Drawing.Point(692, 143);
-            this.textBoxYear.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.textBoxYear.Name = "textBoxYear";
-            this.textBoxYear.Size = new System.Drawing.Size(260, 45);
-            this.textBoxYear.TabIndex = 16;
-            this.textBoxYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnReset.Location = new System.Drawing.Point(2059, 947);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(268, 115);
-            this.btnReset.TabIndex = 15;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
-            // 
-            // groupBoxInformatie
-            // 
-            this.groupBoxInformatie.Controls.Add(this.lblTotaalTariefAantalResultaat);
-            this.groupBoxInformatie.Controls.Add(this.lblTotaalTariefAantal);
-            this.groupBoxInformatie.Controls.Add(this.lblHoogTariefAantalResultaat);
-            this.groupBoxInformatie.Controls.Add(this.lblLaagTariefAantalResultaat);
-            this.groupBoxInformatie.Controls.Add(this.lblLaagTariefAantal);
-            this.groupBoxInformatie.Controls.Add(this.lblHoogTariefAantal);
-            this.groupBoxInformatie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxInformatie.Location = new System.Drawing.Point(1460, 384);
-            this.groupBoxInformatie.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.groupBoxInformatie.Name = "groupBoxInformatie";
-            this.groupBoxInformatie.Padding = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.groupBoxInformatie.Size = new System.Drawing.Size(916, 549);
-            this.groupBoxInformatie.TabIndex = 14;
-            this.groupBoxInformatie.TabStop = false;
-            this.groupBoxInformatie.Text = "Informatie:";
-            // 
-            // lblTotaalTariefAantalResultaat
-            // 
-            this.lblTotaalTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTotaalTariefAantalResultaat.Location = new System.Drawing.Point(588, 360);
-            this.lblTotaalTariefAantalResultaat.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblTotaalTariefAantalResultaat.Name = "lblTotaalTariefAantalResultaat";
-            this.lblTotaalTariefAantalResultaat.Size = new System.Drawing.Size(260, 57);
-            this.lblTotaalTariefAantalResultaat.TabIndex = 8;
-            this.lblTotaalTariefAantalResultaat.Text = "0";
-            this.lblTotaalTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblTotaalTariefAantal
-            // 
-            this.lblTotaalTariefAantal.AutoSize = true;
-            this.lblTotaalTariefAantal.Location = new System.Drawing.Point(59, 360);
-            this.lblTotaalTariefAantal.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblTotaalTariefAantal.Name = "lblTotaalTariefAantal";
-            this.lblTotaalTariefAantal.Size = new System.Drawing.Size(508, 54);
-            this.lblTotaalTariefAantal.TabIndex = 8;
-            this.lblTotaalTariefAantal.Text = "Totaal aantal verkocht: ";
-            // 
-            // lblHoogTariefAantalResultaat
-            // 
-            this.lblHoogTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblHoogTariefAantalResultaat.Location = new System.Drawing.Point(588, 243);
-            this.lblHoogTariefAantalResultaat.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblHoogTariefAantalResultaat.Name = "lblHoogTariefAantalResultaat";
-            this.lblHoogTariefAantalResultaat.Size = new System.Drawing.Size(260, 57);
-            this.lblHoogTariefAantalResultaat.TabIndex = 7;
-            this.lblHoogTariefAantalResultaat.Text = "0";
-            this.lblHoogTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblLaagTariefAantalResultaat
-            // 
-            this.lblLaagTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblLaagTariefAantalResultaat.Location = new System.Drawing.Point(588, 129);
-            this.lblLaagTariefAantalResultaat.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblLaagTariefAantalResultaat.Name = "lblLaagTariefAantalResultaat";
-            this.lblLaagTariefAantalResultaat.Size = new System.Drawing.Size(260, 57);
-            this.lblLaagTariefAantalResultaat.TabIndex = 6;
-            this.lblLaagTariefAantalResultaat.Text = "0";
-            this.lblLaagTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblLaagTariefAantal
-            // 
-            this.lblLaagTariefAantal.AutoSize = true;
-            this.lblLaagTariefAantal.Location = new System.Drawing.Point(59, 129);
-            this.lblLaagTariefAantal.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblLaagTariefAantal.Name = "lblLaagTariefAantal";
-            this.lblLaagTariefAantal.Size = new System.Drawing.Size(407, 54);
-            this.lblLaagTariefAantal.TabIndex = 6;
-            this.lblLaagTariefAantal.Text = "Laag tarief aantal: ";
-            // 
-            // lblHoogTariefAantal
-            // 
-            this.lblHoogTariefAantal.AutoSize = true;
-            this.lblHoogTariefAantal.Location = new System.Drawing.Point(59, 243);
-            this.lblHoogTariefAantal.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblHoogTariefAantal.Name = "lblHoogTariefAantal";
-            this.lblHoogTariefAantal.Size = new System.Drawing.Size(415, 54);
-            this.lblHoogTariefAantal.TabIndex = 7;
-            this.lblHoogTariefAantal.Text = "Hoog tarief aantal: ";
-            // 
-            // btnToonBTW
-            // 
-            this.btnToonBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnToonBTW.Location = new System.Drawing.Point(1703, 141);
-            this.btnToonBTW.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.btnToonBTW.Name = "btnToonBTW";
-            this.btnToonBTW.Size = new System.Drawing.Size(288, 172);
-            this.btnToonBTW.TabIndex = 13;
-            this.btnToonBTW.Text = "Toon BTW";
-            this.btnToonBTW.UseVisualStyleBackColor = true;
-            this.btnToonBTW.Click += new System.EventHandler(this.btnToonBTW_Click_1);
-            // 
-            // groupBoxBTW
-            // 
-            this.groupBoxBTW.Controls.Add(this.lblMaanden);
-            this.groupBoxBTW.Controls.Add(this.lblTotaalTariefResultaat);
-            this.groupBoxBTW.Controls.Add(this.lblHoogTariefResultaat);
-            this.groupBoxBTW.Controls.Add(this.lblLaagTariefResultaat);
-            this.groupBoxBTW.Controls.Add(this.lblTotaalTarief);
-            this.groupBoxBTW.Controls.Add(this.lblHoogTarief);
-            this.groupBoxBTW.Controls.Add(this.lblLaagTarief);
-            this.groupBoxBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxBTW.Location = new System.Drawing.Point(121, 384);
-            this.groupBoxBTW.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.groupBoxBTW.Name = "groupBoxBTW";
-            this.groupBoxBTW.Padding = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.groupBoxBTW.Size = new System.Drawing.Size(1209, 549);
-            this.groupBoxBTW.TabIndex = 12;
-            this.groupBoxBTW.TabStop = false;
-            this.groupBoxBTW.Text = "Te betalen BTW:";
-            // 
-            // lblMaanden
-            // 
-            this.lblMaanden.AutoSize = true;
-            this.lblMaanden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblMaanden.Location = new System.Drawing.Point(60, 467);
-            this.lblMaanden.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblMaanden.Name = "lblMaanden";
-            this.lblMaanden.Size = new System.Drawing.Size(0, 36);
-            this.lblMaanden.TabIndex = 6;
-            // 
-            // lblTotaalTariefResultaat
-            // 
-            this.lblTotaalTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTotaalTariefResultaat.Location = new System.Drawing.Point(560, 360);
-            this.lblTotaalTariefResultaat.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblTotaalTariefResultaat.Name = "lblTotaalTariefResultaat";
-            this.lblTotaalTariefResultaat.Size = new System.Drawing.Size(555, 57);
-            this.lblTotaalTariefResultaat.TabIndex = 5;
-            this.lblTotaalTariefResultaat.Text = "0";
-            this.lblTotaalTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblHoogTariefResultaat
-            // 
-            this.lblHoogTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblHoogTariefResultaat.Location = new System.Drawing.Point(560, 243);
-            this.lblHoogTariefResultaat.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblHoogTariefResultaat.Name = "lblHoogTariefResultaat";
-            this.lblHoogTariefResultaat.Size = new System.Drawing.Size(555, 57);
-            this.lblHoogTariefResultaat.TabIndex = 4;
-            this.lblHoogTariefResultaat.Text = "0";
-            this.lblHoogTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblLaagTariefResultaat
-            // 
-            this.lblLaagTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblLaagTariefResultaat.Location = new System.Drawing.Point(560, 129);
-            this.lblLaagTariefResultaat.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblLaagTariefResultaat.Name = "lblLaagTariefResultaat";
-            this.lblLaagTariefResultaat.Size = new System.Drawing.Size(555, 57);
-            this.lblLaagTariefResultaat.TabIndex = 3;
-            this.lblLaagTariefResultaat.Text = "0";
-            this.lblLaagTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblTotaalTarief
-            // 
-            this.lblTotaalTarief.AutoSize = true;
-            this.lblTotaalTarief.Location = new System.Drawing.Point(85, 360);
-            this.lblTotaalTarief.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblTotaalTarief.Name = "lblTotaalTarief";
-            this.lblTotaalTarief.Size = new System.Drawing.Size(410, 54);
-            this.lblTotaalTarief.TabIndex = 2;
-            this.lblTotaalTarief.Text = "Totaal BTW tarief: ";
-            // 
-            // lblHoogTarief
-            // 
-            this.lblHoogTarief.AutoSize = true;
-            this.lblHoogTarief.Location = new System.Drawing.Point(85, 243);
-            this.lblHoogTarief.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblHoogTarief.Name = "lblHoogTarief";
-            this.lblHoogTarief.Size = new System.Drawing.Size(414, 54);
-            this.lblHoogTarief.TabIndex = 1;
-            this.lblHoogTarief.Text = "Hoog tarief (21%): ";
-            // 
-            // lblLaagTarief
-            // 
-            this.lblLaagTarief.AutoSize = true;
-            this.lblLaagTarief.Location = new System.Drawing.Point(85, 129);
-            this.lblLaagTarief.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.lblLaagTarief.Name = "lblLaagTarief";
-            this.lblLaagTarief.Size = new System.Drawing.Size(380, 54);
-            this.lblLaagTarief.TabIndex = 0;
-            this.lblLaagTarief.Text = "Laag tarief (6%): ";
-            // 
-            // radioBtnQ4
-            // 
-            this.radioBtnQ4.AutoSize = true;
-            this.radioBtnQ4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioBtnQ4.Location = new System.Drawing.Point(1356, 205);
-            this.radioBtnQ4.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.radioBtnQ4.Name = "radioBtnQ4";
-            this.radioBtnQ4.Size = new System.Drawing.Size(215, 43);
-            this.radioBtnQ4.TabIndex = 11;
-            this.radioBtnQ4.TabStop = true;
-            this.radioBtnQ4.Text = "Kwartaal 4";
-            this.radioBtnQ4.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnQ3
-            // 
-            this.radioBtnQ3.AutoSize = true;
-            this.radioBtnQ3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioBtnQ3.Location = new System.Drawing.Point(1095, 205);
-            this.radioBtnQ3.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.radioBtnQ3.Name = "radioBtnQ3";
-            this.radioBtnQ3.Size = new System.Drawing.Size(215, 43);
-            this.radioBtnQ3.TabIndex = 10;
-            this.radioBtnQ3.TabStop = true;
-            this.radioBtnQ3.Text = "Kwartaal 3";
-            this.radioBtnQ3.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnQ2
-            // 
-            this.radioBtnQ2.AutoSize = true;
-            this.radioBtnQ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioBtnQ2.Location = new System.Drawing.Point(836, 205);
-            this.radioBtnQ2.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.radioBtnQ2.Name = "radioBtnQ2";
-            this.radioBtnQ2.Size = new System.Drawing.Size(215, 43);
-            this.radioBtnQ2.TabIndex = 9;
-            this.radioBtnQ2.TabStop = true;
-            this.radioBtnQ2.Text = "Kwartaal 2";
-            this.radioBtnQ2.UseVisualStyleBackColor = true;
-            // 
-            // radioBtnQ1
-            // 
-            this.radioBtnQ1.AutoSize = true;
-            this.radioBtnQ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioBtnQ1.Location = new System.Drawing.Point(572, 205);
-            this.radioBtnQ1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.radioBtnQ1.Name = "radioBtnQ1";
-            this.radioBtnQ1.Size = new System.Drawing.Size(215, 43);
-            this.radioBtnQ1.TabIndex = 8;
-            this.radioBtnQ1.TabStop = true;
-            this.radioBtnQ1.Text = "Kwartaal 1";
-            this.radioBtnQ1.UseVisualStyleBackColor = true;
-            // 
-            // labelKwartaal
-            // 
-            this.labelKwartaal.AutoSize = true;
-            this.labelKwartaal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelKwartaal.Location = new System.Drawing.Point(121, 205);
-            this.labelKwartaal.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.labelKwartaal.Name = "labelKwartaal";
-            this.labelKwartaal.Size = new System.Drawing.Size(306, 39);
-            this.labelKwartaal.TabIndex = 7;
-            this.labelKwartaal.Text = "Selecteer kwartaal:";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(347, 293);
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
-            // labelBtw
-            // 
-            this.labelBtw.AutoSize = true;
-            this.labelBtw.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBtw.Location = new System.Drawing.Point(57, 23);
-            this.labelBtw.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.labelBtw.Name = "labelBtw";
-            this.labelBtw.Size = new System.Drawing.Size(442, 65);
-            this.labelBtw.TabIndex = 3;
-            this.labelBtw.Text = "BTW berekenen";
             // 
             // BtnDeleteActivity
             // 
-            this.BtnDeleteActivity.Location = new System.Drawing.Point(1011, 505);
-            this.BtnDeleteActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.BtnDeleteActivity.Location = new System.Drawing.Point(379, 212);
             this.BtnDeleteActivity.Name = "BtnDeleteActivity";
-            this.BtnDeleteActivity.Size = new System.Drawing.Size(300, 54);
+            this.BtnDeleteActivity.Size = new System.Drawing.Size(112, 23);
             this.BtnDeleteActivity.TabIndex = 20;
             this.BtnDeleteActivity.Text = "Delete Activity";
             this.BtnDeleteActivity.UseVisualStyleBackColor = true;
@@ -862,10 +547,9 @@
             // 
             // BtnActivityUpdate
             // 
-            this.BtnActivityUpdate.Location = new System.Drawing.Point(378, 505);
-            this.BtnActivityUpdate.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.BtnActivityUpdate.Location = new System.Drawing.Point(142, 212);
             this.BtnActivityUpdate.Name = "BtnActivityUpdate";
-            this.BtnActivityUpdate.Size = new System.Drawing.Size(300, 54);
+            this.BtnActivityUpdate.Size = new System.Drawing.Size(112, 23);
             this.BtnActivityUpdate.TabIndex = 19;
             this.BtnActivityUpdate.Text = "Update Activity";
             this.BtnActivityUpdate.UseVisualStyleBackColor = true;
@@ -873,10 +557,9 @@
             // 
             // BtnGetSelectedActivity
             // 
-            this.BtnGetSelectedActivity.Location = new System.Drawing.Point(43, 505);
-            this.BtnGetSelectedActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.BtnGetSelectedActivity.Location = new System.Drawing.Point(16, 212);
             this.BtnGetSelectedActivity.Name = "BtnGetSelectedActivity";
-            this.BtnGetSelectedActivity.Size = new System.Drawing.Size(316, 54);
+            this.BtnGetSelectedActivity.Size = new System.Drawing.Size(118, 23);
             this.BtnGetSelectedActivity.TabIndex = 18;
             this.BtnGetSelectedActivity.Text = "Get selected activity";
             this.BtnGetSelectedActivity.UseVisualStyleBackColor = true;
@@ -885,98 +568,87 @@
             // LbActivityEndTime
             // 
             this.LbActivityEndTime.AutoSize = true;
-            this.LbActivityEndTime.Location = new System.Drawing.Point(1611, 597);
-            this.LbActivityEndTime.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LbActivityEndTime.Location = new System.Drawing.Point(604, 250);
             this.LbActivityEndTime.Name = "LbActivityEndTime";
-            this.LbActivityEndTime.Size = new System.Drawing.Size(136, 32);
+            this.LbActivityEndTime.Size = new System.Drawing.Size(52, 13);
             this.LbActivityEndTime.TabIndex = 17;
             this.LbActivityEndTime.Text = "End Time";
             // 
             // LbActivityStartTime
             // 
             this.LbActivityStartTime.AutoSize = true;
-            this.LbActivityStartTime.Location = new System.Drawing.Point(972, 597);
-            this.LbActivityStartTime.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LbActivityStartTime.Location = new System.Drawing.Point(364, 250);
             this.LbActivityStartTime.Name = "LbActivityStartTime";
-            this.LbActivityStartTime.Size = new System.Drawing.Size(145, 32);
+            this.LbActivityStartTime.Size = new System.Drawing.Size(55, 13);
             this.LbActivityStartTime.TabIndex = 16;
             this.LbActivityStartTime.Text = "Start Time";
             // 
             // LbActivityDisctiption
             // 
             this.LbActivityDisctiption.AutoSize = true;
-            this.LbActivityDisctiption.Location = new System.Drawing.Point(588, 597);
-            this.LbActivityDisctiption.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LbActivityDisctiption.Location = new System.Drawing.Point(220, 250);
             this.LbActivityDisctiption.Name = "LbActivityDisctiption";
-            this.LbActivityDisctiption.Size = new System.Drawing.Size(149, 32);
+            this.LbActivityDisctiption.Size = new System.Drawing.Size(56, 13);
             this.LbActivityDisctiption.TabIndex = 15;
             this.LbActivityDisctiption.Text = "Discription";
             // 
             // LbActivityName
             // 
             this.LbActivityName.AutoSize = true;
-            this.LbActivityName.Location = new System.Drawing.Point(231, 597);
-            this.LbActivityName.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LbActivityName.Location = new System.Drawing.Point(87, 250);
             this.LbActivityName.Name = "LbActivityName";
-            this.LbActivityName.Size = new System.Drawing.Size(90, 32);
+            this.LbActivityName.Size = new System.Drawing.Size(35, 13);
             this.LbActivityName.TabIndex = 14;
             this.LbActivityName.Text = "Name";
             // 
             // LbActivityID
             // 
             this.LbActivityID.AutoSize = true;
-            this.LbActivityID.Location = new System.Drawing.Point(43, 597);
-            this.LbActivityID.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LbActivityID.Location = new System.Drawing.Point(16, 250);
             this.LbActivityID.Name = "LbActivityID";
-            this.LbActivityID.Size = new System.Drawing.Size(140, 32);
+            this.LbActivityID.Size = new System.Drawing.Size(55, 13);
             this.LbActivityID.TabIndex = 13;
             this.LbActivityID.Text = "Activity ID";
             // 
             // McActivityEndTime
             // 
-            this.McActivityEndTime.Location = new System.Drawing.Point(1620, 642);
-            this.McActivityEndTime.Margin = new System.Windows.Forms.Padding(25, 22, 25, 22);
+            this.McActivityEndTime.Location = new System.Drawing.Point(608, 269);
             this.McActivityEndTime.Name = "McActivityEndTime";
             this.McActivityEndTime.TabIndex = 12;
             // 
             // McActivityStartTime
             // 
-            this.McActivityStartTime.Location = new System.Drawing.Point(981, 642);
-            this.McActivityStartTime.Margin = new System.Windows.Forms.Padding(25, 22, 25, 22);
+            this.McActivityStartTime.Location = new System.Drawing.Point(368, 269);
             this.McActivityStartTime.Name = "McActivityStartTime";
             this.McActivityStartTime.TabIndex = 11;
             // 
             // TbActivityDiscription
             // 
-            this.TbActivityDiscription.Location = new System.Drawing.Point(597, 642);
-            this.TbActivityDiscription.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.TbActivityDiscription.Location = new System.Drawing.Point(224, 269);
             this.TbActivityDiscription.Multiline = true;
             this.TbActivityDiscription.Name = "TbActivityDiscription";
-            this.TbActivityDiscription.Size = new System.Drawing.Size(361, 399);
+            this.TbActivityDiscription.Size = new System.Drawing.Size(138, 170);
             this.TbActivityDiscription.TabIndex = 10;
             // 
             // TbActivityName
             // 
-            this.TbActivityName.Location = new System.Drawing.Point(240, 642);
-            this.TbActivityName.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.TbActivityName.Location = new System.Drawing.Point(90, 269);
             this.TbActivityName.Name = "TbActivityName";
-            this.TbActivityName.Size = new System.Drawing.Size(335, 38);
+            this.TbActivityName.Size = new System.Drawing.Size(128, 20);
             this.TbActivityName.TabIndex = 9;
             // 
             // TbActivityID
             // 
-            this.TbActivityID.Location = new System.Drawing.Point(43, 642);
-            this.TbActivityID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.TbActivityID.Location = new System.Drawing.Point(16, 269);
             this.TbActivityID.Name = "TbActivityID";
-            this.TbActivityID.Size = new System.Drawing.Size(184, 38);
+            this.TbActivityID.Size = new System.Drawing.Size(72, 20);
             this.TbActivityID.TabIndex = 8;
             // 
             // BtnCreateActivity
             // 
-            this.BtnCreateActivity.Location = new System.Drawing.Point(694, 505);
-            this.BtnCreateActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.BtnCreateActivity.Location = new System.Drawing.Point(260, 212);
             this.BtnCreateActivity.Name = "BtnCreateActivity";
-            this.BtnCreateActivity.Size = new System.Drawing.Size(300, 54);
+            this.BtnCreateActivity.Size = new System.Drawing.Size(112, 23);
             this.BtnCreateActivity.TabIndex = 7;
             this.BtnCreateActivity.Text = "Create new Activity";
             this.BtnCreateActivity.UseVisualStyleBackColor = true;
@@ -994,10 +666,9 @@
             this.listViewActivities.GridLines = true;
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listViewActivities.Location = new System.Drawing.Point(43, 101);
-            this.listViewActivities.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.listViewActivities.Location = new System.Drawing.Point(16, 42);
             this.listViewActivities.Name = "listViewActivities";
-            this.listViewActivities.Size = new System.Drawing.Size(2036, 364);
+            this.listViewActivities.Size = new System.Drawing.Size(766, 155);
             this.listViewActivities.TabIndex = 5;
             this.listViewActivities.UseCompatibleStateImageBehavior = false;
             this.listViewActivities.View = System.Windows.Forms.View.Details;
@@ -1031,10 +702,9 @@
             // 
             this.pictureBox3.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox3.Location = new System.Drawing.Point(806, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox3.Size = new System.Drawing.Size(130, 123);
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
@@ -1042,22 +712,315 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label2.Location = new System.Drawing.Point(21, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 65);
+            this.label2.Size = new System.Drawing.Size(107, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "Activities";
+            // 
+            // pnlBtwOphalen
+            // 
+            this.pnlBtwOphalen.Controls.Add(this.labelJaar);
+            this.pnlBtwOphalen.Controls.Add(this.textBoxYear);
+            this.pnlBtwOphalen.Controls.Add(this.btnReset);
+            this.pnlBtwOphalen.Controls.Add(this.groupBoxInformatie);
+            this.pnlBtwOphalen.Controls.Add(this.btnToonBTW);
+            this.pnlBtwOphalen.Controls.Add(this.groupBoxBTW);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ4);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ3);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ2);
+            this.pnlBtwOphalen.Controls.Add(this.radioBtnQ1);
+            this.pnlBtwOphalen.Controls.Add(this.labelKwartaal);
+            this.pnlBtwOphalen.Controls.Add(this.pictureBox6);
+            this.pnlBtwOphalen.Controls.Add(this.labelBtw);
+            this.pnlBtwOphalen.Location = new System.Drawing.Point(3, 46);
+            this.pnlBtwOphalen.Name = "pnlBtwOphalen";
+            this.pnlBtwOphalen.Size = new System.Drawing.Size(934, 463);
+            this.pnlBtwOphalen.TabIndex = 9;
+            // 
+            // labelJaar
+            // 
+            this.labelJaar.AutoSize = true;
+            this.labelJaar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelJaar.Location = new System.Drawing.Point(45, 60);
+            this.labelJaar.Name = "labelJaar";
+            this.labelJaar.Size = new System.Drawing.Size(175, 17);
+            this.labelJaar.TabIndex = 17;
+            this.labelJaar.Text = "Selecteer jaar (bijv. 2020):";
+            // 
+            // textBoxYear
+            // 
+            this.textBoxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxYear.Location = new System.Drawing.Point(260, 60);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(100, 23);
+            this.textBoxYear.TabIndex = 16;
+            this.textBoxYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnReset.Location = new System.Drawing.Point(772, 397);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(100, 48);
+            this.btnReset.TabIndex = 15;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
+            // 
+            // groupBoxInformatie
+            // 
+            this.groupBoxInformatie.Controls.Add(this.lblTotaalTariefAantalResultaat);
+            this.groupBoxInformatie.Controls.Add(this.lblTotaalTariefAantal);
+            this.groupBoxInformatie.Controls.Add(this.lblHoogTariefAantalResultaat);
+            this.groupBoxInformatie.Controls.Add(this.lblLaagTariefAantalResultaat);
+            this.groupBoxInformatie.Controls.Add(this.lblLaagTariefAantal);
+            this.groupBoxInformatie.Controls.Add(this.lblHoogTariefAantal);
+            this.groupBoxInformatie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBoxInformatie.Location = new System.Drawing.Point(548, 161);
+            this.groupBoxInformatie.Name = "groupBoxInformatie";
+            this.groupBoxInformatie.Size = new System.Drawing.Size(344, 230);
+            this.groupBoxInformatie.TabIndex = 14;
+            this.groupBoxInformatie.TabStop = false;
+            this.groupBoxInformatie.Text = "Informatie:";
+            // 
+            // lblTotaalTariefAantalResultaat
+            // 
+            this.lblTotaalTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTotaalTariefAantalResultaat.Location = new System.Drawing.Point(220, 151);
+            this.lblTotaalTariefAantalResultaat.Name = "lblTotaalTariefAantalResultaat";
+            this.lblTotaalTariefAantalResultaat.Size = new System.Drawing.Size(98, 24);
+            this.lblTotaalTariefAantalResultaat.TabIndex = 8;
+            this.lblTotaalTariefAantalResultaat.Text = "0";
+            this.lblTotaalTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotaalTariefAantal
+            // 
+            this.lblTotaalTariefAantal.AutoSize = true;
+            this.lblTotaalTariefAantal.Location = new System.Drawing.Point(22, 151);
+            this.lblTotaalTariefAantal.Name = "lblTotaalTariefAantal";
+            this.lblTotaalTariefAantal.Size = new System.Drawing.Size(201, 24);
+            this.lblTotaalTariefAantal.TabIndex = 8;
+            this.lblTotaalTariefAantal.Text = "Totaal aantal verkocht: ";
+            // 
+            // lblHoogTariefAantalResultaat
+            // 
+            this.lblHoogTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblHoogTariefAantalResultaat.Location = new System.Drawing.Point(220, 102);
+            this.lblHoogTariefAantalResultaat.Name = "lblHoogTariefAantalResultaat";
+            this.lblHoogTariefAantalResultaat.Size = new System.Drawing.Size(98, 24);
+            this.lblHoogTariefAantalResultaat.TabIndex = 7;
+            this.lblHoogTariefAantalResultaat.Text = "0";
+            this.lblHoogTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLaagTariefAantalResultaat
+            // 
+            this.lblLaagTariefAantalResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLaagTariefAantalResultaat.Location = new System.Drawing.Point(220, 54);
+            this.lblLaagTariefAantalResultaat.Name = "lblLaagTariefAantalResultaat";
+            this.lblLaagTariefAantalResultaat.Size = new System.Drawing.Size(98, 24);
+            this.lblLaagTariefAantalResultaat.TabIndex = 6;
+            this.lblLaagTariefAantalResultaat.Text = "0";
+            this.lblLaagTariefAantalResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLaagTariefAantal
+            // 
+            this.lblLaagTariefAantal.AutoSize = true;
+            this.lblLaagTariefAantal.Location = new System.Drawing.Point(22, 54);
+            this.lblLaagTariefAantal.Name = "lblLaagTariefAantal";
+            this.lblLaagTariefAantal.Size = new System.Drawing.Size(159, 24);
+            this.lblLaagTariefAantal.TabIndex = 6;
+            this.lblLaagTariefAantal.Text = "Laag tarief aantal: ";
+            // 
+            // lblHoogTariefAantal
+            // 
+            this.lblHoogTariefAantal.AutoSize = true;
+            this.lblHoogTariefAantal.Location = new System.Drawing.Point(22, 102);
+            this.lblHoogTariefAantal.Name = "lblHoogTariefAantal";
+            this.lblHoogTariefAantal.Size = new System.Drawing.Size(165, 24);
+            this.lblHoogTariefAantal.TabIndex = 7;
+            this.lblHoogTariefAantal.Text = "Hoog tarief aantal: ";
+            // 
+            // btnToonBTW
+            // 
+            this.btnToonBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnToonBTW.Location = new System.Drawing.Point(639, 59);
+            this.btnToonBTW.Name = "btnToonBTW";
+            this.btnToonBTW.Size = new System.Drawing.Size(108, 72);
+            this.btnToonBTW.TabIndex = 13;
+            this.btnToonBTW.Text = "Toon BTW";
+            this.btnToonBTW.UseVisualStyleBackColor = true;
+            this.btnToonBTW.Click += new System.EventHandler(this.btnToonBTW_Click_1);
+            // 
+            // groupBoxBTW
+            // 
+            this.groupBoxBTW.Controls.Add(this.lblMaanden);
+            this.groupBoxBTW.Controls.Add(this.lblTotaalTariefResultaat);
+            this.groupBoxBTW.Controls.Add(this.lblHoogTariefResultaat);
+            this.groupBoxBTW.Controls.Add(this.lblLaagTariefResultaat);
+            this.groupBoxBTW.Controls.Add(this.lblTotaalTarief);
+            this.groupBoxBTW.Controls.Add(this.lblHoogTarief);
+            this.groupBoxBTW.Controls.Add(this.lblLaagTarief);
+            this.groupBoxBTW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.groupBoxBTW.Location = new System.Drawing.Point(45, 161);
+            this.groupBoxBTW.Name = "groupBoxBTW";
+            this.groupBoxBTW.Size = new System.Drawing.Size(453, 230);
+            this.groupBoxBTW.TabIndex = 12;
+            this.groupBoxBTW.TabStop = false;
+            this.groupBoxBTW.Text = "Te betalen BTW:";
+            // 
+            // lblMaanden
+            // 
+            this.lblMaanden.AutoSize = true;
+            this.lblMaanden.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblMaanden.Location = new System.Drawing.Point(22, 196);
+            this.lblMaanden.Name = "lblMaanden";
+            this.lblMaanden.Size = new System.Drawing.Size(0, 15);
+            this.lblMaanden.TabIndex = 6;
+            // 
+            // lblTotaalTariefResultaat
+            // 
+            this.lblTotaalTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTotaalTariefResultaat.Location = new System.Drawing.Point(210, 151);
+            this.lblTotaalTariefResultaat.Name = "lblTotaalTariefResultaat";
+            this.lblTotaalTariefResultaat.Size = new System.Drawing.Size(208, 24);
+            this.lblTotaalTariefResultaat.TabIndex = 5;
+            this.lblTotaalTariefResultaat.Text = "0";
+            this.lblTotaalTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblHoogTariefResultaat
+            // 
+            this.lblHoogTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblHoogTariefResultaat.Location = new System.Drawing.Point(210, 102);
+            this.lblHoogTariefResultaat.Name = "lblHoogTariefResultaat";
+            this.lblHoogTariefResultaat.Size = new System.Drawing.Size(208, 24);
+            this.lblHoogTariefResultaat.TabIndex = 4;
+            this.lblHoogTariefResultaat.Text = "0";
+            this.lblHoogTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblLaagTariefResultaat
+            // 
+            this.lblLaagTariefResultaat.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLaagTariefResultaat.Location = new System.Drawing.Point(210, 54);
+            this.lblLaagTariefResultaat.Name = "lblLaagTariefResultaat";
+            this.lblLaagTariefResultaat.Size = new System.Drawing.Size(208, 24);
+            this.lblLaagTariefResultaat.TabIndex = 3;
+            this.lblLaagTariefResultaat.Text = "0";
+            this.lblLaagTariefResultaat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTotaalTarief
+            // 
+            this.lblTotaalTarief.AutoSize = true;
+            this.lblTotaalTarief.Location = new System.Drawing.Point(32, 151);
+            this.lblTotaalTarief.Name = "lblTotaalTarief";
+            this.lblTotaalTarief.Size = new System.Drawing.Size(162, 24);
+            this.lblTotaalTarief.TabIndex = 2;
+            this.lblTotaalTarief.Text = "Totaal BTW tarief: ";
+            // 
+            // lblHoogTarief
+            // 
+            this.lblHoogTarief.AutoSize = true;
+            this.lblHoogTarief.Location = new System.Drawing.Point(32, 102);
+            this.lblHoogTarief.Name = "lblHoogTarief";
+            this.lblHoogTarief.Size = new System.Drawing.Size(163, 24);
+            this.lblHoogTarief.TabIndex = 1;
+            this.lblHoogTarief.Text = "Hoog tarief (21%): ";
+            // 
+            // lblLaagTarief
+            // 
+            this.lblLaagTarief.AutoSize = true;
+            this.lblLaagTarief.Location = new System.Drawing.Point(32, 54);
+            this.lblLaagTarief.Name = "lblLaagTarief";
+            this.lblLaagTarief.Size = new System.Drawing.Size(147, 24);
+            this.lblLaagTarief.TabIndex = 0;
+            this.lblLaagTarief.Text = "Laag tarief (6%): ";
+            // 
+            // radioBtnQ4
+            // 
+            this.radioBtnQ4.AutoSize = true;
+            this.radioBtnQ4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ4.Location = new System.Drawing.Point(508, 86);
+            this.radioBtnQ4.Name = "radioBtnQ4";
+            this.radioBtnQ4.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ4.TabIndex = 11;
+            this.radioBtnQ4.TabStop = true;
+            this.radioBtnQ4.Text = "Kwartaal 4";
+            this.radioBtnQ4.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnQ3
+            // 
+            this.radioBtnQ3.AutoSize = true;
+            this.radioBtnQ3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ3.Location = new System.Drawing.Point(411, 86);
+            this.radioBtnQ3.Name = "radioBtnQ3";
+            this.radioBtnQ3.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ3.TabIndex = 10;
+            this.radioBtnQ3.TabStop = true;
+            this.radioBtnQ3.Text = "Kwartaal 3";
+            this.radioBtnQ3.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnQ2
+            // 
+            this.radioBtnQ2.AutoSize = true;
+            this.radioBtnQ2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ2.Location = new System.Drawing.Point(314, 86);
+            this.radioBtnQ2.Name = "radioBtnQ2";
+            this.radioBtnQ2.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ2.TabIndex = 9;
+            this.radioBtnQ2.TabStop = true;
+            this.radioBtnQ2.Text = "Kwartaal 2";
+            this.radioBtnQ2.UseVisualStyleBackColor = true;
+            // 
+            // radioBtnQ1
+            // 
+            this.radioBtnQ1.AutoSize = true;
+            this.radioBtnQ1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.radioBtnQ1.Location = new System.Drawing.Point(214, 86);
+            this.radioBtnQ1.Name = "radioBtnQ1";
+            this.radioBtnQ1.Size = new System.Drawing.Size(92, 21);
+            this.radioBtnQ1.TabIndex = 8;
+            this.radioBtnQ1.TabStop = true;
+            this.radioBtnQ1.Text = "Kwartaal 1";
+            this.radioBtnQ1.UseVisualStyleBackColor = true;
+            // 
+            // labelKwartaal
+            // 
+            this.labelKwartaal.AutoSize = true;
+            this.labelKwartaal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelKwartaal.Location = new System.Drawing.Point(45, 86);
+            this.labelKwartaal.Name = "labelKwartaal";
+            this.labelKwartaal.Size = new System.Drawing.Size(128, 17);
+            this.labelKwartaal.TabIndex = 7;
+            this.labelKwartaal.Text = "Selecteer kwartaal:";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SomerenUI.Properties.Resources.someren;
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(806, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // labelBtw
+            // 
+            this.labelBtw.AutoSize = true;
+            this.labelBtw.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBtw.Location = new System.Drawing.Point(21, 10);
+            this.labelBtw.Name = "labelBtw";
+            this.labelBtw.Size = new System.Drawing.Size(189, 29);
+            this.labelBtw.TabIndex = 3;
+            this.labelBtw.Text = "BTW berekenen";
             // 
             // pnlRooms
             // 
             this.pnlRooms.Controls.Add(this.listViewRooms);
             this.pnlRooms.Controls.Add(this.pictureBox4);
             this.pnlRooms.Controls.Add(this.label3);
-            this.pnlRooms.Location = new System.Drawing.Point(52, 88);
-            this.pnlRooms.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pnlRooms.Location = new System.Drawing.Point(20, 37);
             this.pnlRooms.Name = "pnlRooms";
-            this.pnlRooms.Size = new System.Drawing.Size(2485, 1097);
+            this.pnlRooms.Size = new System.Drawing.Size(932, 460);
             this.pnlRooms.TabIndex = 7;
             // 
             // listViewRooms
@@ -1068,10 +1031,9 @@
             this.type});
             this.listViewRooms.GridLines = true;
             this.listViewRooms.HideSelection = false;
-            this.listViewRooms.Location = new System.Drawing.Point(43, 101);
-            this.listViewRooms.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.listViewRooms.Location = new System.Drawing.Point(16, 42);
             this.listViewRooms.Name = "listViewRooms";
-            this.listViewRooms.Size = new System.Drawing.Size(2036, 726);
+            this.listViewRooms.Size = new System.Drawing.Size(766, 307);
             this.listViewRooms.TabIndex = 5;
             this.listViewRooms.UseCompatibleStateImageBehavior = false;
             this.listViewRooms.View = System.Windows.Forms.View.Details;
@@ -1095,10 +1057,9 @@
             // 
             this.pictureBox4.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox4.Location = new System.Drawing.Point(806, 0);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox4.Size = new System.Drawing.Size(130, 123);
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
             // 
@@ -1106,10 +1067,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 23);
-            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label3.Location = new System.Drawing.Point(22, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 65);
+            this.label3.Size = new System.Drawing.Size(90, 29);
             this.label3.TabIndex = 3;
             this.label3.Text = "Rooms";
             // 
@@ -1123,38 +1083,34 @@
             this.Omzetrapportage.Controls.Add(this.listViewRevenue);
             this.Omzetrapportage.Controls.Add(this.pictureBox5);
             this.Omzetrapportage.Controls.Add(this.label4);
-            this.Omzetrapportage.Location = new System.Drawing.Point(37, 87);
-            this.Omzetrapportage.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.Omzetrapportage.Location = new System.Drawing.Point(14, 36);
             this.Omzetrapportage.Name = "Omzetrapportage";
-            this.Omzetrapportage.Size = new System.Drawing.Size(2492, 1304);
+            this.Omzetrapportage.Size = new System.Drawing.Size(934, 547);
             this.Omzetrapportage.TabIndex = 8;
             // 
             // LblEndDate
             // 
             this.LblEndDate.AutoSize = true;
-            this.LblEndDate.Location = new System.Drawing.Point(697, 849);
-            this.LblEndDate.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LblEndDate.Location = new System.Drawing.Point(261, 356);
             this.LblEndDate.Name = "LblEndDate";
-            this.LblEndDate.Size = new System.Drawing.Size(133, 32);
+            this.LblEndDate.Size = new System.Drawing.Size(52, 13);
             this.LblEndDate.TabIndex = 10;
             this.LblEndDate.Text = "End Date";
             // 
             // LblStartDate
             // 
             this.LblStartDate.AutoSize = true;
-            this.LblStartDate.Location = new System.Drawing.Point(52, 849);
-            this.LblStartDate.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.LblStartDate.Location = new System.Drawing.Point(20, 356);
             this.LblStartDate.Name = "LblStartDate";
-            this.LblStartDate.Size = new System.Drawing.Size(142, 32);
+            this.LblStartDate.Size = new System.Drawing.Size(55, 13);
             this.LblStartDate.TabIndex = 9;
             this.LblStartDate.Text = "Start Date";
             // 
             // CalculateRevenue
             // 
-            this.CalculateRevenue.Location = new System.Drawing.Point(1340, 1211);
-            this.CalculateRevenue.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.CalculateRevenue.Location = new System.Drawing.Point(502, 508);
             this.CalculateRevenue.Name = "CalculateRevenue";
-            this.CalculateRevenue.Size = new System.Drawing.Size(212, 71);
+            this.CalculateRevenue.Size = new System.Drawing.Size(80, 30);
             this.CalculateRevenue.TabIndex = 8;
             this.CalculateRevenue.Text = "calculate";
             this.CalculateRevenue.UseVisualStyleBackColor = true;
@@ -1162,16 +1118,14 @@
             // 
             // monthCalendarEndDate
             // 
-            this.monthCalendarEndDate.Location = new System.Drawing.Point(704, 897);
-            this.monthCalendarEndDate.Margin = new System.Windows.Forms.Padding(25, 22, 25, 22);
+            this.monthCalendarEndDate.Location = new System.Drawing.Point(264, 376);
             this.monthCalendarEndDate.MaxSelectionCount = 1;
             this.monthCalendarEndDate.Name = "monthCalendarEndDate";
             this.monthCalendarEndDate.TabIndex = 7;
             // 
             // monthCalendarStartDate
             // 
-            this.monthCalendarStartDate.Location = new System.Drawing.Point(52, 897);
-            this.monthCalendarStartDate.Margin = new System.Windows.Forms.Padding(25, 22, 25, 22);
+            this.monthCalendarStartDate.Location = new System.Drawing.Point(20, 376);
             this.monthCalendarStartDate.MaxSelectionCount = 1;
             this.monthCalendarStartDate.Name = "monthCalendarStartDate";
             this.monthCalendarStartDate.TabIndex = 6;
@@ -1184,10 +1138,9 @@
             this.number_of_customers});
             this.listViewRevenue.GridLines = true;
             this.listViewRevenue.HideSelection = false;
-            this.listViewRevenue.Location = new System.Drawing.Point(43, 101);
-            this.listViewRevenue.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.listViewRevenue.Location = new System.Drawing.Point(16, 42);
             this.listViewRevenue.Name = "listViewRevenue";
-            this.listViewRevenue.Size = new System.Drawing.Size(2036, 726);
+            this.listViewRevenue.Size = new System.Drawing.Size(766, 307);
             this.listViewRevenue.TabIndex = 5;
             this.listViewRevenue.UseCompatibleStateImageBehavior = false;
             this.listViewRevenue.View = System.Windows.Forms.View.Details;
@@ -1211,10 +1164,9 @@
             // 
             this.pictureBox5.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox5.Location = new System.Drawing.Point(806, 0);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox5.Size = new System.Drawing.Size(130, 123);
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
@@ -1222,10 +1174,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(57, 23);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label4.Location = new System.Drawing.Point(21, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(474, 65);
+            this.label4.Size = new System.Drawing.Size(201, 29);
             this.label4.TabIndex = 3;
             this.label4.Text = "Omzetrapportage";
             // 
@@ -1239,20 +1190,19 @@
             this.pnlSupply.Controls.Add(this.listViewSupply);
             this.pnlSupply.Controls.Add(this.pictureBox7);
             this.pnlSupply.Controls.Add(this.Supplylbl);
-            this.pnlSupply.Location = new System.Drawing.Point(30, 95);
-            this.pnlSupply.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pnlSupply.Location = new System.Drawing.Point(11, 40);
             this.pnlSupply.Name = "pnlSupply";
-            this.pnlSupply.Size = new System.Drawing.Size(2492, 1300);
+            this.pnlSupply.Size = new System.Drawing.Size(934, 545);
             this.pnlSupply.TabIndex = 12;
             // 
             // Stocklbl
             // 
             this.Stocklbl.AutoSize = true;
             this.Stocklbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Stocklbl.Location = new System.Drawing.Point(76, 969);
-            this.Stocklbl.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.Stocklbl.Location = new System.Drawing.Point(28, 406);
+            this.Stocklbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Stocklbl.Name = "Stocklbl";
-            this.Stocklbl.Size = new System.Drawing.Size(466, 39);
+            this.Stocklbl.Size = new System.Drawing.Size(196, 17);
             this.Stocklbl.TabIndex = 10;
             this.Stocklbl.Text = "Enter new stock amount here:";
             // 
@@ -1260,38 +1210,38 @@
             // 
             this.Idlbl.AutoSize = true;
             this.Idlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Idlbl.Location = new System.Drawing.Point(76, 887);
-            this.Idlbl.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.Idlbl.Location = new System.Drawing.Point(28, 372);
+            this.Idlbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Idlbl.Name = "Idlbl";
-            this.Idlbl.Size = new System.Drawing.Size(220, 39);
+            this.Idlbl.Size = new System.Drawing.Size(94, 17);
             this.Idlbl.TabIndex = 9;
             this.Idlbl.Text = "Enter id here:";
             // 
             // Stocktxt
             // 
             this.Stocktxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Stocktxt.Location = new System.Drawing.Point(612, 961);
-            this.Stocktxt.Margin = new System.Windows.Forms.Padding(5);
+            this.Stocktxt.Location = new System.Drawing.Point(230, 403);
+            this.Stocktxt.Margin = new System.Windows.Forms.Padding(2);
             this.Stocktxt.Name = "Stocktxt";
-            this.Stocktxt.Size = new System.Drawing.Size(292, 45);
+            this.Stocktxt.Size = new System.Drawing.Size(112, 23);
             this.Stocktxt.TabIndex = 8;
             // 
             // Idtxt
             // 
             this.Idtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Idtxt.Location = new System.Drawing.Point(340, 880);
-            this.Idtxt.Margin = new System.Windows.Forms.Padding(5);
+            this.Idtxt.Location = new System.Drawing.Point(128, 369);
+            this.Idtxt.Margin = new System.Windows.Forms.Padding(2);
             this.Idtxt.Name = "Idtxt";
-            this.Idtxt.Size = new System.Drawing.Size(308, 45);
+            this.Idtxt.Size = new System.Drawing.Size(118, 23);
             this.Idtxt.TabIndex = 7;
             // 
             // Updatebtn
             // 
             this.Updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Updatebtn.Location = new System.Drawing.Point(85, 1045);
-            this.Updatebtn.Margin = new System.Windows.Forms.Padding(5);
+            this.Updatebtn.Location = new System.Drawing.Point(32, 438);
+            this.Updatebtn.Margin = new System.Windows.Forms.Padding(2);
             this.Updatebtn.Name = "Updatebtn";
-            this.Updatebtn.Size = new System.Drawing.Size(336, 91);
+            this.Updatebtn.Size = new System.Drawing.Size(126, 38);
             this.Updatebtn.TabIndex = 6;
             this.Updatebtn.Text = "Update stock";
             this.Updatebtn.UseVisualStyleBackColor = true;
@@ -1306,10 +1256,9 @@
             this.columnHeader1});
             this.listViewSupply.GridLines = true;
             this.listViewSupply.HideSelection = false;
-            this.listViewSupply.Location = new System.Drawing.Point(48, 110);
-            this.listViewSupply.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.listViewSupply.Location = new System.Drawing.Point(18, 46);
             this.listViewSupply.Name = "listViewSupply";
-            this.listViewSupply.Size = new System.Drawing.Size(1688, 726);
+            this.listViewSupply.Size = new System.Drawing.Size(636, 307);
             this.listViewSupply.TabIndex = 5;
             this.listViewSupply.UseCompatibleStateImageBehavior = false;
             this.listViewSupply.View = System.Windows.Forms.View.Details;
@@ -1338,10 +1287,9 @@
             // 
             this.pictureBox7.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox7.Location = new System.Drawing.Point(806, 0);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox7.Size = new System.Drawing.Size(130, 123);
             this.pictureBox7.TabIndex = 0;
             this.pictureBox7.TabStop = false;
             // 
@@ -1349,10 +1297,9 @@
             // 
             this.Supplylbl.AutoSize = true;
             this.Supplylbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Supplylbl.Location = new System.Drawing.Point(57, 23);
-            this.Supplylbl.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Supplylbl.Location = new System.Drawing.Point(21, 10);
             this.Supplylbl.Name = "Supplylbl";
-            this.Supplylbl.Size = new System.Drawing.Size(204, 65);
+            this.Supplylbl.Size = new System.Drawing.Size(87, 29);
             this.Supplylbl.TabIndex = 3;
             this.Supplylbl.Text = "Supply";
             // 
@@ -1365,18 +1312,17 @@
             this.Kassa.Controls.Add(this.listViewStudent);
             this.Kassa.Controls.Add(this.pictureBox8);
             this.Kassa.Controls.Add(this.label20);
-            this.Kassa.Location = new System.Drawing.Point(23, 103);
-            this.Kassa.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.Kassa.Location = new System.Drawing.Point(9, 43);
             this.Kassa.Name = "Kassa";
-            this.Kassa.Size = new System.Drawing.Size(2492, 1104);
+            this.Kassa.Size = new System.Drawing.Size(934, 463);
             this.Kassa.TabIndex = 20;
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(953, 532);
-            this.btnCheckout.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCheckout.Location = new System.Drawing.Point(357, 223);
+            this.btnCheckout.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckout.Name = "btnCheckout";
-            this.btnCheckout.Size = new System.Drawing.Size(501, 60);
+            this.btnCheckout.Size = new System.Drawing.Size(188, 25);
             this.btnCheckout.TabIndex = 8;
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = true;
@@ -1385,7 +1331,6 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 31;
             this.listBox2.Items.AddRange(new object[] {
             "Coca cola",
             "Sprite",
@@ -1399,25 +1344,24 @@
             "Bavaria",
             "Brand",
             "Grolsch"});
-            this.listBox2.Location = new System.Drawing.Point(1211, 112);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(5);
+            this.listBox2.Location = new System.Drawing.Point(454, 47);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(239, 376);
+            this.listBox2.Size = new System.Drawing.Size(92, 160);
             this.listBox2.TabIndex = 7;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 31;
             this.listBox1.Items.AddRange(new object[] {
             "Dewi",
             "Koen",
             "Teun",
             "Jan"});
-            this.listBox1.Location = new System.Drawing.Point(953, 112);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.listBox1.Location = new System.Drawing.Point(357, 47);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(239, 376);
+            this.listBox1.Size = new System.Drawing.Size(92, 160);
             this.listBox1.TabIndex = 6;
             // 
             // listViewDrink
@@ -1428,10 +1372,10 @@
             this.columnDrinkPrice});
             this.listViewDrink.GridLines = true;
             this.listViewDrink.HideSelection = false;
-            this.listViewDrink.Location = new System.Drawing.Point(443, 112);
-            this.listViewDrink.Margin = new System.Windows.Forms.Padding(5);
+            this.listViewDrink.Location = new System.Drawing.Point(166, 47);
+            this.listViewDrink.Margin = new System.Windows.Forms.Padding(2);
             this.listViewDrink.Name = "listViewDrink";
-            this.listViewDrink.Size = new System.Drawing.Size(445, 712);
+            this.listViewDrink.Size = new System.Drawing.Size(169, 301);
             this.listViewDrink.TabIndex = 5;
             this.listViewDrink.UseCompatibleStateImageBehavior = false;
             this.listViewDrink.View = System.Windows.Forms.View.Details;
@@ -1457,10 +1401,10 @@
             this.columnStudentName});
             this.listViewStudent.GridLines = true;
             this.listViewStudent.HideSelection = false;
-            this.listViewStudent.Location = new System.Drawing.Point(80, 110);
-            this.listViewStudent.Margin = new System.Windows.Forms.Padding(5);
+            this.listViewStudent.Location = new System.Drawing.Point(30, 46);
+            this.listViewStudent.Margin = new System.Windows.Forms.Padding(2);
             this.listViewStudent.Name = "listViewStudent";
-            this.listViewStudent.Size = new System.Drawing.Size(324, 712);
+            this.listViewStudent.Size = new System.Drawing.Size(124, 301);
             this.listViewStudent.TabIndex = 4;
             this.listViewStudent.UseCompatibleStateImageBehavior = false;
             this.listViewStudent.View = System.Windows.Forms.View.Details;
@@ -1478,10 +1422,9 @@
             // pictureBox8
             // 
             this.pictureBox8.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.InitialImage")));
-            this.pictureBox8.Location = new System.Drawing.Point(2148, 0);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.pictureBox8.Location = new System.Drawing.Point(806, 0);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(347, 293);
+            this.pictureBox8.Size = new System.Drawing.Size(130, 123);
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
@@ -1489,10 +1432,9 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(57, 23);
-            this.label20.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label20.Location = new System.Drawing.Point(21, 10);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(188, 65);
+            this.label20.Size = new System.Drawing.Size(79, 29);
             this.label20.TabIndex = 3;
             this.label20.Text = "Kassa";
             // 
@@ -1506,17 +1448,19 @@
             this.pnlActivityParticipants.Controls.Add(this.listViewActivitiesAP);
             this.pnlActivityParticipants.Controls.Add(this.pictureBox9);
             this.pnlActivityParticipants.Controls.Add(this.label21);
-            this.pnlActivityParticipants.Location = new System.Drawing.Point(12, 27);
+            this.pnlActivityParticipants.Location = new System.Drawing.Point(3, 41);
+            this.pnlActivityParticipants.Margin = new System.Windows.Forms.Padding(1);
             this.pnlActivityParticipants.Name = "pnlActivityParticipants";
-            this.pnlActivityParticipants.Size = new System.Drawing.Size(934, 463);
+            this.pnlActivityParticipants.Size = new System.Drawing.Size(936, 464);
             this.pnlActivityParticipants.TabIndex = 18;
             // 
             // btnRemoveParticipantFromActivity
             // 
             this.btnRemoveParticipantFromActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnRemoveParticipantFromActivity.Location = new System.Drawing.Point(522, 195);
+            this.btnRemoveParticipantFromActivity.Location = new System.Drawing.Point(538, 173);
+            this.btnRemoveParticipantFromActivity.Margin = new System.Windows.Forms.Padding(1);
             this.btnRemoveParticipantFromActivity.Name = "btnRemoveParticipantFromActivity";
-            this.btnRemoveParticipantFromActivity.Size = new System.Drawing.Size(172, 77);
+            this.btnRemoveParticipantFromActivity.Size = new System.Drawing.Size(180, 59);
             this.btnRemoveParticipantFromActivity.TabIndex = 9;
             this.btnRemoveParticipantFromActivity.Text = "Remove selected student from selected activity";
             this.btnRemoveParticipantFromActivity.UseVisualStyleBackColor = true;
@@ -1525,9 +1469,10 @@
             // btnAddStudentToActivity
             // 
             this.btnAddStudentToActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnAddStudentToActivity.Location = new System.Drawing.Point(144, 357);
+            this.btnAddStudentToActivity.Location = new System.Drawing.Point(63, 333);
+            this.btnAddStudentToActivity.Margin = new System.Windows.Forms.Padding(1);
             this.btnAddStudentToActivity.Name = "btnAddStudentToActivity";
-            this.btnAddStudentToActivity.Size = new System.Drawing.Size(96, 81);
+            this.btnAddStudentToActivity.Size = new System.Drawing.Size(216, 47);
             this.btnAddStudentToActivity.TabIndex = 8;
             this.btnAddStudentToActivity.Text = "Add selected student to selected activity";
             this.btnAddStudentToActivity.UseVisualStyleBackColor = true;
@@ -1541,9 +1486,10 @@
             this.listViewAPallStudents.FullRowSelect = true;
             this.listViewAPallStudents.GridLines = true;
             this.listViewAPallStudents.HideSelection = false;
-            this.listViewAPallStudents.Location = new System.Drawing.Point(39, 212);
+            this.listViewAPallStudents.Location = new System.Drawing.Point(13, 186);
+            this.listViewAPallStudents.Margin = new System.Windows.Forms.Padding(1);
             this.listViewAPallStudents.Name = "listViewAPallStudents";
-            this.listViewAPallStudents.Size = new System.Drawing.Size(311, 132);
+            this.listViewAPallStudents.Size = new System.Drawing.Size(311, 130);
             this.listViewAPallStudents.TabIndex = 7;
             this.listViewAPallStudents.UseCompatibleStateImageBehavior = false;
             this.listViewAPallStudents.View = System.Windows.Forms.View.Details;
@@ -1566,9 +1512,10 @@
             this.listViewActivitiesAPResult.FullRowSelect = true;
             this.listViewActivitiesAPResult.GridLines = true;
             this.listViewActivitiesAPResult.HideSelection = false;
-            this.listViewActivitiesAPResult.Location = new System.Drawing.Point(458, 54);
+            this.listViewActivitiesAPResult.Location = new System.Drawing.Point(447, 44);
+            this.listViewActivitiesAPResult.Margin = new System.Windows.Forms.Padding(1);
             this.listViewActivitiesAPResult.Name = "listViewActivitiesAPResult";
-            this.listViewActivitiesAPResult.Size = new System.Drawing.Size(311, 132);
+            this.listViewActivitiesAPResult.Size = new System.Drawing.Size(324, 127);
             this.listViewActivitiesAPResult.TabIndex = 6;
             this.listViewActivitiesAPResult.UseCompatibleStateImageBehavior = false;
             this.listViewActivitiesAPResult.View = System.Windows.Forms.View.Details;
@@ -1586,9 +1533,10 @@
             // btnShowAP
             // 
             this.btnShowAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btnShowAP.Location = new System.Drawing.Point(356, 84);
+            this.btnShowAP.Location = new System.Drawing.Point(335, 67);
+            this.btnShowAP.Margin = new System.Windows.Forms.Padding(1);
             this.btnShowAP.Name = "btnShowAP";
-            this.btnShowAP.Size = new System.Drawing.Size(96, 59);
+            this.btnShowAP.Size = new System.Drawing.Size(101, 67);
             this.btnShowAP.TabIndex = 5;
             this.btnShowAP.Text = "Show activity participants";
             this.btnShowAP.UseVisualStyleBackColor = true;
@@ -1602,9 +1550,10 @@
             this.listViewActivitiesAP.FullRowSelect = true;
             this.listViewActivitiesAP.GridLines = true;
             this.listViewActivitiesAP.HideSelection = false;
-            this.listViewActivitiesAP.Location = new System.Drawing.Point(39, 54);
+            this.listViewActivitiesAP.Location = new System.Drawing.Point(13, 45);
+            this.listViewActivitiesAP.Margin = new System.Windows.Forms.Padding(1);
             this.listViewActivitiesAP.Name = "listViewActivitiesAP";
-            this.listViewActivitiesAP.Size = new System.Drawing.Size(311, 132);
+            this.listViewActivitiesAP.Size = new System.Drawing.Size(311, 126);
             this.listViewActivitiesAP.TabIndex = 4;
             this.listViewActivitiesAP.UseCompatibleStateImageBehavior = false;
             this.listViewActivitiesAP.View = System.Windows.Forms.View.Details;
@@ -1622,10 +1571,11 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::SomerenUI.Properties.Resources.someren;
-            this.pictureBox9.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.InitialImage")));
-            this.pictureBox9.Location = new System.Drawing.Point(806, 0);
+            this.pictureBox9.InitialImage = null;
+            this.pictureBox9.Location = new System.Drawing.Point(805, 3);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(130, 123);
+            this.pictureBox9.Size = new System.Drawing.Size(132, 122);
             this.pictureBox9.TabIndex = 0;
             this.pictureBox9.TabStop = false;
             // 
@@ -1633,7 +1583,8 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(21, 10);
+            this.label21.Location = new System.Drawing.Point(8, 4);
+            this.label21.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(221, 29);
             this.label21.TabIndex = 3;
@@ -1654,16 +1605,17 @@
             this.Supervisors.Controls.Add(this.listViewSupervisors);
             this.Supervisors.Controls.Add(this.listActivity);
             this.Supervisors.Controls.Add(this.label5);
-            this.Supervisors.Location = new System.Drawing.Point(8, 30);
+            this.Supervisors.Location = new System.Drawing.Point(3, 39);
+            this.Supervisors.Margin = new System.Windows.Forms.Padding(1);
             this.Supervisors.Name = "Supervisors";
-            this.Supervisors.Size = new System.Drawing.Size(935, 557);
+            this.Supervisors.Size = new System.Drawing.Size(934, 470);
             this.Supervisors.TabIndex = 23;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(586, 292);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(528, 186);
+            this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 16;
@@ -1672,8 +1624,8 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(580, 255);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(523, 161);
+            this.label9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 15;
@@ -1681,26 +1633,26 @@
             // 
             // AIdTextBox
             // 
-            this.AIdTextBox.Location = new System.Drawing.Point(646, 292);
-            this.AIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.AIdTextBox.Location = new System.Drawing.Point(610, 185);
+            this.AIdTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.AIdTextBox.Name = "AIdTextBox";
-            this.AIdTextBox.Size = new System.Drawing.Size(153, 20);
+            this.AIdTextBox.Size = new System.Drawing.Size(60, 20);
             this.AIdTextBox.TabIndex = 14;
             // 
             // LIdtextBox
             // 
-            this.LIdtextBox.Location = new System.Drawing.Point(646, 255);
-            this.LIdtextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.LIdtextBox.Location = new System.Drawing.Point(610, 157);
+            this.LIdtextBox.Margin = new System.Windows.Forms.Padding(1);
             this.LIdtextBox.Name = "LIdtextBox";
-            this.LIdtextBox.Size = new System.Drawing.Size(153, 20);
+            this.LIdtextBox.Size = new System.Drawing.Size(60, 20);
             this.LIdtextBox.TabIndex = 13;
             // 
             // btnDeleteSupervisor
             // 
-            this.btnDeleteSupervisor.Location = new System.Drawing.Point(646, 329);
-            this.btnDeleteSupervisor.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDeleteSupervisor.Location = new System.Drawing.Point(585, 214);
+            this.btnDeleteSupervisor.Margin = new System.Windows.Forms.Padding(1);
             this.btnDeleteSupervisor.Name = "btnDeleteSupervisor";
-            this.btnDeleteSupervisor.Size = new System.Drawing.Size(152, 27);
+            this.btnDeleteSupervisor.Size = new System.Drawing.Size(113, 25);
             this.btnDeleteSupervisor.TabIndex = 12;
             this.btnDeleteSupervisor.Text = "Delete Supervisor";
             this.btnDeleteSupervisor.UseVisualStyleBackColor = true;
@@ -1709,8 +1661,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(346, 293);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(360, 188);
+            this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 11;
@@ -1719,8 +1671,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(339, 257);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(359, 160);
+            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 10;
@@ -1728,26 +1680,26 @@
             // 
             // ActivityIdTextBox
             // 
-            this.ActivityIdTextBox.Location = new System.Drawing.Point(405, 293);
-            this.ActivityIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ActivityIdTextBox.Location = new System.Drawing.Point(438, 183);
+            this.ActivityIdTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.ActivityIdTextBox.Name = "ActivityIdTextBox";
-            this.ActivityIdTextBox.Size = new System.Drawing.Size(153, 20);
+            this.ActivityIdTextBox.Size = new System.Drawing.Size(60, 20);
             this.ActivityIdTextBox.TabIndex = 9;
             // 
             // LecturerIdTextBox
             // 
-            this.LecturerIdTextBox.Location = new System.Drawing.Point(405, 257);
-            this.LecturerIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.LecturerIdTextBox.Location = new System.Drawing.Point(438, 157);
+            this.LecturerIdTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.LecturerIdTextBox.Name = "LecturerIdTextBox";
-            this.LecturerIdTextBox.Size = new System.Drawing.Size(153, 20);
+            this.LecturerIdTextBox.Size = new System.Drawing.Size(60, 20);
             this.LecturerIdTextBox.TabIndex = 8;
             // 
             // btnAddSupervisor
             // 
-            this.btnAddSupervisor.Location = new System.Drawing.Point(405, 331);
-            this.btnAddSupervisor.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddSupervisor.Location = new System.Drawing.Point(421, 214);
+            this.btnAddSupervisor.Margin = new System.Windows.Forms.Padding(1);
             this.btnAddSupervisor.Name = "btnAddSupervisor";
-            this.btnAddSupervisor.Size = new System.Drawing.Size(152, 27);
+            this.btnAddSupervisor.Size = new System.Drawing.Size(98, 24);
             this.btnAddSupervisor.TabIndex = 7;
             this.btnAddSupervisor.Text = "Add Supervisor";
             this.btnAddSupervisor.UseVisualStyleBackColor = true;
@@ -1762,10 +1714,10 @@
             this.listViewSupervisors.FullRowSelect = true;
             this.listViewSupervisors.GridLines = true;
             this.listViewSupervisors.HideSelection = false;
-            this.listViewSupervisors.Location = new System.Drawing.Point(345, 46);
-            this.listViewSupervisors.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewSupervisors.Location = new System.Drawing.Point(326, 41);
+            this.listViewSupervisors.Margin = new System.Windows.Forms.Padding(1);
             this.listViewSupervisors.Name = "listViewSupervisors";
-            this.listViewSupervisors.Size = new System.Drawing.Size(410, 200);
+            this.listViewSupervisors.Size = new System.Drawing.Size(421, 97);
             this.listViewSupervisors.TabIndex = 6;
             this.listViewSupervisors.UseCompatibleStateImageBehavior = false;
             this.listViewSupervisors.View = System.Windows.Forms.View.Details;
@@ -1793,10 +1745,10 @@
             this.listActivity.FullRowSelect = true;
             this.listActivity.GridLines = true;
             this.listActivity.HideSelection = false;
-            this.listActivity.Location = new System.Drawing.Point(30, 46);
-            this.listActivity.Margin = new System.Windows.Forms.Padding(2);
+            this.listActivity.Location = new System.Drawing.Point(13, 41);
+            this.listActivity.Margin = new System.Windows.Forms.Padding(1);
             this.listActivity.Name = "listActivity";
-            this.listActivity.Size = new System.Drawing.Size(293, 410);
+            this.listActivity.Size = new System.Drawing.Size(293, 228);
             this.listActivity.TabIndex = 4;
             this.listActivity.UseCompatibleStateImageBehavior = false;
             this.listActivity.View = System.Windows.Forms.View.Details;
@@ -1815,7 +1767,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 10);
+            this.label5.Location = new System.Drawing.Point(8, 4);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(220, 29);
             this.label5.TabIndex = 3;
@@ -1830,9 +1783,9 @@
             // 
             // SomerenUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 646);
+            this.ClientSize = new System.Drawing.Size(1262, 596);
             this.Controls.Add(this.Supervisors);
             this.Controls.Add(this.pnlActivityParticipants);
             this.Controls.Add(this.pnlBtwOphalen);
@@ -1847,7 +1800,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.Name = "SomerenUI";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "SomerenApp";
@@ -1865,6 +1817,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlActivities.ResumeLayout(false);
             this.pnlActivities.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlBtwOphalen.ResumeLayout(false);
             this.pnlBtwOphalen.PerformLayout();
             this.groupBoxInformatie.ResumeLayout(false);
@@ -1872,7 +1825,6 @@
             this.groupBoxBTW.ResumeLayout(false);
             this.groupBoxBTW.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlRooms.ResumeLayout(false);
             this.pnlRooms.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -2061,6 +2013,9 @@
         private System.Windows.Forms.ColumnHeader columnActivity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem supervisorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activityParticipantsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supervisorsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem supervisorsToolStripMenuItem2;
     }
 }
 

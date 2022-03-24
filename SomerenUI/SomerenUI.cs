@@ -40,6 +40,8 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -57,6 +59,8 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -97,6 +101,8 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -136,6 +142,8 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -176,6 +184,8 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 // show activities
                 pnlActivities.Show();
@@ -218,6 +228,8 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 // show activities
                 Omzetrapportage.Show();
@@ -252,6 +264,8 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 //show btw panel
                 pnlBtwOphalen.Show();
@@ -277,6 +291,9 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 Omzetrapportage.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
+
                 // show supplies
                 pnlSupply.Show();
                 try
@@ -322,6 +339,8 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
+                pnlActivityParticipants.Hide();
+                Supervisors.Hide();
 
                 //Show Kassa
                 Kassa.Show();
@@ -357,7 +376,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
-                pnlActivities.Hide();
+                Supervisors.Hide();
 
                 //Show Activity Participants
                 pnlActivityParticipants.Show();
@@ -411,6 +430,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
                 Kassa.Hide();
+                pnlActivityParticipants.Hide();
 
                 Supervisors.Show();
                 try
@@ -484,11 +504,6 @@ namespace SomerenUI
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showPanel("Rooms");
-        }
-
-        private void activitiesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Activities");
         }
 
         private void omzetrapportageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -926,6 +941,22 @@ namespace SomerenUI
             SupervisorService supervisorService = new SupervisorService();
             supervisorService.AddSupervisor(supervisor);
             MessageBox.Show("Supervisor succesfully added.");
+        }
+
+        private void activityParticipantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            showPanel("Activities");
+        }
+
+        private void supervisorsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showPanel("pnlActivityParticipants");
+        }
+
+        private void supervisorsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            showPanel("Supervisors");
         }
     }
 }
