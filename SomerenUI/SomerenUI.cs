@@ -23,6 +23,7 @@ namespace SomerenUI
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void showPanel(string panelName)
@@ -186,12 +187,9 @@ namespace SomerenUI
 
                     // clear the listview before filling it again
                     listViewActivities.Items.Clear();
-                    CbActivity.Items.Clear();
-                    CbActivity.Items.Add("Select Activity");
                     //fill listview
                     foreach (Activity a in activitieList)
                     {
-                        CbActivity.Items.Add(a.Name);
                         ListViewItem li = new ListViewItem(a.Id.ToString());
                         li.SubItems.Add(a.Name);
                         li.SubItems.Add(a.Description);
@@ -199,6 +197,9 @@ namespace SomerenUI
                         li.SubItems.Add(a.EndTime.ToString());
                         listViewActivities.Items.Add(li);
                     }
+
+                    listViewActivities.Focus();
+                    listViewActivities.Items[0].Selected = true;
                 }
                 catch (Exception e)
                 {
@@ -409,7 +410,6 @@ namespace SomerenUI
             listViewRevenue.Items.Clear();
             try
             {
-                // fill the Activities listview within the activities panel with a list of activities
                 DateTime startDate = Convert.ToDateTime(monthCalendarStartDate.SelectionRange.Start.ToString("dd-MM-yyyy"));
                 DateTime endDate = Convert.ToDateTime(monthCalendarEndDate.SelectionRange.Start.ToString("dd-MM-yyyy"));
                 if (System.DateTime.Compare(startDate, System.DateTime.Now)<=0 && System.DateTime.Compare(endDate, System.DateTime.Now) <= 0)
@@ -580,15 +580,19 @@ namespace SomerenUI
         {
             try
             {
-                if (CbActivity.Text!= "Select Activity")
+                if (listViewActivities.SelectedItems!= null)
                 {
                     ActivityService actService = new ActivityService();
-                    Activity activity = actService.GetByName(CbActivity.Text);
-                    TbActivityID.Text = activity.Id.ToString();
-                    TbActivityName.Text = activity.Name;
-                    TbActivityDiscription.Text = activity.Description;
-                    McActivityStartTime.SetDate(activity.StartTime);
-                    McActivityEndTime.SetDate(activity.EndTime);
+
+                    foreach (ListViewItem li in listViewActivities.SelectedItems)
+                    {
+                        Activity activity = actService.GetById(li.Text);
+                        TbActivityID.Text = activity.Id.ToString();
+                        TbActivityName.Text = activity.Name;
+                        TbActivityDiscription.Text = activity.Description;
+                        McActivityStartTime.SetDate(activity.StartTime);
+                        McActivityEndTime.SetDate(activity.EndTime);
+                    }
                 }
                 else
                 {

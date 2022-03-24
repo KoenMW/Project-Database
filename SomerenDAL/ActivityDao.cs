@@ -19,11 +19,11 @@ namespace SomerenDAL
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public Activity GetByName(string name)
+        public Activity GetById(string id)
         {
-            string query = "SELECT activitie_id, activitie_name, [Description], StartDateTime, EndDateTime FROM activities WHERE activitie_name=@name";
+            string query = "SELECT activitie_id, activitie_name, [Description], StartDateTime, EndDateTime FROM activities WHERE activitie_id=@id";
             SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@name", name);
+            sqlParameters[0] = new SqlParameter("@id", id);
             List<Activity> activities = ReadTables(ExecuteSelectQuery(query, sqlParameters));
             return activities[0];
         }

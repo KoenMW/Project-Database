@@ -103,7 +103,6 @@
             this.TbActivityName = new System.Windows.Forms.TextBox();
             this.TbActivityID = new System.Windows.Forms.TextBox();
             this.BtnCreateActivity = new System.Windows.Forms.Button();
-            this.CbActivity = new System.Windows.Forms.ComboBox();
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ActivitieName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -476,7 +475,6 @@
             this.pnlActivities.Controls.Add(this.TbActivityName);
             this.pnlActivities.Controls.Add(this.TbActivityID);
             this.pnlActivities.Controls.Add(this.BtnCreateActivity);
-            this.pnlActivities.Controls.Add(this.CbActivity);
             this.pnlActivities.Controls.Add(this.listViewActivities);
             this.pnlActivities.Controls.Add(this.pictureBox3);
             this.pnlActivities.Controls.Add(this.label2);
@@ -501,7 +499,7 @@
             this.pnlBtwOphalen.Controls.Add(this.labelKwartaal);
             this.pnlBtwOphalen.Controls.Add(this.pictureBox6);
             this.pnlBtwOphalen.Controls.Add(this.labelBtw);
-            this.pnlBtwOphalen.Location = new System.Drawing.Point(9, 111);
+            this.pnlBtwOphalen.Location = new System.Drawing.Point(9, 110);
             this.pnlBtwOphalen.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.pnlBtwOphalen.Name = "pnlBtwOphalen";
             this.pnlBtwOphalen.Size = new System.Drawing.Size(2492, 1104);
@@ -812,7 +810,7 @@
             // 
             // BtnDeleteActivity
             // 
-            this.BtnDeleteActivity.Location = new System.Drawing.Point(1476, 508);
+            this.BtnDeleteActivity.Location = new System.Drawing.Point(1011, 505);
             this.BtnDeleteActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.BtnDeleteActivity.Name = "BtnDeleteActivity";
             this.BtnDeleteActivity.Size = new System.Drawing.Size(300, 54);
@@ -823,7 +821,7 @@
             // 
             // BtnActivityUpdate
             // 
-            this.BtnActivityUpdate.Location = new System.Drawing.Point(843, 508);
+            this.BtnActivityUpdate.Location = new System.Drawing.Point(378, 505);
             this.BtnActivityUpdate.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.BtnActivityUpdate.Name = "BtnActivityUpdate";
             this.BtnActivityUpdate.Size = new System.Drawing.Size(300, 54);
@@ -834,7 +832,7 @@
             // 
             // BtnGetSelectedActivity
             // 
-            this.BtnGetSelectedActivity.Location = new System.Drawing.Point(508, 508);
+            this.BtnGetSelectedActivity.Location = new System.Drawing.Point(43, 505);
             this.BtnGetSelectedActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.BtnGetSelectedActivity.Name = "BtnGetSelectedActivity";
             this.BtnGetSelectedActivity.Size = new System.Drawing.Size(316, 54);
@@ -934,7 +932,7 @@
             // 
             // BtnCreateActivity
             // 
-            this.BtnCreateActivity.Location = new System.Drawing.Point(1159, 508);
+            this.BtnCreateActivity.Location = new System.Drawing.Point(694, 505);
             this.BtnCreateActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.BtnCreateActivity.Name = "BtnCreateActivity";
             this.BtnCreateActivity.Size = new System.Drawing.Size(300, 54);
@@ -942,18 +940,6 @@
             this.BtnCreateActivity.Text = "Create new Activity";
             this.BtnCreateActivity.UseVisualStyleBackColor = true;
             this.BtnCreateActivity.Click += new System.EventHandler(this.BtnCreateActivity_Click);
-            // 
-            // CbActivity
-            // 
-            this.CbActivity.FormattingEnabled = true;
-            this.CbActivity.Items.AddRange(new object[] {
-            "Select Activity"});
-            this.CbActivity.Location = new System.Drawing.Point(43, 513);
-            this.CbActivity.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.CbActivity.Name = "CbActivity";
-            this.CbActivity.Size = new System.Drawing.Size(445, 39);
-            this.CbActivity.TabIndex = 6;
-            this.CbActivity.Text = "Select Activity";
             // 
             // listViewActivities
             // 
@@ -963,8 +949,10 @@
             this.Discription,
             this.StartDateTime,
             this.EndDateTime});
+            this.listViewActivities.FullRowSelect = true;
             this.listViewActivities.GridLines = true;
             this.listViewActivities.HideSelection = false;
+            this.listViewActivities.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listViewActivities.Location = new System.Drawing.Point(43, 101);
             this.listViewActivities.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.listViewActivities.Name = "listViewActivities";
@@ -976,7 +964,7 @@
             // Id
             // 
             this.Id.Text = "ID";
-            this.Id.Width = 100;
+            this.Id.Width = 50;
             // 
             // ActivitieName
             // 
@@ -986,17 +974,17 @@
             // Discription
             // 
             this.Discription.Text = "Discription";
-            this.Discription.Width = 200;
+            this.Discription.Width = 150;
             // 
             // StartDateTime
             // 
             this.StartDateTime.Text = "Start Time";
-            this.StartDateTime.Width = 200;
+            this.StartDateTime.Width = 150;
             // 
             // EndDateTime
             // 
             this.EndDateTime.Text = "End Time";
-            this.EndDateTime.Width = 200;
+            this.EndDateTime.Width = 150;
             // 
             // pictureBox3
             // 
@@ -1640,7 +1628,6 @@
         private System.Windows.Forms.ColumnHeader columnStudentName;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox CbActivity;
         private System.Windows.Forms.ColumnHeader Discription;
         private System.Windows.Forms.ColumnHeader EndDateTime;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

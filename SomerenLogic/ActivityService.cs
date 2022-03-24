@@ -24,9 +24,9 @@ namespace SomerenLogic
             return activities;
         }
 
-        public Activity GetByName(string name)
+        public Activity GetById(string id)
         {
-            return activitiedb.GetByName(name);
+            return activitiedb.GetById(id);
         }
 
         public void UpdateActivity(Activity activity)
