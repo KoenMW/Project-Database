@@ -345,6 +345,110 @@ namespace SomerenUI
                 }
 
             }
+            else if (panelName == "pnlActivityParticipants")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+                Omzetrapportage.Hide();
+                pnlSupply.Hide();
+                pnlBtwOphalen.Hide();
+                pnlActivities.Hide();
+
+                //Show Activity Participants
+                pnlActivityParticipants.Show();
+                try
+                {
+
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activities = activityService.GetActivities();
+                    listViewActivitiesAP.Items.Clear();
+                    foreach (Activity activity in activities)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(activity.Id.ToString());
+                        listViewItem.SubItems.Add(activity.Name);
+                        listViewActivitiesAP.Items.Add(listViewItem);
+                    }
+                    listViewActivitiesAP.SelectedItems.Clear();
+
+                    StudentService studentService = new StudentService();
+                    List<Student> students = studentService.GetStudents();
+                    listViewAPallStudents.Items.Clear();
+                    foreach (Student student in students)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(student.Number.ToString());
+                        listViewItem.SubItems.Add(student.Name);
+                        listViewAPallStudents.Items.Add(listViewItem);
+                    }
+                    listViewAPallStudents.Focus();
+                    listViewAPallStudents.Items[0].Selected = true;
+
+                    listViewActivitiesAP.Focus();
+                    listViewActivitiesAP.Items[0].Selected = true;
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
+                }
+
+            }
+
+            else if (panelName == "Supervisors")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+                Omzetrapportage.Hide();
+                pnlSupply.Hide();
+                pnlBtwOphalen.Hide();
+                Kassa.Hide();
+
+                Supervisors.Show();
+                try
+                {
+                    // fill the Activities listview within the activities panel with a list of activities
+                    ActivityService actService = new ActivityService();
+                    List<Activity> activitieList = actService.GetActivities();
+
+                    // clear the listview before filling it again
+                    listActivity.Items.Clear();
+
+                    //fill listview
+                    foreach (Activity a in activitieList)
+                    {
+                        ListViewItem li = new ListViewItem(a.Id.ToString());
+                        li.SubItems.Add(a.Name);
+                        listActivity.Items.Add(li);
+                    }
+                    // fill the teachers listview within the students panel with a list of students
+                    TeacherService teacherService = new TeacherService(); ;
+                    List<Teacher> teacherList = teacherService.GetTeachers(); ;
+
+                    // clear the listview before filling it again
+                    listViewSupervisors.Items.Clear();
+                    //fill listview
+                    foreach (Teacher teacher in teacherList)
+                    {
+                        ListViewItem li = new ListViewItem(teacher.Number.ToString());
+                        li.SubItems.Add(teacher.Name);
+                        li.SubItems.Add(teacher.Activity.ToString());
+                        listViewSupervisors.Items.Add(li);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
+                }
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -714,6 +818,114 @@ namespace SomerenUI
             {
                 MessageBox.Show($"the selected activity ({deleteActivity.Name}) with id ({deleteActivity.Id}) does not exist please use get selected activity");
             }
+        }
+
+        private void participatingStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnlActivityParticipants");
+        }
+
+        private void btnShowAP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewActivitiesAP.SelectedItems != null)
+                {
+                    listViewActivitiesAPResult.Items.Clear();
+                    StudentService studentService = new StudentService();
+                    List<Student> students = studentService.GetStudentNamesAndActivities(int.Parse(listViewActivitiesAP.SelectedItems[0].Text));
+
+                    foreach (Student student in students)
+                    {
+                        ListViewItem item = new ListViewItem(student.Number.ToString());
+                        item.SubItems.Add(student.Name);
+                        listViewActivitiesAPResult.Items.Add(item);
+                    }
+                    //listViewActivitiesAPResult.Focus();
+                    //listViewActivitiesAPResult.Items[0].Selected = true;
+                }
+
+                else
+                {
+                    throw new Exception("Please select an activity.");
+                }
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Something went wrong while listing the students: " + exception.Message);
+            }
+        }
+
+        private void btnAddStudentToActivity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StudentService studentService = new StudentService();
+                studentService.UpdateStudentActivity(int.Parse(listViewActivitiesAP.SelectedItems[0].Text), int.Parse(listViewAPallStudents.SelectedItems[0].Text));
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Something went wrong while updating the student: " + exception.Message);
+            }
+        }
+
+        private void btnRemoveParticipantFromActivity_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show($"Are you sure that you wish to remove this participant?", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (listViewActivitiesAPResult.SelectedItems != null)
+                    {
+                        StudentService studentService = new StudentService();
+                        if (listViewActivitiesAPResult.Items.Count != 0)
+                        {
+                            studentService.RemoveStudentActivity(int.Parse(listViewActivitiesAPResult.SelectedItems[0].Text));
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Please select a student from the right listview.");
+                    }
+                    showPanel("pnlActivityParticipants");
+                }
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Something went wrong while removing the student: " + exception.Message);
+            }
+        }
+
+        private void supervisorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Supervisors");
+        }
+
+        private void btnDeleteSupervisor_Click(object sender, EventArgs e)
+        {
+            int LId = int.Parse(LIdtextBox.Text);
+            int AId = int.Parse(AIdTextBox.Text);
+
+            Supervisor supervisor = new Supervisor(LId, AId);
+            SupervisorService supervisorService = new SupervisorService();
+            supervisorService.DeleteSupervisor(supervisor);
+            MessageBox.Show("Supervisor succesfully deleted.");
+        }
+
+        private void btnAddSupervisor_Click(object sender, EventArgs e)
+        {
+            int LId = int.Parse(LecturerIdTextBox.Text);
+            int AId = int.Parse(ActivityIdTextBox.Text);
+
+            Supervisor supervisor = new Supervisor(LId, AId);
+            SupervisorService supervisorService = new SupervisorService();
+            supervisorService.AddSupervisor(supervisor);
+            MessageBox.Show("Supervisor succesfully added.");
         }
     }
 }
