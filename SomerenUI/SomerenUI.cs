@@ -23,6 +23,7 @@ namespace SomerenUI
         private void SomerenUI_Load(object sender, EventArgs e)
         {
             showPanel("Dashboard");
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void showPanel(string panelName)
@@ -40,6 +41,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -58,6 +60,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -99,6 +102,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -139,6 +143,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -180,6 +185,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show activities
                 pnlActivities.Show();
@@ -196,9 +202,14 @@ namespace SomerenUI
                     {
                         ListViewItem li = new ListViewItem(a.Id.ToString());
                         li.SubItems.Add(a.Name);
-                        li.SubItems.Add(a.Time.ToString());
+                        li.SubItems.Add(a.Description);
+                        li.SubItems.Add(a.StartTime.ToString());
+                        li.SubItems.Add(a.EndTime.ToString());
                         listViewActivities.Items.Add(li);
                     }
+
+                    listViewActivities.Focus();
+                    listViewActivities.Items[0].Selected = true;
                 }
                 catch (Exception e)
                 {
@@ -218,6 +229,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show activities
                 Omzetrapportage.Show();
@@ -253,6 +265,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 //show btw panel
                 pnlBtwOphalen.Show();
@@ -279,6 +292,7 @@ namespace SomerenUI
                 Omzetrapportage.Hide();
                 Kassa.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
 
                 // show supplies
                 pnlSupply.Show();
@@ -326,6 +340,8 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
                 Supervisors.Hide();
+                pnlActivityParticipants.Hide();
+
 
                 //Show Kassa
                 Kassa.Show();
@@ -345,7 +361,59 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
+                }
+
+            }
+            else if (panelName == "pnlActivityParticipants")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+                Omzetrapportage.Hide();
+                pnlSupply.Hide();
+                pnlBtwOphalen.Hide();
+                pnlActivities.Hide();
+
+                //Show Activity Participants
+                pnlActivityParticipants.Show();
+                try
+                {
+
+                    ActivityService activityService = new ActivityService();
+                    List<Activity> activities = activityService.GetActivities();
+                    listViewActivitiesAP.Items.Clear();
+                    foreach  (Activity activity in activities)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(activity.Id.ToString());
+                        listViewItem.SubItems.Add(activity.Name);
+                        listViewActivitiesAP.Items.Add(listViewItem);
+                    }
+                    listViewActivitiesAP.SelectedItems.Clear();
+
+                    StudentService studentService = new StudentService();
+                    List<Student> students = studentService.GetStudents();
+                    listViewAPallStudents.Items.Clear();
+                    foreach (Student student in students)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(student.Number.ToString());
+                        listViewItem.SubItems.Add(student.Name);
+                        listViewAPallStudents.Items.Add(listViewItem);
+                    }
+                    listViewAPallStudents.Focus();
+                    listViewAPallStudents.Items[0].Selected = true;
+
+                    listViewActivitiesAP.Focus();
+                    listViewActivitiesAP.Items[0].Selected = true;
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
                 }
             }
             else if (panelName == "Supervisors")
@@ -447,13 +515,25 @@ namespace SomerenUI
         {
             showPanel("Omzetrapportage");
         }
+        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Supplies");
+        }
+
+        private void kassaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Kassa");
+        }
+        private void bTWBerekenenToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showPanel("BtwOphalen");
+        }
 
         private void CalculateRevenue_Click(object sender, EventArgs e)
         {
             listViewRevenue.Items.Clear();
             try
             {
-                // fill the Activities listview within the activities panel with a list of activities
                 DateTime startDate = Convert.ToDateTime(monthCalendarStartDate.SelectionRange.Start.ToString("dd-MM-yyyy"));
                 DateTime endDate = Convert.ToDateTime(monthCalendarEndDate.SelectionRange.Start.ToString("dd-MM-yyyy"));
                 if (System.DateTime.Compare(startDate, System.DateTime.Now)<=0 && System.DateTime.Compare(endDate, System.DateTime.Now) <= 0)
@@ -484,10 +564,6 @@ namespace SomerenUI
             {
                 MessageBox.Show("Something went wrong while loading the revenue: " + E.Message);
             }
-        }
-        private void bTWBerekenenToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            showPanel("BtwOphalen");
         }
 
         //Vanaf hier is BTW berekenen
@@ -549,7 +625,7 @@ namespace SomerenUI
             }
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void btnReset_Click_1(object sender, EventArgs e)
         {
             ClearVAT();
         }
@@ -569,10 +645,6 @@ namespace SomerenUI
 
         //Vanaf hier is drankvoorraad
 
-        private void drankvoorraadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Supplies");
-        }
 
         private void Updatebtn_Click(object sender, EventArgs e)
         {
@@ -619,20 +691,47 @@ namespace SomerenUI
             }
             catch (Exception i)
             {
-                MessageBox.Show("Something went wrong while loading the activities: " + i.Message);
+                MessageBox.Show("Something went wrong while loading the drinks: " + i.Message);
             }
         }
         //Tot hier is drankvoorraad
 
-        private void kassaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            showPanel("Kassa");
-        }
+        //Tot hier is drankvoorraad
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void BtnGetSelectedActivity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewActivities.SelectedItems!= null)
+                {
+                    ActivityService actService = new ActivityService();
+
+                    foreach (ListViewItem li in listViewActivities.SelectedItems)
+                    {
+                        Activity activity = actService.GetById(li.Text);
+                        TbActivityID.Text = activity.Id.ToString();
+                        TbActivityName.Text = activity.Name;
+                        TbActivityDiscription.Text = activity.Description;
+                        McActivityStartTime.SetDate(activity.StartTime);
+                        McActivityEndTime.SetDate(activity.EndTime);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select an activity");
+                }
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show("Something went wrong while loading the activities: " + E.Message);
+            }
+        }
+
 
         private void supervisorsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -659,6 +758,198 @@ namespace SomerenUI
             SupervisorService supervisorService = new SupervisorService();
             supervisorService.DeleteSupervisor(supervisor);
             MessageBox.Show("Supervisor succesfully deleted.");
+
+        private void BtnActivityUpdate_Click(object sender, EventArgs e)
+        {
+            Activity updatedActivity = new Activity
+            {
+                Id = int.Parse(TbActivityID.Text),
+                Name = TbActivityName.Text,
+                Description = TbActivityDiscription.Text,
+                StartTime = Convert.ToDateTime(McActivityStartTime.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(McActivityEndTime.SelectionRange.Start.ToString())
+            };
+            ActivityService actService = new ActivityService();
+            List<Activity> activities = actService.GetActivities();
+
+            if (activities.Any(a => a.Id == updatedActivity.Id))
+            {
+                if (updatedActivity.StartTime <= updatedActivity.EndTime)
+                {
+                    if (System.DateTime.Today <= updatedActivity.StartTime && System.DateTime.Today <= updatedActivity.EndTime)
+                    {
+                        actService.UpdateActivity(updatedActivity);
+                        showPanel("Activities");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Activity can't be in the past");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Start time is before end time");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"the selected activity id ({updatedActivity.Id}) does not exist please check again or use create new activity");
+            }
+        }
+
+        private void BtnCreateActivity_Click(object sender, EventArgs e)
+        {
+            Activity newActivity = new Activity
+            {
+                Id = int.Parse(TbActivityID.Text),
+                Name = TbActivityName.Text,
+                Description = TbActivityDiscription.Text,
+                StartTime = Convert.ToDateTime(McActivityStartTime.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(McActivityEndTime.SelectionRange.Start.ToString())
+            };
+            ActivityService actService = new ActivityService();
+            List<Activity> activities = actService.GetActivities();
+            if (!activities.Any(a => a.Name == newActivity.Name))
+            {
+                if (!activities.Any(a => a.Id == newActivity.Id))
+                {
+                    if (newActivity.StartTime <= newActivity.EndTime)
+                    {
+                        if (System.DateTime.Today <= newActivity.StartTime && System.DateTime.Today <= newActivity.EndTime)
+                        {
+                            actService.InserActivity(newActivity);
+                            showPanel("Activities");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Activity can't be in the past");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Start time is before end time");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"An activity with id: {newActivity.Id} already exist");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"An activity with name: {newActivity.Name} already exist");
+            }
+        }
+
+        private void BtnDeleteActivity_Click(object sender, EventArgs e)
+        {
+            Activity deleteActivity = new Activity
+            {
+                Id = int.Parse(TbActivityID.Text),
+                Name = TbActivityName.Text,
+                Description = TbActivityDiscription.Text,
+                StartTime = Convert.ToDateTime(McActivityStartTime.SelectionRange.Start.ToString()),
+                EndTime = Convert.ToDateTime(McActivityEndTime.SelectionRange.Start.ToString())
+            };
+
+            ActivityService actService = new ActivityService();
+            List<Activity> activities = actService.GetActivities();
+            if (activities.Any(a => a.Id == deleteActivity.Id))
+            {
+                
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete {deleteActivity.Name}?", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    actService.DeleteActivity(deleteActivity);
+                    showPanel("Activities");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"the selected activity ({deleteActivity.Name}) with id ({deleteActivity.Id}) does not exist please use get selected activity");
+            }
+        }
+
+        private void participatingStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("pnlActivityParticipants");
+        }
+
+        private void btnShowAP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listViewActivitiesAP.SelectedItems != null)
+                {
+                    listViewActivitiesAPResult.Items.Clear();
+                    StudentService studentService = new StudentService();
+                    List<Student> students = studentService.GetStudentNamesAndActivities(int.Parse(listViewActivitiesAP.SelectedItems[0].Text));
+
+                    foreach (Student student in students)
+                    {
+                        ListViewItem item = new ListViewItem(student.Number.ToString());
+                        item.SubItems.Add(student.Name);
+                        listViewActivitiesAPResult.Items.Add(item);
+                    }
+                    //listViewActivitiesAPResult.Focus();
+                    //listViewActivitiesAPResult.Items[0].Selected = true;
+                }
+
+                else
+                {
+                    throw new Exception("Please select an activity.");
+                }
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Something went wrong while listing the students: " + exception.Message);
+            }
+        }
+
+        private void btnAddStudentToActivity_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StudentService studentService = new StudentService();
+                studentService.UpdateStudentActivity(int.Parse(listViewActivitiesAP.SelectedItems[0].Text), int.Parse(listViewAPallStudents.SelectedItems[0].Text));
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Something went wrong while updating the student: " + exception.Message);
+            }
+        }
+
+        private void btnRemoveParticipantFromActivity_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show($"Are you sure that you wish to remove this participant?", "", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (listViewActivitiesAPResult.SelectedItems != null)
+                    {
+                        StudentService studentService = new StudentService();
+                        if (listViewActivitiesAPResult.Items.Count != 0)
+                        {
+                            studentService.RemoveStudentActivity(int.Parse(listViewActivitiesAPResult.SelectedItems[0].Text));
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Please select a student from the right listview.");
+                    }
+                    showPanel("pnlActivityParticipants");
+                }
+            }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Something went wrong while removing the student: " + exception.Message);
+            }
+
         }
     }
 }
