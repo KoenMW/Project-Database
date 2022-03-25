@@ -74,7 +74,7 @@ namespace SomerenDAL
             catch (SqlException e)
             {
                 // Print.ErrorLog(e);
-                throw new Exception(e.Message);
+                throw;
             }
             finally
             {
