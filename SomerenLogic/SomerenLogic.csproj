@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityService.cs" />
+    <Compile Include="CalendarService.cs" />
     <Compile Include="DrinkService.cs" />
     <Compile Include="SupervisorService.cs" />
     <Compile Include="SupplyService.cs" />

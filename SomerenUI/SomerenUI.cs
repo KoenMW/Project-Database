@@ -42,6 +42,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -61,6 +62,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show students
                 pnlStudents.Show();
@@ -103,6 +105,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show teachers
                 pnlTeachers.Show();
@@ -144,6 +147,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show students
                 pnlRooms.Show();
@@ -186,6 +190,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show activities
                 pnlActivities.Show();
@@ -230,6 +235,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show activities
                 Omzetrapportage.Show();
@@ -266,6 +272,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 //show btw panel
                 pnlBtwOphalen.Show();
@@ -293,6 +300,7 @@ namespace SomerenUI
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 // show supplies
                 pnlSupply.Show();
@@ -341,6 +349,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 //Show Kassa
                 Kassa.Show();
@@ -377,6 +386,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
                 Supervisors.Hide();
+                pnlcalendar.Hide();
 
                 //Show Activity Participants
                 pnlActivityParticipants.Show();
@@ -431,6 +441,7 @@ namespace SomerenUI
                 pnlBtwOphalen.Hide();
                 Kassa.Hide();
                 pnlActivityParticipants.Hide();
+                pnlcalendar.Hide();
 
                 Supervisors.Show();
                 try
@@ -468,6 +479,69 @@ namespace SomerenUI
                 {
                     MessageBox.Show("Something went wrong while loading the revenue: " + e.Message);
                 }
+            }
+            else if (panelName == "Calendar")
+            {
+                // hide all other panels
+                pnlDashboard.Hide();
+                imgDashboard.Hide();
+                pnlStudents.Hide();
+                pnlTeachers.Hide();
+                pnlRooms.Hide();
+                pnlActivities.Hide();
+                Omzetrapportage.Hide();
+                pnlSupply.Hide();
+                pnlBtwOphalen.Hide();
+                Supervisors.Hide();
+                pnlActivityParticipants.Show();
+
+                //Show Activity Participants
+                pnlcalendar.Show();
+                try
+                {
+
+                    CalendarService calendarService = new CalendarService();
+                    List<SomerenModel.Calendar> calendar = calendarService.GetCalendar();
+                    listViewActivitiesAP.Items.Clear();
+                    foreach (SomerenModel.Calendar item in calendar)
+                    {
+                        ListViewItem listViewItem = new ListViewItem(item.ActivityName.ToString());
+                        if (item.NrOfSupervisors == 0)
+                        {
+                            listViewItem.SubItems.Add("Unsupervised");
+                        }
+                        else
+                        {
+                            listViewItem.SubItems.Add(item.NrOfSupervisors.ToString());
+                        }
+                        if (item.StartDate.DayOfWeek == DayOfWeek.Monday)
+                        {
+                            listViewMonday.Items.Add(listViewItem);
+                        }
+                        else if (item.StartDate.DayOfWeek == DayOfWeek.Tuesday)
+                        {
+                            listViewTuesday.Items.Add(listViewItem);
+                        }
+                        else if (item.StartDate.DayOfWeek == DayOfWeek.Wednesday)
+                        {
+                            listViewWednesday.Items.Add(listViewItem);
+                        }
+                        else if (item.StartDate.DayOfWeek == DayOfWeek.Thursday)
+                        {
+                            listViewThursday.Items.Add(listViewItem);
+                        }
+                        else if (item.StartDate.DayOfWeek == DayOfWeek.Friday)
+                        {
+                            listViewFriday.Items.Add(listViewItem);
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
+                }
+
             }
         }
 
@@ -654,6 +728,7 @@ namespace SomerenUI
             pnlRooms.Hide();
             pnlActivities.Hide();
             Omzetrapportage.Hide();
+            pnlcalendar.Hide();
             // show supplies
             pnlSupply.Show();
             try
@@ -956,6 +1031,11 @@ namespace SomerenUI
         private void supervisorsToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             showPanel("Supervisors");
+        }
+
+        private void calendarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Calendar");
         }
     }
 }
