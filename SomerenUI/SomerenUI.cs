@@ -705,12 +705,11 @@ namespace SomerenUI
 
                     foreach (ListViewItem li in listViewActivities.SelectedItems)
                     {
-                        Activity activity = actService.GetById(li.Text);
-                        TbActivityID.Text = activity.Id.ToString();
-                        TbActivityName.Text = activity.Name;
-                        TbActivityDiscription.Text = activity.Description;
-                        McActivityStartTime.SetDate(activity.StartTime);
-                        McActivityEndTime.SetDate(activity.EndTime);
+                        TbActivityID.Text = li.Text;
+                        TbActivityName.Text = li.SubItems[1].Text;
+                        TbActivityDiscription.Text = li.SubItems[2].Text;
+                        McActivityStartTime.SetDate(DateTime.Parse(li.SubItems[3].Text));
+                        McActivityEndTime.SetDate(DateTime.Parse(li.SubItems[4].Text));
                     }
                 }
                 else
