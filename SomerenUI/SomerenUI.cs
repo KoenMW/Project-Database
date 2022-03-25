@@ -493,7 +493,7 @@ namespace SomerenUI
                 pnlSupply.Hide();
                 pnlBtwOphalen.Hide();
                 Supervisors.Hide();
-                pnlActivityParticipants.Show();
+                pnlActivityParticipants.Hide();
 
                 //Show Activity Participants
                 pnlcalendar.Show();
@@ -1034,6 +1034,11 @@ namespace SomerenUI
         }
 
         private void calendarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showPanel("Calendar");
+        }
+
+        private void calendarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             showPanel("Calendar");
         }

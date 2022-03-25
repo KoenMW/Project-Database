@@ -41,6 +41,7 @@
             this.activityParticipantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supervisorsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.supervisorsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bardienstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drankvoorraadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -195,7 +196,6 @@
             this.columnActivity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label5 = new System.Windows.Forms.Label();
             this.supervisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calendarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlcalendar = new System.Windows.Forms.FlowLayoutPanel();
             this.listViewMonday = new System.Windows.Forms.ListView();
             this.Mondaynameheader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -262,7 +262,7 @@
             this.bardienstToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1893, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1893, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -341,6 +341,13 @@
             this.supervisorsToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
             this.supervisorsToolStripMenuItem2.Text = "Supervisors";
             this.supervisorsToolStripMenuItem2.Click += new System.EventHandler(this.supervisorsToolStripMenuItem2_Click);
+            // 
+            // calendarToolStripMenuItem
+            // 
+            this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
+            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.calendarToolStripMenuItem.Text = "Calendar";
+            this.calendarToolStripMenuItem.Click += new System.EventHandler(this.calendarToolStripMenuItem_Click_1);
             // 
             // roomsToolStripMenuItem
             // 
@@ -653,14 +660,14 @@
             // McActivityEndTime
             // 
             this.McActivityEndTime.Location = new System.Drawing.Point(912, 414);
-            this.McActivityEndTime.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.McActivityEndTime.Margin = new System.Windows.Forms.Padding(14);
             this.McActivityEndTime.Name = "McActivityEndTime";
             this.McActivityEndTime.TabIndex = 12;
             // 
             // McActivityStartTime
             // 
             this.McActivityStartTime.Location = new System.Drawing.Point(552, 414);
-            this.McActivityStartTime.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.McActivityStartTime.Margin = new System.Windows.Forms.Padding(14);
             this.McActivityStartTime.Name = "McActivityStartTime";
             this.McActivityStartTime.TabIndex = 11;
             // 
@@ -1205,7 +1212,7 @@
             // monthCalendarEndDate
             // 
             this.monthCalendarEndDate.Location = new System.Drawing.Point(396, 578);
-            this.monthCalendarEndDate.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.monthCalendarEndDate.Margin = new System.Windows.Forms.Padding(14);
             this.monthCalendarEndDate.MaxSelectionCount = 1;
             this.monthCalendarEndDate.Name = "monthCalendarEndDate";
             this.monthCalendarEndDate.TabIndex = 7;
@@ -1213,7 +1220,7 @@
             // monthCalendarStartDate
             // 
             this.monthCalendarStartDate.Location = new System.Drawing.Point(30, 578);
-            this.monthCalendarStartDate.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.monthCalendarStartDate.Margin = new System.Windows.Forms.Padding(14);
             this.monthCalendarStartDate.MaxSelectionCount = 1;
             this.monthCalendarStartDate.Name = "monthCalendarStartDate";
             this.monthCalendarStartDate.TabIndex = 6;
@@ -1539,7 +1546,7 @@
             this.pnlActivityParticipants.Controls.Add(this.pictureBox9);
             this.pnlActivityParticipants.Controls.Add(this.label21);
             this.pnlActivityParticipants.Location = new System.Drawing.Point(4, 63);
-            this.pnlActivityParticipants.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlActivityParticipants.Margin = new System.Windows.Forms.Padding(2);
             this.pnlActivityParticipants.Name = "pnlActivityParticipants";
             this.pnlActivityParticipants.Size = new System.Drawing.Size(1404, 714);
             this.pnlActivityParticipants.TabIndex = 18;
@@ -1548,7 +1555,7 @@
             // 
             this.btnRemoveParticipantFromActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnRemoveParticipantFromActivity.Location = new System.Drawing.Point(807, 266);
-            this.btnRemoveParticipantFromActivity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemoveParticipantFromActivity.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveParticipantFromActivity.Name = "btnRemoveParticipantFromActivity";
             this.btnRemoveParticipantFromActivity.Size = new System.Drawing.Size(270, 91);
             this.btnRemoveParticipantFromActivity.TabIndex = 9;
@@ -1560,7 +1567,7 @@
             // 
             this.btnAddStudentToActivity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnAddStudentToActivity.Location = new System.Drawing.Point(94, 512);
-            this.btnAddStudentToActivity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddStudentToActivity.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddStudentToActivity.Name = "btnAddStudentToActivity";
             this.btnAddStudentToActivity.Size = new System.Drawing.Size(324, 72);
             this.btnAddStudentToActivity.TabIndex = 8;
@@ -1577,7 +1584,7 @@
             this.listViewAPallStudents.GridLines = true;
             this.listViewAPallStudents.HideSelection = false;
             this.listViewAPallStudents.Location = new System.Drawing.Point(20, 286);
-            this.listViewAPallStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewAPallStudents.Margin = new System.Windows.Forms.Padding(2);
             this.listViewAPallStudents.Name = "listViewAPallStudents";
             this.listViewAPallStudents.Size = new System.Drawing.Size(464, 198);
             this.listViewAPallStudents.TabIndex = 7;
@@ -1603,7 +1610,7 @@
             this.listViewActivitiesAPResult.GridLines = true;
             this.listViewActivitiesAPResult.HideSelection = false;
             this.listViewActivitiesAPResult.Location = new System.Drawing.Point(670, 68);
-            this.listViewActivitiesAPResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewActivitiesAPResult.Margin = new System.Windows.Forms.Padding(2);
             this.listViewActivitiesAPResult.Name = "listViewActivitiesAPResult";
             this.listViewActivitiesAPResult.Size = new System.Drawing.Size(484, 193);
             this.listViewActivitiesAPResult.TabIndex = 6;
@@ -1624,7 +1631,7 @@
             // 
             this.btnShowAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnShowAP.Location = new System.Drawing.Point(502, 103);
-            this.btnShowAP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowAP.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowAP.Name = "btnShowAP";
             this.btnShowAP.Size = new System.Drawing.Size(152, 103);
             this.btnShowAP.TabIndex = 5;
@@ -1641,7 +1648,7 @@
             this.listViewActivitiesAP.GridLines = true;
             this.listViewActivitiesAP.HideSelection = false;
             this.listViewActivitiesAP.Location = new System.Drawing.Point(20, 69);
-            this.listViewActivitiesAP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewActivitiesAP.Margin = new System.Windows.Forms.Padding(2);
             this.listViewActivitiesAP.Name = "listViewActivitiesAP";
             this.listViewActivitiesAP.Size = new System.Drawing.Size(464, 192);
             this.listViewActivitiesAP.TabIndex = 4;
@@ -1663,7 +1670,7 @@
             this.pictureBox9.Image = global::SomerenUI.Properties.Resources.someren;
             this.pictureBox9.InitialImage = null;
             this.pictureBox9.Location = new System.Drawing.Point(1208, 5);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(198, 188);
             this.pictureBox9.TabIndex = 0;
@@ -1696,7 +1703,7 @@
             this.Supervisors.Controls.Add(this.listActivity);
             this.Supervisors.Controls.Add(this.label5);
             this.Supervisors.Location = new System.Drawing.Point(4, 60);
-            this.Supervisors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Supervisors.Margin = new System.Windows.Forms.Padding(2);
             this.Supervisors.Name = "Supervisors";
             this.Supervisors.Size = new System.Drawing.Size(1401, 723);
             this.Supervisors.TabIndex = 23;
@@ -1724,7 +1731,7 @@
             // AIdTextBox
             // 
             this.AIdTextBox.Location = new System.Drawing.Point(915, 285);
-            this.AIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.AIdTextBox.Name = "AIdTextBox";
             this.AIdTextBox.Size = new System.Drawing.Size(88, 26);
             this.AIdTextBox.TabIndex = 14;
@@ -1732,7 +1739,7 @@
             // LIdtextBox
             // 
             this.LIdtextBox.Location = new System.Drawing.Point(915, 242);
-            this.LIdtextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LIdtextBox.Margin = new System.Windows.Forms.Padding(2);
             this.LIdtextBox.Name = "LIdtextBox";
             this.LIdtextBox.Size = new System.Drawing.Size(88, 26);
             this.LIdtextBox.TabIndex = 13;
@@ -1740,7 +1747,7 @@
             // btnDeleteSupervisor
             // 
             this.btnDeleteSupervisor.Location = new System.Drawing.Point(878, 329);
-            this.btnDeleteSupervisor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteSupervisor.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteSupervisor.Name = "btnDeleteSupervisor";
             this.btnDeleteSupervisor.Size = new System.Drawing.Size(170, 38);
             this.btnDeleteSupervisor.TabIndex = 12;
@@ -1771,7 +1778,7 @@
             // ActivityIdTextBox
             // 
             this.ActivityIdTextBox.Location = new System.Drawing.Point(657, 282);
-            this.ActivityIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ActivityIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ActivityIdTextBox.Name = "ActivityIdTextBox";
             this.ActivityIdTextBox.Size = new System.Drawing.Size(88, 26);
             this.ActivityIdTextBox.TabIndex = 9;
@@ -1779,7 +1786,7 @@
             // LecturerIdTextBox
             // 
             this.LecturerIdTextBox.Location = new System.Drawing.Point(657, 242);
-            this.LecturerIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LecturerIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.LecturerIdTextBox.Name = "LecturerIdTextBox";
             this.LecturerIdTextBox.Size = new System.Drawing.Size(88, 26);
             this.LecturerIdTextBox.TabIndex = 8;
@@ -1787,7 +1794,7 @@
             // btnAddSupervisor
             // 
             this.btnAddSupervisor.Location = new System.Drawing.Point(632, 329);
-            this.btnAddSupervisor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddSupervisor.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddSupervisor.Name = "btnAddSupervisor";
             this.btnAddSupervisor.Size = new System.Drawing.Size(147, 37);
             this.btnAddSupervisor.TabIndex = 7;
@@ -1805,7 +1812,7 @@
             this.listViewSupervisors.GridLines = true;
             this.listViewSupervisors.HideSelection = false;
             this.listViewSupervisors.Location = new System.Drawing.Point(489, 63);
-            this.listViewSupervisors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewSupervisors.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSupervisors.Name = "listViewSupervisors";
             this.listViewSupervisors.Size = new System.Drawing.Size(630, 147);
             this.listViewSupervisors.TabIndex = 6;
@@ -1836,7 +1843,7 @@
             this.listActivity.GridLines = true;
             this.listActivity.HideSelection = false;
             this.listActivity.Location = new System.Drawing.Point(20, 63);
-            this.listActivity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listActivity.Margin = new System.Windows.Forms.Padding(2);
             this.listActivity.Name = "listActivity";
             this.listActivity.Size = new System.Drawing.Size(438, 349);
             this.listActivity.TabIndex = 4;
@@ -1870,12 +1877,6 @@
             this.supervisorsToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.supervisorsToolStripMenuItem.Text = "Supervisors";
             this.supervisorsToolStripMenuItem.Click += new System.EventHandler(this.supervisorsToolStripMenuItem_Click);
-            // 
-            // calendarToolStripMenuItem
-            // 
-            this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
-            this.calendarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.calendarToolStripMenuItem.Text = "Calendar";
             // 
             // pnlcalendar
             // 
