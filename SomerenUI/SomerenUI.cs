@@ -422,7 +422,7 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the participants: " + e.Message);
                 }
 
             }
@@ -495,7 +495,7 @@ namespace SomerenUI
                 Supervisors.Hide();
                 pnlActivityParticipants.Hide();
 
-                //Show Activity Participants
+                //Show calender
                 pnlcalendar.Show();
                 try
                 {
@@ -539,7 +539,7 @@ namespace SomerenUI
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Something went wrong while loading the kassa: " + e.Message);
+                    MessageBox.Show("Something went wrong while loading the calender: " + e.Message);
                 }
 
             }
