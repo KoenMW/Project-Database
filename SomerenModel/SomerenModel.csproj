@@ -43,6 +43,7 @@
     <Compile Include="Activity.cs" />
     <Compile Include="Calendar.cs" />
     <Compile Include="Drink.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Supervisor.cs" />
     <Compile Include="Supply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

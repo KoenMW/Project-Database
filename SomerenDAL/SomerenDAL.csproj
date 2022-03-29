@@ -46,6 +46,7 @@
     <Compile Include="BaseDao.cs" />
     <Compile Include="CalendarDao.cs" />
     <Compile Include="DrinkDao.cs" />
+    <Compile Include="LoginDao.cs" />
     <Compile Include="SupervisorDao.cs" />
     <Compile Include="SupplyDao.cs" />
     <Compile Include="VATCalculationDao.cs" />

@@ -1042,5 +1042,20 @@ namespace SomerenUI
         {
             showPanel("Calendar");
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            LoginService loginService = new LoginService();
+            Login login = loginService.Login(textBoxUsername.Text, textBoxPassword.Text);
+            if (login.UserId > 0)
+            {
+                pnlLogin.Hide();
+                MessageBox.Show($"Succesfull login! Welcome user {login.UserId}");
+            }
+            else
+            {
+                MessageBox.Show("Invalid login!");
+            }
+        }
     }
 }
