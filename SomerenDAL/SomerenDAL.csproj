@@ -49,6 +49,7 @@
     <Compile Include="LoginDao.cs" />
     <Compile Include="SupervisorDao.cs" />
     <Compile Include="SupplyDao.cs" />
+    <Compile Include="UserDao.cs" />
     <Compile Include="VATCalculationDao.cs" />
     <Compile Include="RevenueDAO.cs" />
     <Compile Include="RoomDao.cs" />

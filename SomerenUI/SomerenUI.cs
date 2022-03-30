@@ -43,6 +43,7 @@ namespace SomerenUI
                 pnlActivityParticipants.Hide();
                 Supervisors.Hide();
                 pnlcalendar.Hide();
+                pnlRegister.Hide();
 
                 // show dashboard
                 pnlDashboard.Show();
@@ -543,6 +544,12 @@ namespace SomerenUI
                 }
 
             }
+            else if (panelName == "Register")
+            {
+                pnlRegister.Show();
+                btnSignUp.Enabled = false;
+                RegisterEnable(false);
+            }
         }
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -597,6 +604,12 @@ namespace SomerenUI
         {
             showPanel("BtwOphalen");
         }
+
+        private void btnRegistrer_Click(object sender, EventArgs e)
+        {
+            showPanel("Register");
+        }
+
 
         private void CalculateRevenue_Click(object sender, EventArgs e)
         {
@@ -1055,6 +1068,106 @@ namespace SomerenUI
             else
             {
                 MessageBox.Show("Invalid login!");
+            }
+        }
+
+        private void btnRegisterCancel_Click(object sender, EventArgs e)
+        {
+            pnlRegister.Hide();
+            tbRegisterLicanceKey.Text = string.Empty;
+            tbRegisterUsername.Text = string.Empty;
+            tbRegisterPassword.Text = string.Empty;
+            tbRegisterConfirmPassword.Text = string.Empty;
+            tbRegisterSecretQuestion.Text = string.Empty;
+            tbRegisterSecredAnswer.Text = string.Empty;
+        }
+
+        private void tbRegisterLicanceKey_TextChanged(object sender, EventArgs e)
+        {
+            if (tbRegisterLicanceKey.Text == "XsZAb - tgz3PsD - qYh69un - WQCEx")
+            {
+                RegisterEnable(true);
+            }
+            else
+            {
+                RegisterEnable(false);
+            }
+        }
+
+        private void RegisterEnable(bool b)
+        {
+            tbRegisterUsername.Enabled = b;
+            tbRegisterPassword.Enabled = b;
+            tbRegisterConfirmPassword.Enabled = b;
+            tbRegisterSecretQuestion.Enabled = b;
+            tbRegisterSecredAnswer.Enabled = b;
+        }
+
+        private void tbRegisterSecredAnswer_TextChanged(object sender, EventArgs e)
+        {
+            btnSignUp.Enabled = RegisterCanSignUp();
+        }
+        private bool RegisterCanSignUp()
+        {
+            if (tbRegisterUsername.Text != string.Empty && tbRegisterPassword.Text != string.Empty && tbRegisterConfirmPassword.Text != string.Empty && tbRegisterSecretQuestion.Text != string.Empty && tbRegisterSecredAnswer.Text != string.Empty)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void tbRegisterSecretQuestion_TextChanged(object sender, EventArgs e)
+        {
+            btnSignUp.Enabled = RegisterCanSignUp();
+        }
+
+        private void tbRegisterConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            btnSignUp.Enabled = RegisterCanSignUp();
+        }
+
+        private void tbRegisterPassword_TextChanged(object sender, EventArgs e)
+        {
+            btnSignUp.Enabled = RegisterCanSignUp();
+        }
+
+        private void tbRegisterUsername_TextChanged(object sender, EventArgs e)
+        {
+            btnSignUp.Enabled = RegisterCanSignUp();
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UserService userService = new UserService();
+                if (tbRegisterPassword.Text == tbRegisterConfirmPassword.Text)
+                {
+                    User newUser = new User
+                    {
+                        Name = tbRegisterUsername.Text,
+                        Password = tbRegisterPassword.Text,
+                        SecretQuestion = tbRegisterSecretQuestion.Text,
+                        SecretAnswer = tbRegisterSecredAnswer.Text
+                    };
+                    userService.AddUser(newUser);
+                    MessageBox.Show("You are now registered!");
+                    tbRegisterLicanceKey.Text = string.Empty;
+                    tbRegisterUsername.Text = string.Empty;
+                    tbRegisterPassword.Text = string.Empty;
+                    tbRegisterConfirmPassword.Text = string.Empty;
+                    tbRegisterSecretQuestion.Text = string.Empty;
+                    tbRegisterSecredAnswer.Text = string.Empty;
+                    pnlRegister.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Password is not the same as the comfirm password");
+                }
+            }
+            catch (Exception RegisterError)
+            {
+                MessageBox.Show(RegisterError.Message);
             }
         }
     }
