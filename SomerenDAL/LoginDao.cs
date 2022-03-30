@@ -25,7 +25,7 @@ namespace SomerenDAL
             Login login = new Login();
             foreach (DataRow dr in dataTable.Rows)
             {
-                login.UserId = (int)dr["userId"];                
+                login.UserId = (int)dr["userId"];
             }
             return login;
         }
