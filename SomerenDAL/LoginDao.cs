@@ -17,7 +17,7 @@ namespace SomerenDAL
             string query = "SELECT userId FROM users WHERE username=@username AND password=@password";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@username", username);
-            sqlParameters[1] = new SqlParameter("@password", HashString(password));
+            sqlParameters[1] = new SqlParameter("@password", HashString(new byte[password.Length],password));
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         private Login ReadTables(DataTable dataTable)

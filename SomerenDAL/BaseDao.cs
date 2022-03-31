@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using System.Text;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace SomerenDAL
 {
@@ -113,10 +114,14 @@ namespace SomerenDAL
             return dataTable;
         }
 
-        protected string HashString(string s)
+        protected string HashString(byte[] salt, string s)
         {
-            byte[] b = Encoding.ASCII.GetBytes(s);
-            string hashed = Convert.ToBase64String(b);
+            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: s,
+                salt: salt,
+                prf: KeyDerivationPrf.HMACSHA256,
+                iterationCount: 100000,
+                numBytesRequested: 256 / 8));
             return hashed;
         }
     }

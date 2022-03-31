@@ -22,7 +22,5 @@ namespace SomerenLogic
             Login login = logindb.Login(username, password);
             return login;
         }
-
-        
     }
 }
