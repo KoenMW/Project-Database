@@ -44,7 +44,7 @@ namespace SomerenUI
                 Supervisors.Hide();
                 pnlcalendar.Hide();
                 pnlRegister.Hide();
-
+                ForgotPasswordpnl.Hide();
                 // show dashboard
                 pnlDashboard.Show();
                 imgDashboard.Show();
@@ -1170,5 +1170,89 @@ namespace SomerenUI
                 MessageBox.Show(RegisterError.Message);
             }
         }
+
+        private void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+            SecretQuestionlbl.Hide();
+            SecretAnswerlbl.Hide();
+            answertxt.Hide();
+            Questiontxt.Hide();
+            inputanswerbtn.Hide();
+            newpasswordlbl.Hide();
+            newpasswordtxt.Hide();
+            newpasswordbtn.Hide();
+            ForgotPasswordpnl.Show();
+            
+
+        }
+
+        private void Enternamebtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NewPasswordService newPasswordService = new NewPasswordService();
+                User user = new User();
+                user.Name = usernametxt.Text;
+                user = newPasswordService.Login(user);
+                if(user.SecretAnswer!=string.Empty&& user.SecretQuestion != string.Empty)
+                {
+                    MessageBox.Show("Valid username has been inputted please answer the question");
+                    SecretQuestionlbl.Show();
+                    SecretAnswerlbl.Show();
+                    answertxt.Show();
+                    Questiontxt.Show();
+                    inputanswerbtn.Show();
+                    Questiontxt.Text = user.SecretQuestion;
+                }
+                else
+                {
+                    MessageBox.Show("Username has not been found in the database please try again");
+                }
+            }
+            catch (Exception NameError)
+            {
+                MessageBox.Show(NameError.Message);
+            }
+        }
+
+        private void inputanswerbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NewPasswordService newPasswordService = new NewPasswordService();
+                User user = new User();
+                user.Name = usernametxt.Text;
+                user = newPasswordService.Login(user);
+                if (user.SecretAnswer == answertxt.Text)
+                {
+                    MessageBox.Show("Valid Answer has been inputted please give your new Password");
+                    newpasswordlbl.Show();
+                    newpasswordtxt.Show();
+                    newpasswordbtn.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong answer has been given please try again");
+                }
+            }
+            catch (Exception QuestionError)
+            {
+                MessageBox.Show(QuestionError.Message);
+            }
+        }
+
+        private void newpasswordbtn_Click(object sender, EventArgs e)
+        {
+                NewPasswordService newPasswordService = new NewPasswordService();
+                User user = new User();
+            user.Password = newpasswordtxt.Text;
+            user.Name = usernametxt.Text;
+            
+            newPasswordService.UpdatePassword(user);
+                MessageBox.Show("Password has been updated");
+                ForgotPasswordpnl.Hide();
+                pnlLogin.Show();
+        }
     }
 }
+
