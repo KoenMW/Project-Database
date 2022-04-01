@@ -26,3 +26,9 @@ Variant A: Koen
 Variant B: Jan
 Variant C: Dewi
 Variant D: Teun
+
+Assignment 5:
+Variant A: Dewi
+Variant B: Koen
+Variant C: Teun
+Variant D: Jan
